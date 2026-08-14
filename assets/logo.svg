@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 380" width="100%" height="100%">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800;900&amp;display=swap');
+            .brand-name-svg {
+                font-family: 'Outfit', 'Georgia', serif;
+                font-weight: 900;
+                font-size: 64px;
+                fill: #DC2626;
+                letter-spacing: 6px;
+            }
+            .brand-tag-svg {
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
+                font-size: 22px;
+                fill: #F59E0B;
+                letter-spacing: 6px;
+            }
+        </style>
+        <!-- Red & Gold Gradient for Pastéis -->
+        <linearGradient id="pastelRedGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FBBF24" />
+            <stop offset="40%" stop-color="#F59E0B" />
+            <stop offset="100%" stop-color="#DC2626" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background Transparent -->
+    <rect width="100%" height="100%" fill="transparent" />
+
+    <g transform="translate(0, 10)">
+        <!-- BACK PASTEL (Top Left) -->
+        <g transform="translate(135, 40) rotate(-12)">
+            <!-- Outer Crimp Shell -->
+            <path d="M 20 110 
+                     C 10 90, 10 60, 30 40 
+                     C 50 20, 90 10, 130 20 
+                     C 170 30, 190 60, 195 85 
+                     C 198 100, 180 110, 160 110 Z" 
+                  fill="url(#pastelRedGold)" stroke="#B45309" stroke-width="3" />
+            <!-- Crimped Edges -->
+            <path d="M 20 110 Q 15 100 25 90 Q 20 80 35 70 Q 30 60 50 48 Q 50 35 75 30 Q 90 20 115 25 Q 135 25 150 40 Q 170 45 178 65 Q 185 80 192 92" 
+                  fill="none" stroke="#D97706" stroke-width="4" stroke-linecap="round" />
+            <!-- Inner Fold Detail -->
+            <path d="M 40 100 C 60 70, 130 65, 175 95" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="4,3" />
+        </g>
+
+        <!-- FRONT PASTEL (Center/Right Overlapping Line) -->
+        <g transform="translate(195, 80) rotate(8)">
+            <!-- Outer Crimp Shell -->
+            <path d="M 20 110 
+                     C 10 85, 20 50, 45 30 
+                     C 75 10, 125 5, 165 20 
+                     C 205 35, 220 70, 225 95 
+                     C 228 112, 200 120, 175 120 Z" 
+                  fill="url(#pastelRedGold)" stroke="#78350F" stroke-width="3.5" />
+            
+            <!-- Wavy Crimped Edge Arc -->
+            <path d="M 20 110 
+                     C 15 98, 25 88, 30 80 
+                     C 35 70, 48 55, 60 45 
+                     C 80 30, 105 18, 135 20 
+                     C 165 22, 190 40, 205 60 
+                     C 215 75, 222 90, 225 105" 
+                  fill="none" stroke="#B45309" stroke-width="5" stroke-linecap="round" />
+            
+            <!-- Crimp Notches -->
+            <path d="M 28 92 L 38 96 M 42 75 L 52 82 M 62 58 L 70 68 M 90 40 L 96 52 M 122 32 L 124 46 M 155 36 L 152 48 M 182 50 L 175 62 M 204 72 L 194 82" 
+                  fill="none" stroke="#78350F" stroke-width="3" stroke-linecap="round" />
+
+            <!-- Inner Belly Line -->
+            <path d="M 38 102 C 65 72, 145 68, 198 98" fill="none" stroke="#92400E" stroke-width="3" />
+        </g>
+    </g>
+
+    <!-- DIVIDING LINES -->
+    <line x1="50" y1="210" x2="450" y2="210" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round" />
+    <line x1="50" y1="298" x2="450" y2="298" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round" />
+
+    <!-- BRAND TEXT -->
+    <text x="250" y="278" text-anchor="middle" class="brand-name-svg">CLAEM</text>
+    <text x="250" y="338" text-anchor="middle" class="brand-tag-svg">PASTÉIS &amp; EMPANADAS</text>
+</svg>

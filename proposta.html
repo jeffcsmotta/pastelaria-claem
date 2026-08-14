@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial | Pastelaria CLAEM & Onira Labs</title>
+    <meta name="description" content="Proposta comercial de desenvolvimento web e sistema de pedidos online para a Pastelaria CLAEM: R$ 1.800 em dinheiro/Pix + R$ 500 em permuta de consumação.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-page: #FAFAFC;
+            --bg-card: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-main: #334155;
+            --text-muted: #64748B;
+            
+            --primary: #DC2626;
+            --primary-hover: #B91C1C;
+            --primary-light: #FEF2F2;
+            
+            --amber: #F59E0B;
+            --amber-light: #FFFBEB;
+            
+            --green: #10B981;
+            --green-light: #ECFDF5;
+            
+            --border: #E2E8F0;
+            --font-heading: 'Outfit', -apple-system, sans-serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Nav */
+        .proposal-nav {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Main Hero Hook */
+        .offer-hero { padding: 28px 0 20px 0; }
+
+        .offer-card-main {
+            background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);
+            color: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(220, 38, 38, 0.25);
+            border: 1px solid var(--primary);
+            border-radius: 9999px;
+            color: #FCA5A5;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .offer-title {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            font-weight: 900;
+            line-height: 1.2;
+            color: #FFFFFF;
+            margin-bottom: 14px;
+        }
+
+        .offer-title span { color: var(--amber); }
+
+        .offer-desc { 
+            font-size: 1.05rem; 
+            color: #94A3B8; 
+            max-width: 620px; 
+            margin: 0 auto;
+        }
+
+        /* Domain Strip */
+        .domain-strip {
+            background: var(--green-light);
+            border: 1.5px solid rgba(16, 185, 129, 0.4);
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .domain-name { 
+            font-family: var(--font-heading); 
+            font-size: 1.35rem; 
+            font-weight: 800; 
+            color: #0F172A; 
+        }
+
+        .domain-price strong { 
+            font-size: 1.15rem; 
+            color: #047857; 
+            display: block; 
+            text-align: right;
+        }
+
+        .domain-price span { 
+            font-size: 0.78rem; 
+            color: var(--text-muted); 
+        }
+
+        /* Section Card */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i { color: var(--primary); }
+
+        /* Grid Metrics */
+        .numbers-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 16px; 
+        }
+
+        .num-card { 
+            background: #F8FAFC; 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 20px; 
+        }
+
+        .num-big { 
+            font-family: var(--font-heading); 
+            font-size: 2.1rem; 
+            font-weight: 900; 
+            color: var(--primary); 
+            line-height: 1; 
+            margin-bottom: 6px; 
+        }
+
+        .num-title { 
+            font-size: 0.98rem; 
+            font-weight: 800; 
+            color: var(--text-dark); 
+            margin-bottom: 6px; 
+        }
+
+        .num-text { 
+            font-size: 0.86rem; 
+            color: var(--text-muted); 
+            line-height: 1.45; 
+        }
+
+        /* Differentials List */
+        .diff-feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .diff-feature-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px;
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .diff-feature-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .diff-feature-content h4 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .diff-feature-content p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 12px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .comparison-table td {
+            padding: 14px 12px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:last-child td { border-bottom: none; }
+
+        /* Financial Split */
+        .financial-split { 
+            display: grid; 
+            grid-template-columns: 1.4fr 1fr; 
+            gap: 16px; 
+        }
+
+        .fin-box-main { 
+            background: var(--amber-light); 
+            border: 1.5px solid rgba(245, 158, 11, 0.4); 
+            border-radius: 14px; 
+            padding: 22px; 
+        }
+
+        .fin-label { 
+            font-size: 0.78rem; 
+            font-weight: 800; 
+            color: #D97706; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+
+        .fin-total { 
+            font-family: var(--font-heading); 
+            font-size: 2.3rem; 
+            font-weight: 900; 
+            color: var(--text-dark); 
+            margin: 4px 0 14px 0; 
+        }
+
+        .fin-item { 
+            font-size: 0.92rem; 
+            color: var(--text-dark); 
+            padding-top: 10px; 
+            border-top: 1px solid rgba(245, 158, 11, 0.25); 
+            margin-top: 10px; 
+        }
+
+        .fin-box-sub { 
+            background: #F8FAFC; 
+            border: 1px solid var(--border); 
+            border-radius: 14px; 
+            padding: 22px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+
+        .fin-sub-val { 
+            font-family: var(--font-heading); 
+            font-size: 1.9rem; 
+            font-weight: 800; 
+            color: var(--text-dark); 
+            margin: 4px 0; 
+        }
+
+        /* Developer Card */
+        .dev-bar { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: 14px; 
+            padding: 20px 24px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 16px; 
+            margin-bottom: 24px; 
+        }
+
+        .dev-info { 
+            display: flex; 
+            align-items: center; 
+            gap: 14px; 
+        }
+
+        .dev-avatar { 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 50%; 
+            background: var(--primary-light); 
+            color: var(--primary); 
+            font-weight: 900; 
+            font-family: var(--font-heading);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.1rem;
+        }
+
+        .dev-text h4 { font-size: 1rem; font-weight: 800; color: var(--text-dark); }
+        .dev-text p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .dev-links { display: flex; gap: 8px; }
+        .btn-dev-link { padding: 8px 14px; border-radius: 8px; background: #F1F5F9; border: 1px solid var(--border); color: var(--text-dark); font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+        .btn-dev-link:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* CTA Accept Box */
+        .cta-box { 
+            background: var(--text-dark); 
+            color: #FFFFFF; 
+            border-radius: 18px; 
+            padding: 36px 24px; 
+            text-align: center; 
+            margin-bottom: 40px; 
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+        }
+
+        .cta-box h3 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 900; color: #FFFFFF; margin-bottom: 8px; }
+        .cta-box p { font-size: 0.95rem; color: #94A3B8; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        .btn-wa-action { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            padding: 18px 32px; 
+            background: var(--green); 
+            color: #FFFFFF; 
+            border-radius: 12px; 
+            font-family: var(--font-heading);
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            text-decoration: none; 
+            transition: background 0.2s, transform 0.2s; 
+            width: 100%; 
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        .btn-wa-action:hover { 
+            background: #059669; 
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .offer-title { font-size: 1.7rem; }
+            .domain-strip { flex-direction: column; align-items: flex-start; }
+            .domain-price strong { text-align: left; }
+            .numbers-grid, .financial-split { grid-template-columns: 1fr; }
+            .dev-bar { flex-direction: column; align-items: flex-start; }
+            .dev-links { width: 100%; }
+            .btn-dev-link { flex: 1; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="proposal-nav">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo-link">
+                <img src="assets/logo.svg" alt="Pastelaria CLAEM Logo" style="height: 48px; width: auto;">
+            </a>
+            <a href="index.html" class="back-link">
+                <i data-lucide="arrow-left"></i> Ver Exemplo Interativo
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Main Hook Banner -->
+        <section class="offer-hero">
+            <div class="offer-card-main">
+                <span class="offer-badge">Proposta de Parceria Digital & Vendas</span>
+                <h1 class="offer-title">Site Completo + Domínio + Google Meu Negócio</h1>
+                <p class="offer-desc">
+                    Presença digital completa, sistema de pedidos próprio para WhatsApp com Pix de valor travado, domínio oficial configurado e consultoria básica de Google Meu Negócio para posicionar a Pastelaria CLAEM no topo das buscas locais de Caxias do Sul.
+                </p>
+            </div>
+        </section>
+
+        <!-- Domínio Oficial Strip -->
+        <div class="domain-strip">
+            <div>
+                <div class="domain-name">claempastelaria.com / pastelariaclaem.com.br</div>
+                <div style="font-size:0.85rem; color:var(--text-muted);">Domínio oficial próprio configurado com SSL e DNS inclusos</div>
+            </div>
+            <div class="domain-price">
+                <strong style="color: #10B981;">Incluso no Pacote</strong>
+                <span>Ativação imediata</span>
+            </div>
+        </div>
+
+        <!-- Diferenciais & Benefícios de Ter o Sistema Próprio -->
+        <section class="section-card">
+            <h2 class="section-title"><i data-lucide="sparkles"></i> O que está Incluso no Pacote CLAEM</h2>
+
+            <div class="diff-feature-list">
+                <div class="diff-feature-item">
+                    <div class="diff-feature-icon"><i data-lucide="globe"></i></div>
+                    <div class="diff-feature-content">
+                        <h4>🌐 Site Onira Flow Completo & Catálogo Interativo</h4>
+                        <p>Cardápio digital responsivo com fotos, seleção P e G, seletor de adicionais e envio direto de pedidos estruturados para o WhatsApp da cozinha.</p>
+                    </div>
+                </div>
+
+                <div class="diff-feature-item">
+                    <div class="diff-feature-icon"><i data-lucide="map-pin"></i></div>
+                    <div class="diff-feature-content">
+                        <h4>📍 Consultoria Básica de Google Meu Negócio</h4>
+                        <p>Otimização completa da ficha da Pastelaria CLAEM no Google Maps: fotos dos pastéis, categorias corretas, cardápio, horários e estratégia de SEO local para atrair clientes que buscam "pastelaria perto de mim".</p>
+                    </div>
+                </div>
+
+                <div class="diff-feature-item">
+                    <div class="diff-feature-icon"><i data-lucide="qr-code"></i></div>
+                    <div class="diff-feature-content">
+                        <h4>⚡ Pix Copia e Cola com Valor Travado</h4>
+                        <p>No checkout, o cliente já copia a chave Pix exatamente com o valor total final do pedido calculado, caindo 100% direto na conta da CLAEM sem intermediários.</p>
+                    </div>
+                </div>
+
+                <div class="diff-feature-item">
+                    <div class="diff-feature-icon"><i data-lucide="dollar-sign"></i></div>
+                    <div class="diff-feature-content">
+                        <h4>💰 100% Livre de Comissões de Delivery</h4>
+                        <p>Diga adeus às taxas abusivas de 12% a 27% de marketplaces em cada pastel vendido. Toda a margem de lucro fica dentro da CLAEM.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Valores & Condições de Pagamento -->
+        <section class="section-card">
+            <h2 class="section-title"><i data-lucide="credit-card"></i> Investimento & Formas de Pagamento</h2>
+            
+            <div class="financial-split">
+                <div class="fin-box-main">
+                    <span class="fin-label">Investimento Total Facilitado</span>
+                    <div class="fin-total" style="font-size: 1.85rem; color: #D97706;">R$ 400 entrada + 10x R$ 200</div>
+                    <div class="fin-item">
+                        💵 <strong>Entrada:</strong> R$ 400,00 na assinatura e início da ativação do domínio.
+                    </div>
+                    <div class="fin-item">
+                        💳 <strong>Parcelamento com Mensalidade Inclusa:</strong> 10x de R$ 200,00 (A mensalidade de R$ 100/mês de servidor e suporte já está <strong>100% inclusa</strong> dentro das parcelas durante os 10 meses).
+                    </div>
+                </div>
+
+                <div class="fin-box-sub">
+                    <span class="fin-label" style="color:var(--text-muted);">Após a Quitação (11º mês em diante)</span>
+                    <div class="fin-sub-val" style="color: #10B981;">R$ 100,00 <span style="font-size:0.85rem; font-weight:400; color:var(--text-muted);">/mês</span></div>
+                    <p style="font-size:0.82rem; color:var(--text-muted);">O site é 100% quitado da CLAEM. Mantém apenas a taxa básica de servidor em nuvem, SSL e suporte técnico contínuo.</p>
+                </div>
+            </div>
+
+            <!-- Formas de Pagamento Explicadas -->
+            <div style="background: #F8FAFC; border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-top: 16px;">
+                <h4 style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 800; color: var(--text-dark); margin-bottom: 8px;">
+                    💳 Como Funciona Nosso Faturamento Direto:
+                </h4>
+                <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding-left: 18px;">
+                    <li><strong>Pix Direto Onira Labs:</strong> Pagamento instantâneo sem taxas adicionais.</li>
+                    <li><strong>Cartão de Crédito:</strong> Parcelamento em até 10x direto ou assinatura mensal automática.</li>
+                    <li><strong>Boleto Bancário PJ:</strong> Faturamento direto para a sua empresa sem burocracia.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Desenvolvedor Card -->
+        <div class="dev-bar">
+            <div class="dev-info">
+                <div class="dev-avatar">JM</div>
+                <div class="dev-text">
+                    <h4>Jeff Motta • Onira Labs</h4>
+                    <p>Desenvolvimento de Software & Engenharia Web</p>
+                </div>
+            </div>
+            <div class="dev-links">
+                <a href="https://jeffmotta.framer.website/" target="_blank" class="btn-dev-link">Portfólio</a>
+                <a href="https://www.linkedin.com/in/jeff-motta/" target="_blank" class="btn-dev-link">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- CTA Aceite da Parceria -->
+        <section class="cta-box">
+            <h3>Vamos colocar a Pastelaria CLAEM online hoje?</h3>
+            <p>Clique abaixo para falar direto com o Jeff no WhatsApp e iniciar a ativação imediata do seu domínio e sistema.</p>
+            <a href="https://wa.me/5554996862169?text=Ol%C3%A1%20Jeff!%20Li%20a%20proposta%20da%20Pastelaria%20CLAEM%20(R$%20400%20entrada%20+%2010x%20R$%20200)%20e%20quero%20ativar!" target="_blank" class="btn-wa-action" id="btn-proposal-accept">
+                <i data-lucide="send"></i>
+                <span>Aceitar Proposta no WhatsApp (54) 99686-2169</span>
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

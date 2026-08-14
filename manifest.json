@@ -1,0 +1,31 @@
+{
+  "name": "Pastelaria CLAEM | Pedidos WhatsApp",
+  "short_name": "CLAEM",
+  "description": "Cardápio digital e pedidos rápidos no WhatsApp da Pastelaria CLAEM",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B0F17",
+  "theme_color": "#E11D48",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
