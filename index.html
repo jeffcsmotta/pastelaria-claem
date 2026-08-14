@@ -22,8 +22,124 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .pwa-splash {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 9999999 !important;
+            background: radial-gradient(circle at center, #1E293B 0%, #0B0F17 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s !important;
+            backdrop-filter: blur(20px) !important;
+        }
+        .pwa-splash.fade-out {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        .splash-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .splash-logo-wrap {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .splash-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            animation: splashPop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            filter: drop-shadow(0 10px 25px rgba(225, 29, 72, 0.6));
+        }
+        .splash-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.5) 0%, rgba(225, 29, 72, 0) 70%);
+            border-radius: 50%;
+            animation: glowPulse 1.5s infinite alternate;
+            z-index: 1;
+        }
+        @keyframes splashPop {
+            0% { transform: scale(0.2) rotate(-15deg); opacity: 0; }
+            60% { transform: scale(1.2) rotate(4deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes glowPulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.4); opacity: 1; }
+        }
+        .splash-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+        .splash-subtitle {
+            font-size: 0.95rem;
+            color: #E11D48;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .splash-loader {
+            width: 50px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 99px;
+            position: relative;
+            overflow: hidden;
+        }
+        .splash-loader::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #E11D48, #FB7185);
+            border-radius: 99px;
+            animation: loadBar 1.6s ease-in-out forwards;
+        }
+        @keyframes loadBar {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        .btn-install-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(225, 29, 72, 0.15);
+            color: #E11D48;
+            border: 1px solid rgba(225, 29, 72, 0.4);
+            padding: 8px 14px;
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-install-header:hover {
+            background: #E11D48;
+            color: #FFFFFF;
+            transform: scale(1.04);
+        }
+    </style>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260814-v6">
 </head>
 <body class="theme-regular">
 
@@ -51,6 +167,10 @@
                 <span><i data-lucide="sparkles"></i> Pastéis & Empanadas Fritos na Hora</span>
             </div>
             <div class="top-contacts">
+                <button type="button" class="btn-install-header" onclick="window.triggerPWAInstall()" aria-label="Instalar aplicativo">
+                    <i data-lucide="download"></i>
+                    <span>Instalar App</span>
+                </button>
                 <a href="https://wa.me/5554996879399" target="_blank" class="top-wa">
                     <i data-lucide="phone"></i>
                     <span>WhatsApp: (54) 99687-9399</span>
@@ -76,6 +196,10 @@
             </nav>
 
             <div class="header-actions">
+                <button type="button" class="btn-install-header" onclick="window.triggerPWAInstall()" aria-label="Instalar App no Celular">
+                    <i data-lucide="smartphone"></i>
+                    <span>Baixar App</span>
+                </button>
                 <div id="status-badge" class="status-badge open">
                     <span class="status-dot"></span>
                     <span class="status-text">Aberto Agora • Delivery & Balcão</span>
@@ -545,17 +669,17 @@
     </a>
 
     <!-- JS Logic -->
-    <script src="app.js"></script>
+    <script src="app.js?v=20260814-v6"></script>
     <script>
         // PWA Splash Screen Handler
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const splash = document.getElementById('pwa-splash');
                 if (splash) {
                     splash.classList.add('fade-out');
-                    setTimeout(() => splash.remove(), 600);
+                    setTimeout(() => splash.remove(), 700);
                 }
-            }, 1200);
+            }, 2000);
         });
 
         // Register Service Worker
@@ -574,14 +698,14 @@
             deferredPrompt = e;
         });
 
-        // Always show install banner after 2.5s if not dismissed in this session
+        // Always show install banner after splash
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const banner = document.getElementById('pwa-install-banner');
                 if (banner && !sessionStorage.getItem('pwa_dismissed')) {
                     banner.classList.add('show');
                 }
-            }, 2500);
+            }, 3000);
         });
 
         window.triggerPWAInstall = async () => {
@@ -598,7 +722,7 @@
                 if (isIOS) {
                     alert("📲 Para instalar no iPhone:\n\n1. Toque no botão de Compartilhar (ícone com quadrado e seta ⎋)\n2. Role para baixo e selecione 'Adicionar à Tela de Início'");
                 } else {
-                    alert("📲 Para instalar no seu Android / Redmi:\n\n1. Toque nos 3 pontinhos (⋮) no topo do navegador Chrome\n2. Selecione 'Instalar aplicativo' ou 'Adicionar à tela inicial'");
+                    alert("📲 Para instalar no seu celular Android:\n\n1. Toque nos 3 pontinhos (⋮) no topo do navegador Chrome\n2. Selecione 'Instalar aplicativo' ou 'Adicionar à tela inicial'");
                 }
             }
         };
