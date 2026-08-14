@@ -899,6 +899,12 @@ function updateCartUI() {
     const cartTotalHeader = document.getElementById('cart-total-header');
     if (cartTotalHeader) cartTotalHeader.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 
+    // Header Clear Cart Button Visibility
+    const clearHeaderBtn = document.getElementById('cart-clear-header');
+    if (clearHeaderBtn) {
+        clearHeaderBtn.style.display = cart.length > 0 ? 'inline-flex' : 'none';
+    }
+
     // Floating Mobile Bar
     const floatingCart = document.getElementById('floating-cart-bar');
     const floatingCount = document.getElementById('floating-cart-count');
@@ -976,6 +982,49 @@ function toggleCartDrawer(show = true) {
 window.openCart = openCart;
 window.closeCart = closeCart;
 window.toggleCartDrawer = toggleCartDrawer;
+
+// Clear Cart Modal Confirmation Functions
+function openConfirmation() {
+    const overlay = document.getElementById('confirm-clear');
+    if (!overlay) return;
+    
+    const desc = document.getElementById('confirm-desc');
+    const totalQty = cart.reduce((sum, i) => sum + i.quantity, 0);
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+    
+    if (desc) {
+        const itemLabel = totalQty === 1 ? '1 item' : `${totalQty} itens`;
+        desc.innerHTML = `Você vai remover <strong>${itemLabel}</strong>, no valor de <strong>R$ ${subtotal.toFixed(2).replace('.', ',')}</strong>.`;
+    }
+    
+    overlay.hidden = false;
+    if (window.lucide) window.lucide.createIcons();
+}
+
+function closeConfirmation() {
+    const overlay = document.getElementById('confirm-clear');
+    if (overlay) overlay.hidden = true;
+}
+
+function clearCart() {
+    if (cart.length === 0) {
+        showToast('🥟 Seu carrinho já está vazio.');
+        return;
+    }
+    openConfirmation();
+}
+
+function aplicarLimpeza() {
+    cart = [];
+    closeConfirmation();
+    updateCartUI();
+    showToast('🗑️ Pedido limpo com sucesso.');
+}
+
+window.openConfirmation = openConfirmation;
+window.closeConfirmation = closeConfirmation;
+window.clearCart = clearCart;
+window.aplicarLimpeza = aplicarLimpeza;
 
 /* Desenha o QR e o copia-e-cola a partir do total atual. Chamado toda vez
    que o carrinho muda: item, tamanho P/G, entrega ou retirada. */
@@ -1085,35 +1134,46 @@ function copyPixKey() {
 window.copyPixKey = copyPixKey;
 
 // Toast Notifications
-function showToast(message) {
+function showToast(message, type = 'success') {
     let toast = document.getElementById('toast-notification');
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'toast-notification';
-        toast.className = 'toast-box';
         document.body.appendChild(toast);
     }
-    toast.innerText = message;
+    toast.className = `toast-box ${type === 'error' ? 'toast-error' : 'toast-success'}`;
+    toast.innerHTML = message;
     toast.classList.add('show');
-    setTimeout(() => {
+
+    if (window._toastTimeout) clearTimeout(window._toastTimeout);
+    window._toastTimeout = setTimeout(() => {
         toast.classList.remove('show');
-    }, 3000);
+    }, 4000);
 }
+window.showToast = showToast;
 
 // Send WhatsApp Order
 function sendWhatsAppOrder() {
     if (cart.length === 0) {
-        alert('Seu carrinho está vazio! Adicione pelo menos um item antes de finalizar.');
+        showToast('🥟 <strong>Seu carrinho está vazio!</strong> Adicione um pastel ou empanada antes de finalizar.', 'error');
         return;
     }
 
     const customerName = document.getElementById('cust-name') ? document.getElementById('cust-name').value.trim() : '';
-    const customerAddress = document.getElementById('cust-address') ? document.getElementById('cust-address').value.trim() : '';
+    const customerAddressInput = document.getElementById('cust-address');
+    const customerAddress = customerAddressInput ? customerAddressInput.value.trim() : '';
     const cashChange = document.getElementById('cash-change-val') ? document.getElementById('cash-change-val').value.trim() : '';
 
     if (fulfillmentType === 'delivery' && !customerAddress) {
-        alert('Por favor, informe seu endereço completo de entrega!');
-        if (document.getElementById('cust-address')) document.getElementById('cust-address').focus();
+        showToast('📍 <strong>Informe seu endereço de entrega</strong> ou selecione <strong>Retirada no Balcão</strong>!', 'error');
+        if (customerAddressInput) {
+            customerAddressInput.classList.add('input-error');
+            customerAddressInput.focus();
+            customerAddressInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+                customerAddressInput.classList.remove('input-error');
+            }, 3500);
+        }
         return;
     }
 
