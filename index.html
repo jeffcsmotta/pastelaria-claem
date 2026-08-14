@@ -179,32 +179,27 @@
         </div>
     </div>
 
-    <!-- Header Navigation (TEMPLATE PASTELARIA - PERFIL REGULAR) -->
+    <!-- Header Navigation (Streamlined App Experience) -->
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo" aria-label="Página Inicial da Pastelaria CLAEM">
                 <img src="assets/logo.svg" alt="Pastelaria CLAEM Logo" class="brand-logo-img">
             </a>
 
-            <nav class="nav-links">
-                <a href="#cardapio" class="nav-link active">Cardápio</a>
-                <a href="#bio-links" class="nav-link">Acesso Rápido</a>
-                <a href="#sobre" class="nav-link">Sobre Nós</a>
-                <a href="#diferenciais" class="nav-link">Diferenciais</a>
-                <a href="#avaliacoes" class="nav-link">Avaliações</a>
-                <a href="#contato" class="nav-link">Localização</a>
-            </nav>
-
             <div class="header-actions">
-                <button type="button" class="btn-install-header" onclick="window.triggerPWAInstall()" aria-label="Instalar App no Celular">
+                <button type="button" class="btn-install-header desktop-only" onclick="window.triggerPWAInstall()" aria-label="Instalar App no Celular">
                     <i data-lucide="smartphone"></i>
                     <span>Baixar App</span>
                 </button>
                 <div id="status-badge" class="status-badge open">
                     <span class="status-dot"></span>
-                    <span class="status-text">Aberto Agora • Delivery & Balcão</span>
+                    <span class="status-text">Aberto</span>
                 </div>
-                <button class="cart-toggle-btn" id="cart-toggle" onclick="window.toggleCartDrawer(true)">
+                <!-- Botao Limpar do Cabecalho (Visivel quando ha itens no pedido) -->
+                <button type="button" class="cart-clear-btn" id="cart-clear-header" onclick="window.clearCart()" aria-label="Limpar o pedido" title="Limpar pedido">
+                    <i data-lucide="trash-2"></i>
+                </button>
+                <button class="cart-toggle-btn" id="cart-toggle" onclick="window.openCart()" aria-label="Abrir carrinho de compras">
                     <i data-lucide="shopping-bag"></i>
                     <span class="cart-count" id="cart-badge-count">0</span>
                     <span class="cart-total-header" id="cart-total-header">R$ 0,00</span>
@@ -636,6 +631,22 @@
             </div>
         </div>
     </aside>
+
+    <!-- Modal de Confirmacao de Limpar Pedido -->
+    <div id="confirm-clear" class="confirm-overlay" hidden onclick="if(event.target===this)window.closeConfirmation()">
+        <div class="confirm-box" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+            <div class="confirm-icon">
+                <i data-lucide="trash-2"></i>
+            </div>
+            <h3 class="confirm-title" id="confirm-title">Limpar o pedido?</h3>
+            <p class="confirm-text" id="confirm-desc">Você vai remover <strong>0 itens</strong>, no valor de <strong>R$ 0,00</strong>.</p>
+            <p class="confirm-warning">Esta ação não pode ser desfeita.</p>
+            <div class="confirm-actions">
+                <button type="button" class="confirm-btn confirm-cancel" onclick="window.closeConfirmation()">Manter o pedido</button>
+                <button type="button" class="confirm-btn confirm-ok" onclick="window.aplicarLimpeza()">Sim, limpar tudo</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating Proposal Badge Button -->
     <a href="proposta.html" class="floating-proposal-badge">
