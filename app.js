@@ -669,8 +669,41 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCatalog();
     setupFilters();
     setupCartDrawerListeners();
+    setupStoreStatus();
     updateCartUI();
 });
+
+// Setup Store Open/Closed Status
+function setupStoreStatus() {
+    const statusBadges = document.querySelectorAll('#status-badge, .status-badge');
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours() + (now.getMinutes() / 60);
+
+    // Segunda a Sabado 11h as 23h, Domingo 17h as 23h
+    let isOpen = false;
+    if (day >= 1 && day <= 6) {
+        if (hour >= 11 && hour < 23) isOpen = true;
+    } else if (day === 0) {
+        if (hour >= 17 && hour < 23) isOpen = true;
+    }
+
+    statusBadges.forEach(badge => {
+        if (isOpen) {
+            badge.className = 'status-badge open';
+            badge.innerHTML = `
+                <span class="status-dot"></span>
+                <span class="status-text">Aberto</span>
+            `;
+        } else {
+            badge.className = 'status-badge closed';
+            badge.innerHTML = `
+                <span class="status-dot"></span>
+                <span class="status-text">Fechado</span>
+            `;
+        }
+    });
+}
 
 // Render Product Catalog Cards
 function renderCatalog() {
