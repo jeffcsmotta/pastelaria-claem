@@ -1072,8 +1072,8 @@ function renderizarPix(finalTotal) {
     alvoQr.innerHTML = '';
     pixQrInstancia = new QRCode(alvoQr, {
         text: pixPayloadAtual,
-        width: 160,
-        height: 160,
+        width: 90,
+        height: 90,
         colorDark: '#000000',
         colorLight: '#FFFFFF',
         correctLevel: QRCode.CorrectLevel.M

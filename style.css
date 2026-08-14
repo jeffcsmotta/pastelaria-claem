@@ -1046,9 +1046,9 @@ h1, h2, h3, h4, .brand-name {
 }
 
 .cart-item-price {
-    color: var(--primary);
+    color: #10B981 !important; /* Sempre verde para valor do item */
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.86rem;
     margin-top: 5px;
     display: block;
 }
@@ -1082,9 +1082,9 @@ h1, h2, h3, h4, .brand-name {
 }
 
 .cart-qty-btn:hover {
-    background: var(--primary);
-    color: #FFFFFF;
-    border-color: var(--primary);
+    background: var(--accent-amber);
+    color: #000000;
+    border-color: var(--accent-amber);
 }
 
 .cart-qty-num {
@@ -1130,15 +1130,16 @@ h1, h2, h3, h4, .brand-name {
 }
 
 .del-btn:hover, .pay-btn:hover {
-    border-color: var(--primary);
+    border-color: var(--accent-amber);
     color: #FFFFFF;
 }
 
+/* Botoes de Entrega e Pagamento Ativos: Amarelo/Ambar Panazzolo/Claem (Evita vermelho de erro no checkout) */
 .del-btn.active, .pay-btn.active {
-    border-color: var(--primary);
-    color: #FFFFFF;
-    background: rgba(220, 38, 38, 0.25);
-    box-shadow: 0 0 12px rgba(220, 38, 38, 0.2);
+    border-color: var(--accent-amber) !important;
+    color: #FFFFFF !important;
+    background: rgba(245, 158, 11, 0.22) !important;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.25) !important;
 }
 
 .input-dark {
@@ -1155,8 +1156,8 @@ h1, h2, h3, h4, .brand-name {
 
 .input-dark:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 8px rgba(220, 38, 38, 0.3);
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
 }
 
 /* Input Error Highlight Shake */
@@ -1198,16 +1199,31 @@ h1, h2, h3, h4, .brand-name {
 }
 
 .pix-qr-code {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
     background: #FFFFFF;
-    padding: 4px;
+    padding: 6px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pix-qr-code canvas,
+.pix-qr-code img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain;
+    display: block;
 }
 
 .pix-qr-info {
     flex: 1;
+    min-width: 0;
 }
 
 .pix-lock-desc {
