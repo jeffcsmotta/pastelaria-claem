@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Testes do BR Code Pix — Pastelaria CLAEM</title>
+<style>
+    body { font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+           background: #0F172A; color: #E2E8F0; margin: 0; padding: 28px; }
+    h1 { font-size: 17px; margin: 0 0 4px; color: #FFF; }
+    p.sub { color: #94A3B8; margin: 0 0 22px; font-size: 13px; }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em;
+         color: #94A3B8; margin: 26px 0 10px; font-weight: 700; }
+    .linha { padding: 6px 10px; border-radius: 4px; margin-bottom: 3px;
+             display: flex; gap: 10px; align-items: baseline; }
+    .ok   { background: rgba(34,197,94,.10); color: #86EFAC; }
+    .fail { background: rgba(239,68,68,.14); color: #FCA5A5; }
+    .tag { font-weight: 700; flex-shrink: 0; }
+    .det { color: #94A3B8; font-size: 12.5px; }
+    .placar { margin: 20px 0 0; padding: 14px 16px; border-radius: 6px;
+              font-weight: 700; font-size: 15px; }
+    .placar.bom { background: rgba(34,197,94,.14); color: #86EFAC; }
+    .placar.ruim { background: rgba(239,68,68,.16); color: #FCA5A5; }
+    pre { background: #1E293B; padding: 12px 14px; border-radius: 6px;
+          white-space: pre-wrap; word-break: break-all; color: #E2E8F0;
+          font-size: 12.5px; border: 1px solid #334155; }
+    .destaque { border-color: #F59E0B; }
+    table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+    th, td { text-align: left; padding: 5px 9px; border-bottom: 1px solid #1E293B; }
+    th { color: #94A3B8; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Testes do BR Code Pix</h1>
+<p class="sub">Abra este arquivo no navegador. Os mesmos resultados saem no console.</p>
+<div id="saida"></div>
+
+<!-- Reaproveita o codigo de producao, sem copia paralela -->
+<script src="../app.js"></script>
+<script>
+/* ==========================================================================
+   Bateria de testes do gerador de BR Code.
+
+   O objetivo nao e cobrir o app inteiro: e travar as quatro coisas que, se
+   quebrarem, produzem um QR que o banco recusa — CRC, prefixos de tamanho,
+   separador decimal e limite do txid.
+   ========================================================================== */
+
+const resultados = [];
+
+function checar(nome, condicao, detalhe) {
+    resultados.push({ nome, ok: !!condicao, detalhe: detalhe || '' });
+}
+
+/* Percorre o payload campo a campo validando os prefixos de tamanho.
+   Devolve um mapa id -> valor, ou lanca se algum tamanho nao fechar. */
+function parseEmv(payload) {
+    const campos = {};
+    let i = 0;
+    while (i < payload.length) {
+        const id = payload.substr(i, 2);
+        const len = parseInt(payload.substr(i + 2, 2), 10);
+        if (isNaN(len)) throw new Error(`tamanho ilegivel no campo ${id} (posicao ${i})`);
+        const valor = payload.substr(i + 4, len);
+        if (valor.length !== len) {
+            throw new Error(`campo ${id} promete ${len} chars e entrega ${valor.length}`);
+        }
+        campos[id] = valor;
+        i += 4 + len;
+    }
+    return campos;
+}
+
+// ---------- (a) CRC ----------
+checar('CRC16-CCITT-FALSE bate no vetor padrao "123456789" = 29B1',
+    crc16('123456789') === '29B1', crc16('123456789'));
+
+const payload47 = gerarPixPayload(47, 'CLAEMTESTE01');
+checar('CRC do payload confere com o proprio conteudo',
+    crc16(payload47.slice(0, -4)) === payload47.slice(-4),
+    payload47.slice(-4));
+
+checar('Payload termina com o campo 6304 + 4 hex maiusculos',
+    /6304[0-9A-F]{4}$/.test(payload47));
+
+// ---------- (b) prefixos de tamanho ----------
+let campos = null;
+try {
+    campos = parseEmv(payload47);
+    checar('Todos os campos tem prefixo de tamanho coerente', true,
+        Object.keys(campos).join(', '));
+} catch (e) {
+    checar('Todos os campos tem prefixo de tamanho coerente', false, e.message);
+}
+
+if (campos) {
+    checar('Campo 00 (Payload Format) = 01', campos['00'] === '01', campos['00']);
+    checar('Campo 01 (Point of Initiation) = 12', campos['01'] === '12', campos['01']);
+    checar('Campo 53 (moeda) = 986', campos['53'] === '986', campos['53']);
+    checar('Campo 58 (pais) = BR', campos['58'] === 'BR', campos['58']);
+    checar('Campo 52 (MCC) = 0000', campos['52'] === '0000', campos['52']);
+
+    const merchant = parseEmv(campos['26']);
+    checar('GUI do merchant = br.gov.bcb.pix',
+        merchant['00'] === 'br.gov.bcb.pix', merchant['00']);
+    checar('Chave Pix presente no subcampo 01',
+        merchant['01'] === PIX_CONFIG.chave, merchant['01']);
+
+    const adicional = parseEmv(campos['62']);
+    checar('txid vai no subcampo 05 do campo 62',
+        adicional['05'] === 'CLAEMTESTE01', adicional['05']);
+
+    checar('Nome do recebedor cabe em 25 chars',
+        campos['59'].length <= 25, `${campos['59'].length} chars: ${campos['59']}`);
+    checar('Cidade cabe em 15 chars',
+        campos['60'].length <= 15, `${campos['60'].length} chars: ${campos['60']}`);
+}
+
+// ---------- (c) separador decimal ----------
+checar('Valor sai como "47.00", com ponto',
+    campos && campos['54'] === '47.00', campos ? campos['54'] : '—');
+
+checar('Nenhuma virgula decimal no payload inteiro',
+    !/\d,\d/.test(payload47));
+
+const payloadQuebrado = gerarPixPayload(6.5, 'CLAEMX');
+checar('Valor 6.5 vira "6.50" (duas casas sempre)',
+    parseEmv(payloadQuebrado)['54'] === '6.50', parseEmv(payloadQuebrado)['54']);
+
+const payloadCentavos = gerarPixPayload(103.9, 'CLAEMY');
+checar('Valor 103.9 vira "103.90"',
+    parseEmv(payloadCentavos)['54'] === '103.90', parseEmv(payloadCentavos)['54']);
+
+// ---------- (d) txid ----------
+const txid = gerarTxid();
+checar('txid gerado tem no maximo 25 chars',
+    txid.length <= 25, `${txid.length} chars: ${txid}`);
+
+checar('txid usa apenas [A-Za-z0-9]',
+    /^[A-Za-z0-9]+$/.test(txid), txid);
+
+checar('txid comeca com o prefixo configurado',
+    txid.startsWith(PIX_CONFIG.txidPrefixo), txid);
+
+const txidLongo = gerarPixPayload(10, 'CLAEM' + 'X'.repeat(60));
+checar('txid gigante e truncado em 25 chars',
+    parseEmv(parseEmv(txidLongo)['62'])['05'].length === 25,
+    parseEmv(parseEmv(txidLongo)['62'])['05']);
+
+const txidSujo = gerarPixPayload(10, 'CLAEM ABC-123/#');
+checar('txid com espaco e simbolo e limpo',
+    /^[A-Za-z0-9]+$/.test(parseEmv(parseEmv(txidSujo)['62'])['05']),
+    parseEmv(parseEmv(txidSujo)['62'])['05']);
+
+// ---------- normalizacao de texto ----------
+checar('Acento sai do nome do recebedor',
+    normalizarTextoPix('Pastelaria Ação Caxias', 25) === 'PASTELARIA ACAO CAXIAS',
+    normalizarTextoPix('Pastelaria Ação Caxias', 25));
+
+checar('Nome longo e truncado em 25',
+    normalizarTextoPix('A'.repeat(40), 25).length === 25);
+
+// ---------- payload real para teste em banco ----------
+const payload1Real = gerarPixPayload(1, gerarTxid());
+
+/* ---------- relatorio ---------- */
+const saida = document.getElementById('saida');
+const passou = resultados.filter(r => r.ok).length;
+const falhou = resultados.length - passou;
+
+let html = '<h2>Asserções</h2>';
+resultados.forEach(r => {
+    html += `<div class="linha ${r.ok ? 'ok' : 'fail'}">
+        <span class="tag">${r.ok ? 'PASSOU' : 'FALHOU'}</span>
+        <span>${r.nome}${r.detalhe ? ` <span class="det">— ${r.detalhe}</span>` : ''}</span>
+    </div>`;
+});
+
+html += `<div class="placar ${falhou === 0 ? 'bom' : 'ruim'}">
+    ${passou} de ${resultados.length} passaram${falhou ? ` · ${falhou} falharam` : ''}
+</div>`;
+
+if (campos) {
+    html += '<h2>Campos do payload de R$ 47,00</h2><table><tr><th>ID</th><th>Valor</th><th>Significado</th></tr>';
+    const nomes = {
+        '00': 'Payload Format Indicator', '01': 'Point of Initiation',
+        '26': 'Merchant Account (GUI + chave)', '52': 'MCC',
+        '53': 'Moeda (986 = BRL)', '54': 'Valor travado', '58': 'País',
+        '59': 'Nome do recebedor', '60': 'Cidade', '62': 'Adicional (txid)',
+        '63': 'CRC16'
+    };
+    Object.keys(campos).forEach(id => {
+        html += `<tr><td>${id}</td><td>${campos[id]}</td><td class="det">${nomes[id] || ''}</td></tr>`;
+    });
+    html += '</table>';
+}
+
+html += `<h2>Payload de R$ 1,00 — teste no app do banco antes do deploy</h2>
+    <pre class="destaque">${payload1Real}</pre>
+    <p class="sub">Copie a linha acima e cole no "Pix Copia e Cola" do seu banco.
+    Deve aparecer PASTELARIA CLAEM, valor R$ 1,00 já preenchido e travado.</p>`;
+
+html += `<h2>Payload de R$ 47,00</h2><pre>${payload47}</pre>`;
+
+saida.innerHTML = html;
+
+console.log('%c=== Testes do BR Code Pix ===', 'font-weight:bold');
+resultados.forEach(r => console.log(`${r.ok ? 'PASSOU' : 'FALHOU'} — ${r.nome}${r.detalhe ? ' | ' + r.detalhe : ''}`));
+console.log(`${passou}/${resultados.length} passaram.`);
+console.log('%cPayload de R$ 1,00 para testar no banco:', 'font-weight:bold');
+console.log(payload1Real);
+</script>
+</body>
+</html>

@@ -1294,6 +1294,37 @@ h1, h2, h3, h4, .brand-name {
     flex-shrink: 0;
 }
 
+/* O QR agora e desenhado pela lib dentro desta div: ela devolve um canvas
+   (ou img no fallback dela) em 160px, que encolhemos para o tamanho da
+   caixa sem perder nitidez na tela do celular. */
+#pix-qr-canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#pix-qr-canvas canvas,
+#pix-qr-canvas img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+/* Identificador do pedido: discreto, mas legivel para quem for conferir o
+   pagamento na conta da loja. */
+.pix-txid-line {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 4px 0 8px;
+    letter-spacing: 0.02em;
+}
+
+.pix-txid-line strong {
+    color: #FFFFFF;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 .pix-qr-info {
     flex: 1;
 }

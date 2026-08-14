@@ -586,15 +586,23 @@
                         <span>Pix Copia e Cola &amp; QR Code (Valor Travado)</span>
                     </div>
                     <div class="pix-qr-container">
-                        <img id="pix-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=54996879399" alt="Pix QR Code CLAEM" class="pix-qr-code">
+                        <!-- QR desenhado no navegador a partir do BR Code. Sem API externa. -->
+                        <div id="pix-qr-canvas" class="pix-qr-code"></div>
                         <div class="pix-qr-info">
                             <p class="pix-lock-desc">
                                 Valor exato: <strong id="pix-locked-amount" style="color:#FFF;">R$ 0,00</strong>.<br>
-                                Escaneie a imagem com o aplicativo do seu banco ou copie a chave abaixo.
+                                Escaneie o QR com o aplicativo do seu banco ou copie o código abaixo.
                             </p>
+                            <p class="pix-lock-desc" id="pix-qr-fallback" style="display:none;">
+                                Não foi possível desenhar o QR agora — use o código abaixo no seu app do banco.
+                            </p>
+                            <p class="pix-txid-line">Identificador do pedido: <strong id="pix-txid">—</strong></p>
                             <button type="button" class="btn-copy-pix" onclick="window.copyPixKey()" id="btn-copy-pix-key">
-                                <i data-lucide="copy"></i> Copiar Chave Pix
+                                <i data-lucide="copy"></i> <span>Copiar código Pix (valor travado)</span>
                             </button>
+                            <!-- Guarda o payload para o fallback de copia em navegador antigo. -->
+                            <textarea id="pix-payload-texto" readonly aria-hidden="true" tabindex="-1"
+                                      style="position:absolute; left:-9999px; top:-9999px; opacity:0;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -668,8 +676,14 @@
         <i data-lucide="message-circle" aria-hidden="true"></i>
     </a>
 
+    <!-- QR Code desenhado no cliente. Vem antes do app.js porque renderizarPix
+         procura por window.QRCode; se a CDN falhar, o copia-e-cola assume. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+            integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- JS Logic -->
-    <script src="app.js?v=20260814-v6"></script>
+    <script src="app.js?v=20260814-v7"></script>
     <script>
         // PWA Splash Screen Handler
         window.addEventListener('DOMContentLoaded', () => {

@@ -495,7 +495,152 @@ let fulfillmentType = 'delivery'; // 'delivery' or 'pickup'
 let selectedPayment = 'Pix (Chave Copia e Cola)'; // 'Pix', 'Cartão', 'Dinheiro'
 let deliveryFee = 6.00;
 const CLIENT_WHATSAPP = '5554996879399';
-const PIX_KEY_CLAEM = '54996879399';
+
+/* ==========================================================================
+   PIX — BR Code estático EMV, com valor travado, gerado no navegador.
+
+   Substitui o QR antigo, que codificava só o telefone em texto livre e por
+   isso nenhum app de banco reconhecia como pagamento.
+
+   Referência: Manual do BR Code (Bacen) / EMV MPM. Cada campo é
+   ID(2) + LENGTH(2) + VALUE, e o CRC16 fecha a string.
+   ========================================================================== */
+/* >>> ATENCAO: EM MODO TESTE <<<
+   Em "teste" o dinheiro vai para a conta da Onira Labs, nao para a
+   pastelaria — serve para a demonstracao ao comprador, em que quem apresenta
+   recebe o pagamento de teste na propria conta.
+
+   ANTES DE ENTREGAR O SITE: trocar PIX_MODO para "producao" e conferir com um
+   pagamento de R$ 0,01. Enquanto estiver em "teste", todo pagamento do
+   cliente final cai na conta errada.
+
+   Chave e nome do recebedor andam juntos de proposito: se so a chave mudasse,
+   o QR anunciaria um recebedor e creditaria outro — inconsistencia que o
+   comprador percebe na hora de confirmar o pagamento no app do banco. */
+const PIX_MODO = "teste";   // <<<< UNICA LINHA A TROCAR: "teste" | "producao"
+
+const PIX_PERFIS = {
+    producao: {
+        chave: "+5554996879399",      // telefone da CLAEM, em E.164
+        nome: "PASTELARIA CLAEM"
+    },
+    teste: {
+        chave: "60403306000110",      // CNPJ Onira Labs, so digitos
+        nome: "JEFFERSON MOTTA"       // titular da chave de teste
+    }
+};
+
+const PIX_CONFIG = {
+    modo: PIX_MODO,
+    chave: PIX_PERFIS[PIX_MODO].chave,
+    nome: PIX_PERFIS[PIX_MODO].nome,   // max 25 chars, sem acentos, uppercase
+    cidade: "CAXIAS DO SUL",           // max 15 chars, sem acentos, uppercase
+    txidPrefixo: "CLAEM"
+};
+
+/* Barulho no console para o modo teste nao passar despercebido em um deploy
+   apressado. Nao aparece para o cliente final, so para quem abre o DevTools. */
+if (PIX_CONFIG.modo === 'teste') {
+    console.warn(
+        '%c[PIX EM MODO TESTE] Recebedor: ' + PIX_CONFIG.nome + ' — chave ' +
+        PIX_CONFIG.chave + '. Nao e a conta da Pastelaria CLAEM. ' +
+        'Trocar PIX_MODO para "producao" antes de entregar.',
+        'background:#B45309;color:#FFF;padding:2px 6px;border-radius:3px;font-weight:700'
+    );
+}
+
+/* Compatibilidade: a chave sem o + ainda aparece em texto para o cliente. */
+const PIX_KEY_CLAEM = PIX_CONFIG.chave.replace(/^\+55/, '');
+
+/* Campo EMV: identificador, tamanho com dois digitos, valor. */
+function emv(id, valor) {
+    const v = String(valor);
+    return id + String(v.length).padStart(2, '0') + v;
+}
+
+/* Nome e cidade vao sem acento e em caixa alta, truncados no limite do
+   padrao. Acento no payload quebra a leitura em parte dos apps. */
+function normalizarTextoPix(texto, limite) {
+    return String(texto || '')
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^A-Za-z0-9 ]/g, '')
+        .trim()
+        .toUpperCase()
+        .slice(0, limite);
+}
+
+/* CRC16-CCITT-FALSE: polinomio 0x1021, inicial 0xFFFF, sem reflexao e sem
+   XOR final. Calculado sobre o payload inteiro, ja incluindo o literal
+   "6304" do proprio campo de CRC. */
+function crc16(payload) {
+    let crc = 0xFFFF;
+    for (let i = 0; i < payload.length; i++) {
+        crc ^= payload.charCodeAt(i) << 8;
+        for (let bit = 0; bit < 8; bit++) {
+            crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) : (crc << 1);
+            crc &= 0xFFFF;
+        }
+    }
+    return crc.toString(16).toUpperCase().padStart(4, '0');
+}
+
+/* txid: apenas [A-Za-z0-9], no maximo 25 caracteres. */
+function normalizarTxid(txid) {
+    const limpo = String(txid || '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+    return (limpo || '***').slice(0, 25);
+}
+
+function gerarTxid() {
+    return normalizarTxid(PIX_CONFIG.txidPrefixo + Date.now().toString(36));
+}
+
+/* Monta o BR Code completo. valor em number, ex 47 -> "47.00". */
+function gerarPixPayload(valor, txid) {
+    const valorFmt = Number(valor).toFixed(2);           // ponto, nunca virgula
+    const nome = normalizarTextoPix(PIX_CONFIG.nome, 25);
+    const cidade = normalizarTextoPix(PIX_CONFIG.cidade, 15);
+
+    const merchantAccount =
+        emv('00', 'br.gov.bcb.pix') +
+        emv('01', PIX_CONFIG.chave);
+
+    const adicional = emv('05', normalizarTxid(txid));
+
+    const payload =
+        emv('00', '01') +                 // Payload Format Indicator
+        emv('01', '12') +                 // uso unico / valor definido
+        emv('26', merchantAccount) +      // Merchant Account Information
+        emv('52', '0000') +               // MCC
+        emv('53', '986') +                // moeda: BRL
+        emv('54', valorFmt) +             // valor travado
+        emv('58', 'BR') +                 // pais
+        emv('59', nome) +                 // nome do recebedor
+        emv('60', cidade) +               // cidade do recebedor
+        emv('62', adicional) +            // dados adicionais (txid)
+        '6304';                           // campo do CRC, ja incluso no calculo
+
+    return payload + crc16(payload);
+}
+
+/* Estado do Pix do pedido em andamento. O txid nasce com o carrinho e vive
+   ate o pedido ser enviado — assim o identificador que o cliente ve na tela
+   e o que chega no WhatsApp da loja sao o mesmo. */
+let pixTxidAtual = null;
+let pixPayloadAtual = '';
+let pixQrInstancia = null;
+
+function garantirTxid() {
+    if (!pixTxidAtual) pixTxidAtual = gerarTxid();
+    return pixTxidAtual;
+}
+
+window.PIX_CONFIG = PIX_CONFIG;
+window.gerarPixPayload = gerarPixPayload;
+window.crc16 = crc16;
+window.emv = emv;
+window.normalizarTextoPix = normalizarTextoPix;
+window.gerarTxid = gerarTxid;
 
 // Size Selection Tracking Object
 const selectedSizes = {};
@@ -741,17 +886,8 @@ function updateCartUI() {
     }
     if (cartGrandTotalEl) cartGrandTotalEl.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
 
-    // Lock Pix Amount & QR Code Image display
-    const pixLockedAmount = document.getElementById('pix-locked-amount');
-    if (pixLockedAmount) {
-        pixLockedAmount.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
-    }
-
-    const pixQrImg = document.getElementById('pix-qr-img');
-    if (pixQrImg) {
-        const qrData = encodeURIComponent(`Chave Pix CLAEM: ${PIX_KEY_CLAEM} | Valor: R$ ${finalTotal.toFixed(2).replace('.', ',')}`);
-        pixQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${qrData}`;
-    }
+    // Pix: valor travado, payload e QR acompanham o total
+    renderizarPix(finalTotal);
 
     // Render Cart Items
     if (!cartItemsContainer) return;
@@ -808,6 +944,61 @@ window.openCart = openCart;
 window.closeCart = closeCart;
 window.toggleCartDrawer = toggleCartDrawer;
 
+/* Desenha o QR e o copia-e-cola a partir do total atual. Chamado toda vez
+   que o carrinho muda: item, tamanho P/G, entrega ou retirada. */
+function renderizarPix(finalTotal) {
+    const caixa = document.getElementById('pix-lock-box');
+    const valorEl = document.getElementById('pix-locked-amount');
+    const txidEl = document.getElementById('pix-txid');
+    const alvoQr = document.getElementById('pix-qr-canvas');
+    const aviso = document.getElementById('pix-qr-fallback');
+    const isPix = selectedPayment.toLowerCase().includes('pix');
+
+    if (valorEl) valorEl.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
+
+    /* Sem total nao ha o que cobrar, e em cartao ou dinheiro o bloco nao
+       aparece. Em qualquer um dos casos o payload antigo e descartado. */
+    if (!isPix || finalTotal <= 0) {
+        pixPayloadAtual = '';
+        if (alvoQr) alvoQr.innerHTML = '';
+        if (aviso) aviso.style.display = 'none';
+        if (caixa) caixa.style.display = isPix ? 'block' : 'none';
+        return;
+    }
+
+    if (caixa) caixa.style.display = 'block';
+
+    const txid = garantirTxid();
+    pixPayloadAtual = gerarPixPayload(finalTotal, txid);
+
+    if (txidEl) txidEl.innerText = txid;
+
+    const campoCopia = document.getElementById('pix-payload-texto');
+    if (campoCopia) campoCopia.value = pixPayloadAtual;
+
+    if (!alvoQr) return;
+
+    /* A lib do QR vem de CDN. Se nao carregou, o cliente ainda paga: o
+       copia-e-cola resolve sozinho, com um aviso no lugar da imagem. */
+    if (typeof QRCode === 'undefined') {
+        alvoQr.innerHTML = '';
+        if (aviso) aviso.style.display = 'block';
+        return;
+    }
+
+    if (aviso) aviso.style.display = 'none';
+    alvoQr.innerHTML = '';
+    pixQrInstancia = new QRCode(alvoQr, {
+        text: pixPayloadAtual,
+        width: 160,
+        height: 160,
+        colorDark: '#000000',
+        colorLight: '#FFFFFF',
+        correctLevel: QRCode.CorrectLevel.M
+    });
+}
+window.renderizarPix = renderizarPix;
+
 // Copy Pix Key with Interactive Color State & Feedback
 function copyPixKey() {
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
@@ -816,26 +1007,46 @@ function copyPixKey() {
 
     const copyBtn = document.getElementById('btn-copy-pix-key');
 
+    /* Copia o BR Code inteiro, nao a chave solta: e ele que leva o valor
+       travado e o identificador do pedido para dentro do app do banco. */
+    if (!pixPayloadAtual) {
+        showToast('Monte o pedido primeiro — o código Pix é gerado com o valor total.');
+        return;
+    }
+
     const handleSuccess = () => {
-        showToast(`Chave Pix (${PIX_KEY_CLAEM}) copiada! Valor do Pedido: R$ ${finalTotal.toFixed(2).replace('.', ',')}`);
-        
+        showToast(`Código Pix copiado — R$ ${finalTotal.toFixed(2).replace('.', ',')} já vem preenchido no app do banco.`);
+
         if (copyBtn) {
             copyBtn.classList.add('copied');
-            copyBtn.innerHTML = `<i data-lucide="check" style="width:14px; height:14px;"></i> <span>✓ Chave Pix Copiada!</span>`;
+            copyBtn.innerHTML = `<i data-lucide="check" style="width:14px; height:14px;"></i> <span>Copiado ✓</span>`;
             if (window.lucide) window.lucide.createIcons();
 
             setTimeout(() => {
                 copyBtn.classList.remove('copied');
-                copyBtn.innerHTML = `<i data-lucide="copy" style="width:14px; height:14px;"></i> <span>Copiar Chave Pix</span>`;
+                copyBtn.innerHTML = `<i data-lucide="copy" style="width:14px; height:14px;"></i> <span>Copiar código Pix (valor travado)</span>`;
                 if (window.lucide) window.lucide.createIcons();
-            }, 2500);
+            }, 2000);
         }
     };
 
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(PIX_KEY_CLAEM).then(handleSuccess).catch(handleSuccess);
-    } else {
+    /* execCommand para navegador antigo e para contexto sem clipboard API. */
+    const copiaAntiga = () => {
+        const campo = document.getElementById('pix-payload-texto') || document.createElement('textarea');
+        campo.value = pixPayloadAtual;
+        if (!campo.parentNode) document.body.appendChild(campo);
+        campo.removeAttribute('readonly');
+        campo.select();
+        campo.setSelectionRange(0, 99999);
+        try { document.execCommand('copy'); } catch (e) { /* segue com o aviso */ }
+        campo.setAttribute('readonly', 'readonly');
         handleSuccess();
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pixPayloadAtual).then(handleSuccess).catch(copiaAntiga);
+    } else {
+        copiaAntiga();
     }
 }
 window.copyPixKey = copyPixKey;
@@ -906,6 +1117,8 @@ function sendWhatsAppOrder() {
     if (isPix) {
         msg += `⚡ *PIX (Chave: ${PIX_KEY_CLAEM} - Valor: R$ ${finalTotal.toFixed(2).replace('.', ',')})*\n`;
         msg += `_Anexando o comprovante em seguida!_\n`;
+        /* O ID vai junto para a loja casar o pagamento com este pedido. */
+        msg += `Pagamento: Pix (valor travado R$ ${finalTotal.toFixed(2).replace('.', ',')}) — ID: ${garantirTxid()}\n`;
     } else if (isCash) {
         msg += `💵 *Dinheiro* ${cashChange ? `(Troco para R$ ${cashChange})` : '(Sem troco)'}\n`;
     } else {
@@ -916,5 +1129,9 @@ function sendWhatsAppOrder() {
 
     const url = `https://wa.me/${CLIENT_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
+
+    /* Pedido enviado: o proximo comeca com identificador novo, senao dois
+       pedidos diferentes chegariam na loja com o mesmo ID. */
+    pixTxidAtual = null;
 }
 window.sendWhatsAppOrder = sendWhatsAppOrder;
