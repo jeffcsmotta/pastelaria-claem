@@ -526,7 +526,8 @@ let currentCategory = 'all';
 let cart = [];
 let fulfillmentType = 'delivery'; // 'delivery' or 'pickup'
 let selectedPayment = 'Pix'; // 'Pix', 'Cartão', 'Dinheiro'
-let deliveryFee = 6.00;
+// Taxa de entrega varia por regiao e e combinada com o atendente pelo
+// WhatsApp — o site nao cobra nenhum valor fixo de entrega no total.
 const CLIENT_WHATSAPP = '5554996879399';
 
 // Size Selection Tracking Object
@@ -804,8 +805,7 @@ function setupCartDrawerListeners() {
 function updateCartUI() {
     const totalQuantity = cart.reduce((sum, i) => sum + i.quantity, 0);
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const activeDeliveryFee = fulfillmentType === 'delivery' ? (subtotal > 0 ? deliveryFee : 0) : 0;
-    const finalTotal = subtotal + activeDeliveryFee;
+    const finalTotal = subtotal;
 
     // Header Badges & Count
     if (cartCountBadge) cartCountBadge.innerText = totalQuantity;
@@ -833,8 +833,8 @@ function updateCartUI() {
     // Totals Breakdown
     if (cartSubtotalEl) cartSubtotalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
     if (cartDeliveryFeeEl) {
-        cartDeliveryFeeEl.innerText = fulfillmentType === 'delivery' 
-            ? `R$ ${activeDeliveryFee.toFixed(2).replace('.', ',')}` 
+        cartDeliveryFeeEl.innerText = fulfillmentType === 'delivery'
+            ? 'A combinar'
             : 'Grátis (Balcão)';
     }
     if (cartGrandTotalEl) cartGrandTotalEl.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
@@ -997,12 +997,11 @@ function sendWhatsAppOrder() {
     }
 
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const activeDeliveryFee = fulfillmentType === 'delivery' ? deliveryFee : 0;
-    const finalTotal = subtotal + activeDeliveryFee;
+    const finalTotal = subtotal;
 
     let msg = `🥟 *NOVO PEDIDO - PASTELARIA CLAEM*\n`;
     msg += `------------------------------------\n`;
-    msg += `📦 *Tipo:* ${fulfillmentType === 'delivery' ? '🛵 Delivery em Domicílio' : '🛍️ Retirada no Balcão'}\n`;
+    msg += `📦 *Tipo:* ${fulfillmentType === 'delivery' ? '🛵 Entrega em Domicílio' : '🛍️ Retirada no Balcão'}\n`;
     if (customerName) msg += `👤 *Cliente:* ${customerName}\n`;
     if (fulfillmentType === 'delivery' && customerAddress) {
         msg += `🏠 *Endereço:* ${customerAddress}\n`;
@@ -1019,8 +1018,10 @@ function sendWhatsAppOrder() {
 
     msg += `------------------------------------\n`;
     msg += `💰 *Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-    msg += `🛵 *Taxa de Entrega:* ${fulfillmentType === 'delivery' ? `R$ ${activeDeliveryFee.toFixed(2).replace('.', ',')}` : 'Grátis (Balcão)'}\n`;
-    msg += `💰 *TOTAL FINAL:* R$ ${finalTotal.toFixed(2).replace('.', ',')}\n\n`;
+    msg += `🛵 *Taxa de Entrega:* ${fulfillmentType === 'delivery' ? 'A combinar com o atendente' : 'Grátis (Balcão)'}\n`;
+    msg += fulfillmentType === 'delivery'
+        ? `💰 *TOTAL DOS ITENS:* R$ ${finalTotal.toFixed(2).replace('.', ',')} _(+ taxa de entrega a combinar)_\n\n`
+        : `💰 *TOTAL FINAL:* R$ ${finalTotal.toFixed(2).replace('.', ',')}\n\n`;
 
     msg += `💳 *FORMA DE PAGAMENTO:*\n`;
     const isCash = selectedPayment.toLowerCase().includes('dinheiro') || selectedPayment === 'cash';
