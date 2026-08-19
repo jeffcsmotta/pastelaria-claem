@@ -220,69 +220,33 @@
         </div>
     </section>
 
-    <!-- Special Offer Banner Section -->
-    <section class="section special-offer-section">
+    <!-- Best Sellers Highlight -->
+    <section class="section best-sellers-section" id="mais-vendidos">
         <div class="container">
-            <div class="special-offer-card">
-                <div class="special-offer-img-box">
-                    <img src="assets/foto-carne-de-panela.jpg" alt="Empanada Carne de Panela Mechada" class="special-offer-img">
-                    <span class="special-badge"><i data-lucide="flame"></i> Destaque da Casa</span>
-                </div>
-                <div class="special-offer-content">
-                    <span class="subtitle-gold">SABOR TRADICIONAL COLONIAL</span>
-                    <h2 class="special-title">Empanada Carne de Panela (Mechada)</h2>
-                    <p class="special-desc">Massa artesanal super macia e douradinha, recheada com carne de panela cozida lentamente e desfiada com temperos coloniais especiais.</p>
-                    <div class="special-price-row">
-                        <div class="special-price">
-                            <span class="old-price">R$ 18,00</span>
-                            <span class="new-price">R$ 15,00 <small>(Unidade Farta)</small></span>
-                        </div>
-                        <button class="btn btn-primary" onclick="window.addToCart('emp-1')">
-                            <i data-lucide="shopping-bag"></i> Pedir Esta Empanada
-                        </button>
-                    </div>
-                </div>
+            <div class="section-header text-center">
+                <span class="subtitle">OS QUERIDINHOS DA CASA</span>
+                <h2 class="title">Mais Vendidos da Pastelaria CLAEM</h2>
+            </div>
+            <div class="menu-grid" id="best-sellers-grid">
+                <!-- Javascript populated -->
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about-section" id="sobre">
+    <!-- About & Location Section (fundidas) -->
+    <section class="section contact-section" id="sobre">
         <div class="container">
-            <div class="about-card">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <span class="subtitle">CONHEÇA A PASTELARIA CLAEM</span>
-                        <h2 class="title">Paixão por Pastel & Empanada de Verdade! 🥟</h2>
-                        <p class="about-bio-quote">
-                            "Na <strong>Pastelaria CLAEM</strong>, cada pastel e empanada é preparado com carinho e tradição. Nossa massa artesanal é aberta diariamente para garantir aquele crocante sequinho e sem gordura excessiva, recheada generosamente com os melhores ingredientes da Serra Gaúcha!"
-                        </p>
-                        <div class="about-tags">
-                            <span class="tag-item"><i data-lucide="check-circle"></i> Massa Sequinha</span>
-                            <span class="tag-item"><i data-lucide="heart"></i> Recheio Farto</span>
-                            <span class="tag-item"><i data-lucide="truck"></i> Delivery Rápido</span>
-                            <span class="tag-item"><i data-lucide="shield-check"></i> Pix Travado</span>
-                        </div>
-                    </div>
-                    <div class="about-contact-box">
-                        <h3><i data-lucide="sparkles"></i> Peça sem complicação</h3>
-                        <p>Atendimento direto e rápido no WhatsApp oficial da Pastelaria CLAEM em Caxias do Sul.</p>
-                        <a href="https://wa.me/5554996879399?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn btn-whatsapp btn-block">
-                            <i data-lucide="phone"></i> WhatsApp: (54) 99687-9399
-                        </a>
-                    </div>
-                </div>
+            <div class="section-header text-center">
+                <span class="subtitle">CONHEÇA A PASTELARIA CLAEM</span>
+                <h2 class="title">Paixão por Pastel & Empanada de Verdade! 🥟</h2>
+                <p class="about-bio-quote">
+                    "Na <strong>Pastelaria CLAEM</strong>, cada pastel e empanada é preparado com carinho e tradição. Nossa massa artesanal é aberta diariamente para garantir aquele crocante sequinho e sem gordura excessiva, recheada generosamente com os melhores ingredientes da Serra Gaúcha!"
+                </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Location & Contact Section -->
-    <section class="section contact-section" id="contato">
-        <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid" id="contato">
                 <div class="contact-info">
                     <span class="subtitle">RETIRADA OU TELE-ENTREGA</span>
-                    <h2 class="title">Localização & Atendimento</h2>
+                    <h3 class="title">Localização & Atendimento</h3>
                     <p class="contact-intro">Atendendo com muito carinho toda a região de Caxias do Sul - RS.</p>
 
                     <div class="info-list">
@@ -558,7 +522,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- JS Logic -->
-    <script src="app.js?v=20260819-v13"></script>
+    <script src="app.js?v=20260819-v14"></script>
     <script>
         // PWA Splash Screen Handler
         window.addEventListener('DOMContentLoaded', () => {

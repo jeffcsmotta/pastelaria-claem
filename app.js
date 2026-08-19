@@ -700,6 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartGrandTotalEl = document.getElementById('cart-total-price') || document.getElementById('cart-grand-total');
 
     renderCatalog();
+    renderBestSellers();
     setupFilters();
     setupCartDrawerListeners();
     setupStoreStatus();
@@ -736,49 +737,74 @@ function setupStoreStatus() {
     });
 }
 
+// Monta o HTML de um card de produto. Reaproveitado no cardapio completo e
+// na vitrine de Mais Vendidos — por isso usa classe (nao id) pro valor, ja
+// que o mesmo produto pode aparecer em mais de um card na pagina.
+function productCardHTML(item) {
+    const size = selectedSizes[item.id] || 'P';
+    const displayPrice = item.hasSizes ? item.prices[size] : item.prices.P;
+
+    return `
+        <div class="menu-card" data-id="${item.id}">
+            <div class="card-img-box">
+                <img src="${item.image}" alt="${item.title}" class="card-img" loading="lazy">
+                ${item.badge ? `<span class="card-badge">${item.badge}</span>` : ''}
+                <div class="card-rating"><i data-lucide="star" style="width:14px; height:14px; fill:#FFC107;"></i> ${item.rating || '4.9'}</div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">${item.title}</h3>
+                <p class="card-desc">${item.desc}</p>
+
+                ${item.hasSizes ? `
+                    <div class="size-selector">
+                        <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">Tamanho P</button>
+                        <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">Tamanho G (+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')})</button>
+                    </div>
+                ` : ''}
+
+                <div class="card-bottom">
+                    <div>
+                        <span class="price-label">${item.hasSizes ? 'A partir de' : 'Valor'}</span>
+                        <div class="price-value">R$ ${displayPrice.toFixed(2).replace('.', ',')}</div>
+                    </div>
+                    <button type="button" class="btn-add-item" onclick="addToCart('${item.id}')">
+                        <i data-lucide="plus" style="width:16px; height:16px;"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 // Render Product Catalog Cards
 function renderCatalog() {
     if (!productsGrid) return;
 
-    const filtered = currentCategory === 'all' 
-        ? PRODUCTS_DATA 
+    const filtered = currentCategory === 'all'
+        ? PRODUCTS_DATA
         : PRODUCTS_DATA.filter(p => p.category === currentCategory);
 
-    productsGrid.innerHTML = filtered.map(item => {
-        const size = selectedSizes[item.id] || 'P';
-        const displayPrice = item.hasSizes ? item.prices[size] : item.prices.P;
+    productsGrid.innerHTML = filtered.map(productCardHTML).join('');
 
-        return `
-            <div class="menu-card" data-id="${item.id}">
-                <div class="card-img-box">
-                    <img src="${item.image}" alt="${item.title}" class="card-img" loading="lazy">
-                    ${item.badge ? `<span class="card-badge">${item.badge}</span>` : ''}
-                    <div class="card-rating"><i data-lucide="star" style="width:14px; height:14px; fill:#FFC107;"></i> ${item.rating || '4.9'}</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">${item.title}</h3>
-                    <p class="card-desc">${item.desc}</p>
-                    
-                    ${item.hasSizes ? `
-                        <div class="size-selector">
-                            <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">Tamanho P</button>
-                            <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">Tamanho G (+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')})</button>
-                        </div>
-                    ` : ''}
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+}
 
-                    <div class="card-bottom">
-                        <div>
-                            <span class="price-label">${item.hasSizes ? 'A partir de' : 'Valor'}</span>
-                            <div class="price-value" id="price-display-${item.id}">R$ ${displayPrice.toFixed(2).replace('.', ',')}</div>
-                        </div>
-                        <button type="button" class="btn-add-item" onclick="addToCart('${item.id}')">
-                            <i data-lucide="plus" style="width:16px; height:16px;"></i> Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+// Vitrine "Mais Vendidos": 3 itens ja identificados como campeoes de venda
+// no proprio cardapio (badges "Mais Pedida"/"Mais Vendido"/"Top Vendas"),
+// sem inventar ranking novo.
+const BEST_SELLER_IDS = ['emp-1', 'pas-2', 'pas-15'];
+
+function renderBestSellers() {
+    const grid = document.getElementById('best-sellers-grid');
+    if (!grid) return;
+
+    const items = BEST_SELLER_IDS
+        .map(id => PRODUCTS_DATA.find(p => p.id === id))
+        .filter(Boolean);
+
+    grid.innerHTML = items.map(productCardHTML).join('');
 
     if (window.lucide) {
         window.lucide.createIcons();
@@ -786,23 +812,26 @@ function renderCatalog() {
 }
 
 // Select Product Size
+// Um mesmo produto pode aparecer em mais de um card na pagina (cardapio
+// completo + vitrine de Mais Vendidos), entao atualiza todas as instancias.
 function selectSize(itemId, size) {
     selectedSizes[itemId] = size;
-    const card = document.querySelector(`.menu-card[data-id="${itemId}"]`);
-    if (card) {
+    const cards = document.querySelectorAll(`.menu-card[data-id="${itemId}"]`);
+    const item = PRODUCTS_DATA.find(i => i.id === itemId);
+
+    cards.forEach(card => {
         const btns = card.querySelectorAll('.size-btn');
         btns.forEach(b => b.classList.remove('active'));
         const activeBtn = card.querySelector(`.size-btn[data-size="${size}"]`);
         if (activeBtn) activeBtn.classList.add('active');
 
-        const item = PRODUCTS_DATA.find(i => i.id === itemId);
         if (item && item.hasSizes) {
-            const displayPrice = card.querySelector(`#price-display-${itemId}`);
+            const displayPrice = card.querySelector('.price-value');
             if (displayPrice) {
                 displayPrice.innerText = `R$ ${item.prices[size].toFixed(2).replace('.', ',')}`;
             }
         }
-    }
+    });
 }
 window.selectSize = selectSize;
 
