@@ -43,7 +43,9 @@ const FOTOS_REAIS = {
     queijoMilho: 'assets/foto-queijo-milho.jpg',
     romeuJulieta: 'assets/foto-romeu-julieta.jpg',
     sucoMorango: 'assets/foto-suco-morango.jpg',
-    torrada: 'assets/foto-torrada.jpg'
+    torrada: 'assets/foto-torrada.jpg',
+    frangoDesfiado: 'assets/foto-frango-desfiado.jpg',
+    frangoQueijo: 'assets/foto-frango-queijo.jpg'
 };
 
 // Menu Database CLAEM
@@ -97,7 +99,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Frango desfiado super macio e temperado.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.frangoDesfiado,
         rating: '4.8',
         hasSizes: true
     },
@@ -107,7 +109,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Frango desfiado com generosa camada de queijo mussarela derretido.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.frangoQueijo,
         rating: '4.9',
         hasSizes: true
     },
