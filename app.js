@@ -48,83 +48,6 @@ const FOTOS_REAIS = {
 
 // Menu Database CLAEM
 const PRODUCTS_DATA = [
-    // --- EMPANADAS ARTESANAIS ---
-    {
-        id: 'emp-1',
-        title: 'Empanada Carne de Panela (Mechada)',
-        category: 'empanadas',
-        desc: 'Massa artesanal recheada com suculenta carne de panela desfiada temperada com especiarias da casa.',
-        prices: { P: 15.00, G: 15.00 },
-        badge: 'Mais Pedida',
-        image: FOTOS_REAIS.carneDePanela,
-        rating: '5.0',
-        hasSizes: false
-    },
-    {
-        id: 'emp-2',
-        title: 'Empanada de Frango Temperado',
-        category: 'empanadas',
-        desc: 'Empanada macia com peito de frango desfiado ao molho especial e ervas finas.',
-        prices: { P: 15.00, G: 15.00 },
-        badge: 'Favorito',
-        image: PASTEL_IMGS.empanada,
-        rating: '4.9',
-        hasSizes: false
-    },
-    {
-        id: 'emp-3',
-        title: 'Empanada Salsicha com Queijo',
-        category: 'empanadas',
-        desc: 'Recheio cremoso de queijo derretido com rodelas de salsicha especial.',
-        prices: { P: 15.00, G: 15.00 },
-        image: PASTEL_IMGS.empanada,
-        rating: '4.8',
-        hasSizes: false
-    },
-    {
-        id: 'emp-4',
-        title: 'Empanada Carne Moída Tradicional',
-        category: 'empanadas',
-        desc: 'Massa douradinha recheada com carne moída bem temperada e ovos cozidos.',
-        prices: { P: 15.00, G: 15.00 },
-        image: PASTEL_IMGS.empanada,
-        rating: '4.8',
-        hasSizes: false
-    },
-    {
-        id: 'emp-5',
-        title: 'Empanada Gordo Blue de Frango',
-        category: 'empanadas',
-        desc: 'Super recheada com frango desfiado, presunto selecionado e muito queijo derretido.',
-        prices: { P: 20.00, G: 20.00 },
-        badge: 'Especial',
-        image: PASTEL_IMGS.empanada,
-        rating: '5.0',
-        hasSizes: false
-    },
-    {
-        id: 'emp-6',
-        title: 'Empanada Gordo Blue de Carne',
-        category: 'empanadas',
-        desc: 'Recheio generoso de carne de panela mechada, presunto e queijo mussarela.',
-        prices: { P: 20.00, G: 20.00 },
-        badge: 'Especial da Casa',
-        image: PASTEL_IMGS.empanada,
-        rating: '5.0',
-        hasSizes: false
-    },
-    {
-        id: 'emp-7',
-        title: 'Empanada Pabellón',
-        category: 'empanadas',
-        desc: 'Sabor único! Carne de panela, feijão preto, queijo e banana da terra frita.',
-        prices: { P: 20.00, G: 20.00 },
-        badge: 'Chef Choice',
-        image: PASTEL_IMGS.empanada,
-        rating: '5.0',
-        hasSizes: false
-    },
-
     // --- PASTÉIS SALGADOS ---
     {
         id: 'pas-1',
@@ -366,6 +289,83 @@ const PRODUCTS_DATA = [
         hasSizes: true
     },
 
+    // --- EMPANADAS ARTESANAIS ---
+    {
+        id: 'emp-1',
+        title: 'Empanada Carne de Panela (Mechada)',
+        category: 'empanadas',
+        desc: 'Massa artesanal recheada com suculenta carne de panela desfiada temperada com especiarias da casa.',
+        prices: { P: 15.00, G: 15.00 },
+        badge: 'Mais Pedida',
+        image: FOTOS_REAIS.carneDePanela,
+        rating: '5.0',
+        hasSizes: false
+    },
+    {
+        id: 'emp-2',
+        title: 'Empanada de Frango Temperado',
+        category: 'empanadas',
+        desc: 'Empanada macia com peito de frango desfiado ao molho especial e ervas finas.',
+        prices: { P: 15.00, G: 15.00 },
+        badge: 'Favorito',
+        image: PASTEL_IMGS.empanada,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'emp-3',
+        title: 'Empanada Salsicha com Queijo',
+        category: 'empanadas',
+        desc: 'Recheio cremoso de queijo derretido com rodelas de salsicha especial.',
+        prices: { P: 15.00, G: 15.00 },
+        image: PASTEL_IMGS.empanada,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'emp-4',
+        title: 'Empanada Carne Moída Tradicional',
+        category: 'empanadas',
+        desc: 'Massa douradinha recheada com carne moída bem temperada e ovos cozidos.',
+        prices: { P: 15.00, G: 15.00 },
+        image: PASTEL_IMGS.empanada,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'emp-5',
+        title: 'Empanada Gordo Blue de Frango',
+        category: 'empanadas',
+        desc: 'Super recheada com frango desfiado, presunto selecionado e muito queijo derretido.',
+        prices: { P: 20.00, G: 20.00 },
+        badge: 'Especial',
+        image: PASTEL_IMGS.empanada,
+        rating: '5.0',
+        hasSizes: false
+    },
+    {
+        id: 'emp-6',
+        title: 'Empanada Gordo Blue de Carne',
+        category: 'empanadas',
+        desc: 'Recheio generoso de carne de panela mechada, presunto e queijo mussarela.',
+        prices: { P: 20.00, G: 20.00 },
+        badge: 'Especial da Casa',
+        image: PASTEL_IMGS.empanada,
+        rating: '5.0',
+        hasSizes: false
+    },
+    {
+        id: 'emp-7',
+        title: 'Empanada Pabellón',
+        category: 'empanadas',
+        desc: 'Sabor único! Carne de panela, feijão preto, queijo e banana da terra frita.',
+        prices: { P: 20.00, G: 20.00 },
+        badge: 'Chef Choice',
+        image: PASTEL_IMGS.empanada,
+        rating: '5.0',
+        hasSizes: false
+    },
+
     // --- PORÇÕES DE PASTÉIS ---
     {
         id: 'por-1',
@@ -503,7 +503,7 @@ const PRODUCTS_DATA = [
         category: 'bebidas',
         desc: 'Garrafa 500ml geladinha.',
         prices: { P: 5.00, G: 5.00 },
-        image: 'https://images.unsplash.com/photo-1560023907-5f310c80557f?auto=format&fit=crop&w=600&q=80',
+        image: 'https://images.unsplash.com/photo-1616118132534-381148898bb4?auto=format&fit=crop&w=600&q=80',
         rating: '4.8',
         hasSizes: false
     },
