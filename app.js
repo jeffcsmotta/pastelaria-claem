@@ -15,6 +15,22 @@ const PASTEL_IMGS = {
     torrada: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80'
 };
 
+// Fotos reais dos produtos, feitas na casa (substituem os placeholders acima
+// item a item conforme chegam — cardápio ainda tem itens sem foto própria).
+const FOTOS_REAIS = {
+    carneDePanela: 'assets/foto-carne-de-panela.jpg',
+    calabresa: 'assets/foto-calabresa.jpg',
+    calabresaQueijo: 'assets/foto-calabresa-queijo.jpg',
+    baconQueijoMilho: 'assets/foto-bacon-queijo-milho.jpg',
+    bananaCanela: 'assets/foto-banana-canela.jpg',
+    bananaChocolate: 'assets/foto-banana-chocolate.jpg',
+    chocolatePreto: 'assets/foto-chocolate-preto.jpg',
+    chocolateBranco: 'assets/foto-chocolate-branco.jpg',
+    chocolateAmendoim: 'assets/foto-chocolate-amendoim.jpg',
+    chocolateQuente: 'assets/foto-chocolate-quente.jpg',
+    cafeComLeite: 'assets/foto-cafe-com-leite.jpg'
+};
+
 // Menu Database CLAEM
 const PRODUCTS_DATA = [
     // --- EMPANADAS ARTESANAIS ---
@@ -25,7 +41,7 @@ const PRODUCTS_DATA = [
         desc: 'Massa artesanal recheada com suculenta carne de panela desfiada temperada com especiarias da casa.',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Mais Pedida',
-        image: PASTEL_IMGS.empanada,
+        image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
         hasSizes: false
     },
@@ -113,7 +129,7 @@ const PRODUCTS_DATA = [
         desc: 'Carne de panela cozida lentamente, desfiada com temperos coloniais.',
         prices: { P: 5.00, G: 15.00 },
         badge: 'Mais Vendido',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
         hasSizes: true
     },
@@ -204,7 +220,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Calabresa fatiada levemente acebolada na massa frita.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.calabresa,
         rating: '4.8',
         hasSizes: true
     },
@@ -214,7 +230,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Calabresa bem dourada com mussarela cremosa.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.calabresaQueijo,
         rating: '4.9',
         hasSizes: true
     },
@@ -245,7 +261,7 @@ const PRODUCTS_DATA = [
         desc: 'Bacon crocante em cubos, queijo mussarela e milho verde.',
         prices: { P: 3.50, G: 12.00 },
         badge: 'Top Vendas',
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.baconQueijoMilho,
         rating: '5.0',
         hasSizes: true
     },
@@ -268,7 +284,7 @@ const PRODUCTS_DATA = [
         category: 'doces',
         desc: 'Rodelas de banana fatiada polvilhada com açúcar e canela.',
         prices: { P: 2.50, G: 10.00 },
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.bananaCanela,
         rating: '4.8',
         hasSizes: true
     },
@@ -278,7 +294,7 @@ const PRODUCTS_DATA = [
         category: 'doces',
         desc: 'Banana fresca envolvida em chocolate ao leite derretido.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.bananaChocolate,
         rating: '4.9',
         hasSizes: true
     },
@@ -288,7 +304,7 @@ const PRODUCTS_DATA = [
         category: 'doces',
         desc: 'Recheado com generoso chocolate ao leite cremoso.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.chocolatePreto,
         rating: '4.9',
         hasSizes: true
     },
@@ -298,7 +314,7 @@ const PRODUCTS_DATA = [
         category: 'doces',
         desc: 'Delicioso recheio de chocolate branco derretido.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.chocolateBranco,
         rating: '4.9',
         hasSizes: true
     },
@@ -319,7 +335,7 @@ const PRODUCTS_DATA = [
         category: 'doces',
         desc: 'Chocolate preto com pedacinhos de amendoim crocante.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.chocolateAmendoim,
         rating: '4.8',
         hasSizes: true
     },
@@ -354,7 +370,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta com 10 minipastéis recheados com carne de panela desfiada.',
         prices: { P: 45.00, G: 45.00 },
         badge: 'Especial',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
         hasSizes: false
     },
@@ -401,7 +417,7 @@ const PRODUCTS_DATA = [
         desc: 'Taça cremosa de chocolate quente especial artesanal com raspa de chocolate.',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Especial Quente',
-        image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80',
+        image: FOTOS_REAIS.chocolateQuente,
         rating: '5.0',
         hasSizes: false
     },
@@ -432,7 +448,7 @@ const PRODUCTS_DATA = [
         category: 'bebidas',
         desc: 'Pingado quente e cremoso com leite de primeira qualidade.',
         prices: { P: 6.00, G: 6.00 },
-        image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80',
+        image: FOTOS_REAIS.cafeComLeite,
         rating: '4.8',
         hasSizes: false
     },
