@@ -56,7 +56,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne com Ovo',
         category: 'salgados',
         desc: 'Massa crocante e sequinha recheada com carne moída de gado temperada e ovo picadinho.',
-        prices: { P: 2.50, G: 10.00 },
+        prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
         badge: 'Clássico',
         image: FOTOS_REAIS.carneOvo,
         rating: '4.9',
@@ -67,7 +67,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne de Panela',
         category: 'salgados',
         desc: 'Carne de panela cozida lentamente, desfiada com temperos coloniais.',
-        prices: { P: 5.00, G: 15.00 },
+        prices: { P: 5.00, G: 15.00, DEZ: 45.00 },
         badge: 'Mais Vendido',
         image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
@@ -284,7 +284,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Morango Moreno',
         category: 'doces',
         desc: 'Morangos frescos selecionados cobertos de chocolate ao leite.',
-        prices: { P: 3.75, G: 13.00 },
+        prices: { P: 3.75, G: 13.00, DEZ: 31.00 },
         badge: 'Top Doce',
         image: FOTOS_REAIS.morangoMoreno,
         rating: '5.0',
@@ -614,6 +614,9 @@ function productCardHTML(item) {
                     <div class="size-selector">
                         <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">Tamanho P</button>
                         <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">Tamanho G (+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')})</button>
+                        ${item.prices.DEZ !== undefined ? `
+                            <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">10un (R$${item.prices.DEZ.toFixed(2).replace('.', ',')})</button>
+                        ` : ''}
                     </div>
                 ` : ''}
 
@@ -697,7 +700,8 @@ function addToCart(itemId) {
 
     const size = item.hasSizes ? (selectedSizes[itemId] || 'P') : null;
     const price = item.hasSizes ? item.prices[size] : item.prices.P;
-    const title = size ? `${item.title} (${size === 'P' ? 'Tamanho P' : 'Tamanho G'})` : item.title;
+    const rotuloTamanho = { P: 'Tamanho P', G: 'Tamanho G', DEZ: 'Porção 10un' };
+    const title = size ? `${item.title} (${rotuloTamanho[size] || size})` : item.title;
 
     const existingIndex = cart.findIndex(c => c.id === itemId && c.size === size);
 
