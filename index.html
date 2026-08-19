@@ -118,25 +118,6 @@
             0% { width: 0; }
             100% { width: 100%; }
         }
-        .btn-install-header {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(225, 29, 72, 0.15);
-            color: #E11D48;
-            border: 1px solid rgba(225, 29, 72, 0.4);
-            padding: 8px 14px;
-            border-radius: 99px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .btn-install-header:hover {
-            background: #E11D48;
-            color: #FFFFFF;
-            transform: scale(1.04);
-        }
     </style>
 
     <link rel="stylesheet" href="style.css?v=20260819-v7">
@@ -163,14 +144,8 @@
                 <span><i data-lucide="map-pin"></i> Rua Antônio Prado, 04 - Exposição, Caxias do Sul - RS</span>
                 <span class="divider">|</span>
                 <span><i data-lucide="clock"></i> Terça a Domingo: 17h às 23h30</span>
-                <span class="divider">|</span>
-                <span><i data-lucide="sparkles"></i> Pastéis & Empanadas Fritos na Hora</span>
             </div>
             <div class="top-contacts">
-                <button type="button" class="btn-install-header" onclick="window.triggerPWAInstall()" aria-label="Instalar aplicativo">
-                    <i data-lucide="download"></i>
-                    <span>Instalar App</span>
-                </button>
                 <a href="https://wa.me/5554996879399" target="_blank" class="top-wa">
                     <i data-lucide="phone"></i>
                     <span>WhatsApp: (54) 99687-9399</span>
@@ -187,10 +162,6 @@
             </a>
 
             <div class="header-actions">
-                <button type="button" class="btn-install-header desktop-only" onclick="window.triggerPWAInstall()" aria-label="Instalar App no Celular">
-                    <i data-lucide="smartphone"></i>
-                    <span>Baixar App</span>
-                </button>
                 <div id="status-badge" class="status-badge open">
                     <span class="status-dot"></span>
                     <span class="status-text">Aberto</span>
@@ -207,53 +178,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero desktop-hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-badge">
-                <i data-lucide="sparkles"></i> PASTÉIS ARTESANAIS & EMPANADAS FARTAS
-            </div>
-            <h1 class="hero-title">
-                Pastéis crocantes e <br>
-                <span class="highlight">Empanadas recheadas na hora! 🥟</span>
-            </h1>
-            <p class="hero-description">
-                Massa leve, sequinha e dourada com recheios fartos de carne de panela, frango temperado, queijos derretidos e opções doces irresistíveis. Peça online para entrega rápida ou retirada no balcão em Caxias do Sul!
-            </p>
-            <div class="hero-buttons">
-                <a href="#cardapio" class="btn btn-primary">
-                    <i data-lucide="utensils"></i> Ver Cardápio & Pedir
-                </a>
-                <a href="https://wa.me/5554996879399?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Pastelaria%20CLAEM." target="_blank" class="btn btn-whatsapp">
-                    <i data-lucide="phone"></i> Pedir pelo WhatsApp (54) 99687-9399
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Links Strip (Instagram Bio Link Style) -->
-    <section class="bio-quick-strip desktop-only" id="bio-links">
-        <div class="container">
-            <div class="bio-buttons-flex">
-                <a href="#cardapio" class="bio-btn highlight">
-                    <i data-lucide="shopping-bag"></i> Fazer Pedido Online
-                </a>
-                <a href="https://wa.me/5554996879399" target="_blank" class="bio-btn">
-                    <i data-lucide="message-circle"></i> WhatsApp Direto
-                </a>
-                <button onclick="window.toggleCartDrawer(true)" class="bio-btn">
-                    <i data-lucide="qr-code"></i> Chave Pix Rápida
-                </button>
-                <a href="#contato" class="bio-btn">
-                    <i data-lucide="map-pin"></i> Como Chegar
-                </a>
-                <a href="tel:54996879399" class="bio-btn">
-                    <i data-lucide="phone"></i> Ligar na Loja
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Menu Section -->
     <section class="section menu-section" id="cardapio">
@@ -301,7 +225,7 @@
         <div class="container">
             <div class="special-offer-card">
                 <div class="special-offer-img-box">
-                    <img src="assets/empanadas.jpeg" alt="Empanada Carne de Panela Mechada" class="special-offer-img">
+                    <img src="assets/foto-carne-de-panela.jpg" alt="Empanada Carne de Panela Mechada" class="special-offer-img">
                     <span class="special-badge"><i data-lucide="flame"></i> Destaque da Casa</span>
                 </div>
                 <div class="special-offer-content">
@@ -352,33 +276,50 @@
         </div>
     </section>
 
-    <!-- Differentials Section -->
-    <section class="section differentials-section" id="diferenciais">
+    <!-- Location & Contact Section -->
+    <section class="section contact-section" id="contato">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="subtitle">QUALIDADE & PRATICIDADE</span>
-                <h2 class="title">Por que pedir na Pastelaria CLAEM?</h2>
-            </div>
-            <div class="differentials-grid">
-                <div class="diff-card">
-                    <div class="diff-icon"><i data-lucide="zap"></i></div>
-                    <h3>Pedido em 2 Clics</h3>
-                    <p>Monte seu carrinho com praticidade e envie direto para o nosso WhatsApp oficial sem cadastro demorado.</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="subtitle">RETIRADA OU TELE-ENTREGA</span>
+                    <h2 class="title">Localização & Atendimento</h2>
+                    <p class="contact-intro">Atendendo com muito carinho toda a região de Caxias do Sul - RS.</p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <strong>Endereço de Retirada & Atendimento:</strong>
+                                <p>Rua Antônio Prado, 04 – Bairro Exposição, Caxias do Sul - RS</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="clock"></i></div>
+                            <div>
+                                <strong>Horário de Funcionamento:</strong>
+                                <p>Terça a Domingo: 17h00 às 23h30</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <strong>WhatsApp Oficial de Pedidos:</strong>
+                                <p><a href="https://wa.me/5554996879399" target="_blank" style="color:var(--primary); font-weight:700;">(54) 99687-9399</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="diff-card">
-                    <div class="diff-icon"><i data-lucide="sparkles"></i></div>
-                    <h3>Massa Crocante & Sequinha</h3>
-                    <p>Frita na temperatura ideal para garantir máxima crocância sem ficar engordurada.</p>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-icon"><i data-lucide="truck"></i></div>
-                    <h3>Entrega Rápida & Balcão</h3>
-                    <p>Entrega ágil em Caxias do Sul ou retirada expressa no balcão sem filas.</p>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-icon"><i data-lucide="shield-check"></i></div>
-                    <h3>Pix Copia e Cola Travado</h3>
-                    <p>Pagamento no valor exato do pedido para sua total segurança e conveniência.</p>
+
+                <div class="map-card">
+                    <iframe
+                        title="Mapa Pastelaria CLAEM"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.567!2d-51.1810033!3d-29.1725884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ea320a0000001%3A0x0!2sClaem+Pastelaria%2C+Rua+Ant%C3%B4nio+Prado+04%2C+Caxias+do+Sul!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -429,55 +370,6 @@
         </div>
     </section>
 
-    <!-- Location & Contact Section -->
-    <section class="section contact-section" id="contato">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <span class="subtitle">RETIRADA OU TELE-ENTREGA</span>
-                    <h2 class="title">Localização & Atendimento</h2>
-                    <p class="contact-intro">Atendendo com muito carinho toda a região de Caxias do Sul - RS.</p>
-                    
-                    <div class="info-list">
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="map-pin"></i></div>
-                            <div>
-                                <strong>Endereço de Retirada & Atendimento:</strong>
-                                <p>Rua Antônio Prado, 04 – Bairro Exposição, Caxias do Sul - RS</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="clock"></i></div>
-                            <div>
-                                <strong>Horário de Funcionamento:</strong>
-                                <p>Terça a Domingo: 17h00 às 23h30</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i data-lucide="phone"></i></div>
-                            <div>
-                                <strong>WhatsApp Oficial de Pedidos:</strong>
-                                <p><a href="https://wa.me/5554996879399" target="_blank" style="color:var(--primary); font-weight:700;">(54) 99687-9399</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-card">
-                    <iframe 
-                        title="Mapa Pastelaria CLAEM" 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.567!2d-51.1810033!3d-29.1725884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ea320a0000001%3A0x0!2sClaem+Pastelaria%2C+Rua+Ant%C3%B4nio+Prado+04%2C+Caxias+do+Sul!5e0!3m2!1spt-BR!2sbr!4v1700000000000" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
@@ -492,9 +384,8 @@
                 <ul>
                     <li><a href="#cardapio">Cardápio</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#diferenciais">Diferenciais</a></li>
-                    <li><a href="#avaliacoes">Avaliações</a></li>
                     <li><a href="#contato">Localização</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -688,33 +579,6 @@
                     .catch(err => console.warn('Erro ServiceWorker:', err));
             });
         }
-
-        // PWA Install Prompt Handler (Acionado apenas voluntariamente no botão do topo)
-        let deferredPrompt = null;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-        });
-
-        window.triggerPWAInstall = async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                console.log(`Resultado da instalação PWA: ${outcome}`);
-                deferredPrompt = null;
-            } else {
-                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                if (isIOS) {
-                    if (window.showToast) {
-                        window.showToast("📲 No iPhone: toque em Compartilhar ⎋ e 'Adicionar à Tela de Início'");
-                    }
-                } else {
-                    if (window.showToast) {
-                        window.showToast("📲 No Android: toque nos 3 pontinhos (⋮) e 'Instalar aplicativo'");
-                    }
-                }
-            }
-        };
 
         if (window.lucide) {
             lucide.createIcons();
