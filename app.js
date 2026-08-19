@@ -28,7 +28,22 @@ const FOTOS_REAIS = {
     chocolateBranco: 'assets/foto-chocolate-branco.jpg',
     chocolateAmendoim: 'assets/foto-chocolate-amendoim.jpg',
     chocolateQuente: 'assets/foto-chocolate-quente.jpg',
-    cafeComLeite: 'assets/foto-cafe-com-leite.jpg'
+    cafeComLeite: 'assets/foto-cafe-com-leite.jpg',
+    frangoCatupiry: 'assets/foto-frango-catupiry.jpg',
+    carneOvo: 'assets/foto-carne-ovo.jpg',
+    carneAzeitona: 'assets/foto-carne-azeitona.jpg',
+    carneQueijo: 'assets/foto-carne-queijo.jpg',
+    morangoMoreno: 'assets/foto-morango-moreno.jpg',
+    palmitoQueijo: 'assets/foto-palmito-queijo.jpg',
+    pizza: 'assets/foto-pizza.jpg',
+    porcaoPastel: 'assets/foto-porcao-pastel.jpg',
+    prestigio: 'assets/foto-prestigio.jpg',
+    presuntoQueijo: 'assets/foto-presunto-queijo.jpg',
+    queijo: 'assets/foto-queijo.jpg',
+    queijoMilho: 'assets/foto-queijo-milho.jpg',
+    romeuJulieta: 'assets/foto-romeu-julieta.jpg',
+    sucoMorango: 'assets/foto-suco-morango.jpg',
+    torrada: 'assets/foto-torrada.jpg'
 };
 
 // Menu Database CLAEM
@@ -118,7 +133,7 @@ const PRODUCTS_DATA = [
         desc: 'Massa crocante e sequinha recheada com carne moída de gado temperada e ovo picadinho.',
         prices: { P: 2.50, G: 10.00 },
         badge: 'Clássico',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneOvo,
         rating: '4.9',
         hasSizes: true
     },
@@ -139,7 +154,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneQueijo,
         rating: '4.9',
         hasSizes: true
     },
@@ -149,7 +164,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneAzeitona,
         rating: '4.8',
         hasSizes: true
     },
@@ -180,7 +195,7 @@ const PRODUCTS_DATA = [
         desc: 'Frango com o verdadeiro e cremoso queijo tipo Catupiry.',
         prices: { P: 3.50, G: 12.00 },
         badge: 'Favorito',
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.frangoCatupiry,
         rating: '5.0',
         hasSizes: true
     },
@@ -190,7 +205,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'O tradicional pastel misto de presunto e queijo quentinho.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.presuntoQueijo,
         rating: '4.9',
         hasSizes: true
     },
@@ -200,7 +215,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Presunto, queijo mussarela e orégano aromático.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.pizza,
         rating: '4.8',
         hasSizes: true
     },
@@ -210,7 +225,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Palmito macio fatiado envolvido em mussarela derretida.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.palmitoQueijo,
         rating: '4.8',
         hasSizes: true
     },
@@ -240,7 +255,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Mussarela pura derretendo a cada mordida.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.queijo,
         rating: '4.9',
         hasSizes: true
     },
@@ -250,7 +265,7 @@ const PRODUCTS_DATA = [
         category: 'salgados',
         desc: 'Queijo mussarela com milho doce selecionado.',
         prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.queijoMilho,
         rating: '4.8',
         hasSizes: true
     },
@@ -274,7 +289,7 @@ const PRODUCTS_DATA = [
         desc: 'Combinação clássica de goiabada cremosa com queijo mussarela.',
         prices: { P: 2.50, G: 10.00 },
         badge: 'Clássico Doce',
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.romeuJulieta,
         rating: '4.9',
         hasSizes: true
     },
@@ -325,7 +340,7 @@ const PRODUCTS_DATA = [
         desc: 'Chocolate ao leite combinado com beijinho de coco ralado.',
         prices: { P: 3.50, G: 12.00 },
         badge: 'Delícia',
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.prestigio,
         rating: '4.9',
         hasSizes: true
     },
@@ -346,7 +361,7 @@ const PRODUCTS_DATA = [
         desc: 'Morangos frescos selecionados cobertos de chocolate ao leite.',
         prices: { P: 3.75, G: 13.00 },
         badge: 'Top Doce',
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.morangoMoreno,
         rating: '5.0',
         hasSizes: true
     },
@@ -359,7 +374,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta com 10 minipastéis crocantes de carne temperada com ovo.',
         prices: { P: 24.00, G: 24.00 },
         badge: 'Para Compartilhar',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '5.0',
         hasSizes: false
     },
@@ -381,7 +396,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta doce com 10 minipastéis de morango fresco com chocolate.',
         prices: { P: 31.00, G: 31.00 },
         badge: 'Porção Doce',
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '4.9',
         hasSizes: false
     },
@@ -391,7 +406,7 @@ const PRODUCTS_DATA = [
         category: 'porcoes',
         desc: 'Escolha até 2 sabores tradicionais para sua cesta de 10 minipastéis.',
         prices: { P: 28.00, G: 28.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '4.8',
         hasSizes: false
     },
@@ -404,7 +419,7 @@ const PRODUCTS_DATA = [
         desc: 'Pão fatiado tostado no capricho com alface, tomate fresco, ovo, presunto, queijo mussarela e maionese especial da casa.',
         prices: { P: 20.00, G: 20.00 },
         badge: 'Lanche Reforçado',
-        image: PASTEL_IMGS.torrada,
+        image: FOTOS_REAIS.torrada,
         rating: '4.9',
         hasSizes: false
     },
@@ -428,7 +443,7 @@ const PRODUCTS_DATA = [
         desc: 'Suco feito na hora com fruta natural selecionada (500ml).',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Natural',
-        image: PASTEL_IMGS.suco,
+        image: FOTOS_REAIS.sucoMorango,
         rating: '4.9',
         hasSizes: false
     },
