@@ -579,6 +579,16 @@ h1, h2, h3, h4, .brand-name {
     flex: 1;
 }
 
+.size-selector-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
 .size-selector {
     display: flex;
     gap: 8px;
@@ -590,17 +600,32 @@ h1, h2, h3, h4, .brand-name {
 
 .size-btn {
     flex: 1;
-    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 6px;
     background: transparent;
     border: 1px solid transparent;
     border-radius: 6px;
-    color: #475569;
-    font-size: 0.8125rem;
-    font-weight: 500;
     cursor: pointer;
     text-align: center;
     transition: all 0.2s;
     user-select: none;
+}
+
+.size-btn-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.1;
+}
+
+.size-btn-price {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #64748B;
+    line-height: 1.1;
 }
 
 .size-btn:hover {
@@ -610,8 +635,6 @@ h1, h2, h3, h4, .brand-name {
 .size-btn.active {
     background: #FFFFFF;
     border-color: #CBD5E1;
-    color: #0F172A;
-    font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 

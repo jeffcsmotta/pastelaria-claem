@@ -463,45 +463,25 @@ const PRODUCTS_DATA = [
         id: 'beb-4',
         title: 'Café com Leite',
         category: 'bebidas',
-        desc: 'Pingado quente e cremoso com leite de primeira qualidade.',
+        desc: 'Café com leite quente e cremoso, com leite de primeira qualidade.',
         prices: { P: 6.00, G: 6.00 },
         image: FOTOS_REAIS.cafeComLeite,
         rating: '4.8',
         hasSizes: false
     },
     {
-        id: 'beb-5',
-        title: 'Refrigerante 2L (Coca-Cola / Guaraná / Fanta)',
+        id: 'beb-pingado',
+        title: 'Pingado',
         category: 'bebidas',
-        desc: 'Garrafa pet 2 Litros bem gelada.',
-        prices: { P: 14.50, G: 14.50 },
-        image: PASTEL_IMGS.bebida,
-        rating: '4.9',
-        hasSizes: false
-    },
-    {
-        id: 'beb-6',
-        title: 'Refrigerante 600ml',
-        category: 'bebidas',
-        desc: 'Garrafa 600ml gelada (Coca-Cola, Coca Zero, Fanta Laranja ou Guaraná).',
-        prices: { P: 9.75, G: 9.75 },
-        image: PASTEL_IMGS.bebida,
+        desc: 'Café passado na hora com um toque de leite.',
+        prices: { P: 4.50, G: 4.50 },
+        image: FOTOS_REAIS.cafeComLeite,
         rating: '4.8',
         hasSizes: false
     },
     {
-        id: 'beb-7',
-        title: 'Refrigerante Lata 350ml / H2O / Ice Tea',
-        category: 'bebidas',
-        desc: 'Lata 350ml trincando de gelada.',
-        prices: { P: 7.75, G: 7.75 },
-        image: PASTEL_IMGS.bebida,
-        rating: '4.9',
-        hasSizes: false
-    },
-    {
-        id: 'beb-8',
-        title: 'Água Mineral (Com ou Sem Gás 500ml)',
+        id: 'beb-agua',
+        title: 'Água Mineral (Sem Gás 500ml)',
         category: 'bebidas',
         desc: 'Garrafa 500ml geladinha.',
         prices: { P: 5.00, G: 5.00 },
@@ -510,8 +490,168 @@ const PRODUCTS_DATA = [
         hasSizes: false
     },
     {
+        id: 'beb-agua-gas',
+        title: 'Água Mineral (Com Gás 500ml)',
+        category: 'bebidas',
+        desc: 'Garrafa 500ml gaseificada e geladinha.',
+        prices: { P: 5.00, G: 5.00 },
+        image: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=600&q=80',
+        rating: '4.7',
+        hasSizes: false
+    },
+    {
+        id: 'beb-h2o',
+        title: 'H2O',
+        category: 'bebidas',
+        desc: 'Bebida levemente gaseificada, geladinha.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80',
+        rating: '4.7',
+        hasSizes: false
+    },
+    {
+        id: 'beb-icetea-500',
+        title: 'Ice Tea 500ml',
+        category: 'bebidas',
+        desc: 'Chá gelado 500ml, geladinho.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1499638673689-79a0b5115d87?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-200',
+        title: 'Coca-Cola 200ml',
+        category: 'bebidas',
+        desc: 'Garrafinha 200ml bem gelada.',
+        prices: { P: 4.50, G: 4.50 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-guarana-200',
+        title: 'Guaraná 200ml',
+        category: 'bebidas',
+        desc: 'Garrafinha 200ml bem gelada.',
+        prices: { P: 4.50, G: 4.50 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-350',
+        title: 'Coca-Cola 350ml',
+        category: 'bebidas',
+        desc: 'Lata 350ml trincando de gelada.',
+        prices: { P: 7.75, G: 7.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-zero-350',
+        title: 'Coca-Cola Zero 350ml',
+        category: 'bebidas',
+        desc: 'Lata 350ml trincando de gelada.',
+        prices: { P: 7.75, G: 7.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-sprite-350',
+        title: 'Sprite 350ml',
+        category: 'bebidas',
+        desc: 'Lata 350ml trincando de gelada.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-600',
+        title: 'Coca-Cola 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-zero-600',
+        title: 'Coca-Cola Zero 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-fanta-600',
+        title: 'Fanta Laranja 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-guarana-600',
+        title: 'Guaraná 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-2l',
+        title: 'Coca-Cola 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-zero-2l',
+        title: 'Coca-Cola Zero 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-fanta-2l',
+        title: 'Fanta Laranja 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-guarana-2l',
+        title: 'Guaraná 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
         id: 'beb-9',
-        title: 'Cerveja Lata / 600ml',
+        title: 'Cerveja Lata',
         category: 'bebidas',
         desc: 'Cerveja estupidamente gelada.',
         prices: { P: 8.00, G: 8.00 },
@@ -611,11 +751,21 @@ function productCardHTML(item) {
                 <p class="card-desc">${item.desc}</p>
 
                 ${item.hasSizes ? `
+                    <span class="size-selector-label">${item.prices.DEZ !== undefined ? 'Tamanho e Quantidade' : 'Tamanho'}</span>
                     <div class="size-selector">
-                        <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">Tamanho P</button>
-                        <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">Tamanho G (+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')})</button>
+                        <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">
+                            <span class="size-btn-label">P</span>
+                            <span class="size-btn-price">R$ ${item.prices.P.toFixed(2).replace('.', ',')}</span>
+                        </button>
+                        <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">
+                            <span class="size-btn-label">G</span>
+                            <span class="size-btn-price">+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')}</span>
+                        </button>
                         ${item.prices.DEZ !== undefined ? `
-                            <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">10un (R$${item.prices.DEZ.toFixed(2).replace('.', ',')})</button>
+                            <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">
+                                <span class="size-btn-label">10un</span>
+                                <span class="size-btn-price">R$ ${item.prices.DEZ.toFixed(2).replace('.', ',')}</span>
+                            </button>
                         ` : ''}
                     </div>
                 ` : ''}
