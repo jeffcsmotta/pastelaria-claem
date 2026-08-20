@@ -27,12 +27,11 @@
             position: fixed !important;
             inset: 0 !important;
             z-index: 9999999 !important;
-            background: radial-gradient(circle at center, #1E293B 0%, #0B0F17 100%) !important;
+            background: #FFFFFF !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s !important;
-            backdrop-filter: blur(20px) !important;
         }
         .pwa-splash.fade-out {
             opacity: 0 !important;
@@ -48,8 +47,8 @@
         }
         .splash-logo-wrap {
             position: relative;
-            width: 140px;
-            height: 140px;
+            width: 260px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -62,12 +61,11 @@
             position: relative;
             z-index: 2;
             animation: splashPop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            filter: drop-shadow(0 10px 25px rgba(225, 29, 72, 0.6));
         }
         .splash-glow {
             position: absolute;
             inset: -20px;
-            background: radial-gradient(circle, rgba(225, 29, 72, 0.5) 0%, rgba(225, 29, 72, 0) 70%);
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.12) 0%, rgba(225, 29, 72, 0) 70%);
             border-radius: 50%;
             animation: glowPulse 1.5s infinite alternate;
             z-index: 1;
@@ -85,7 +83,7 @@
             font-family: 'Outfit', sans-serif;
             font-size: 1.6rem;
             font-weight: 900;
-            color: #FFFFFF;
+            color: #0F172A;
             margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
@@ -98,7 +96,7 @@
         .splash-loader {
             width: 50px;
             height: 5px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(15, 23, 42, 0.1);
             border-radius: 99px;
             position: relative;
             overflow: hidden;
@@ -120,7 +118,7 @@
         }
     </style>
 
-    <link rel="stylesheet" href="style.css?v=20260819-v10">
+    <link rel="stylesheet" href="style.css?v=20260820-v11">
 </head>
 <body class="theme-regular">
 
@@ -128,10 +126,9 @@
     <div id="pwa-splash" class="pwa-splash">
         <div class="splash-content">
             <div class="splash-logo-wrap">
-                <img src="assets/logo.svg" alt="Pastelaria CLAEM Logo" class="splash-logo">
+                <img src="assets/logo-claem-cropped.png" alt="Pastelaria CLAEM Logo" class="splash-logo">
                 <div class="splash-glow"></div>
             </div>
-            <h2 class="splash-title">Pastelaria CLAEM</h2>
             <p class="splash-subtitle">🥟 Pastéis & Empanadas Artesanais...</p>
             <div class="splash-loader"></div>
         </div>
