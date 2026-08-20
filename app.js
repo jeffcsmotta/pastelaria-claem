@@ -15,8 +15,282 @@ const PASTEL_IMGS = {
     torrada: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80'
 };
 
+// Fotos reais dos produtos, feitas na casa (substituem os placeholders acima
+// item a item conforme chegam — cardápio ainda tem itens sem foto própria).
+const FOTOS_REAIS = {
+    carneDePanela: 'assets/foto-carne-de-panela.jpg',
+    calabresa: 'assets/foto-calabresa.jpg',
+    calabresaQueijo: 'assets/foto-calabresa-queijo.jpg',
+    baconQueijoMilho: 'assets/foto-bacon-queijo-milho.jpg',
+    bananaCanela: 'assets/foto-banana-canela.jpg',
+    bananaChocolate: 'assets/foto-banana-chocolate.jpg',
+    chocolatePreto: 'assets/foto-chocolate-preto.jpg',
+    chocolateBranco: 'assets/foto-chocolate-branco.jpg',
+    chocolateAmendoim: 'assets/foto-chocolate-amendoim.jpg',
+    chocolateQuente: 'assets/foto-chocolate-quente.jpg',
+    cafeComLeite: 'assets/foto-cafe-com-leite.jpg',
+    frangoCatupiry: 'assets/foto-frango-catupiry.jpg',
+    carneOvo: 'assets/foto-carne-ovo.jpg',
+    carneAzeitona: 'assets/foto-carne-azeitona.jpg',
+    carneQueijo: 'assets/foto-carne-queijo.jpg',
+    morangoMoreno: 'assets/foto-morango-moreno.jpg',
+    palmitoQueijo: 'assets/foto-palmito-queijo.jpg',
+    pizza: 'assets/foto-pizza.jpg',
+    porcaoPastel: 'assets/foto-porcao-pastel.jpg',
+    prestigio: 'assets/foto-prestigio.jpg',
+    presuntoQueijo: 'assets/foto-presunto-queijo.jpg',
+    queijo: 'assets/foto-queijo.jpg',
+    queijoMilho: 'assets/foto-queijo-milho.jpg',
+    romeuJulieta: 'assets/foto-romeu-julieta.jpg',
+    sucoMorango: 'assets/foto-suco-morango.jpg',
+    torrada: 'assets/foto-torrada.jpg',
+    frangoDesfiado: 'assets/foto-frango-desfiado.jpg',
+    frangoQueijo: 'assets/foto-frango-queijo.jpg'
+};
+
 // Menu Database CLAEM
 const PRODUCTS_DATA = [
+    // --- PASTÉIS SALGADOS ---
+    {
+        id: 'pas-1',
+        title: 'Pastel de Carne com Ovo',
+        category: 'salgados',
+        desc: 'Massa crocante e sequinha recheada com carne moída de gado temperada e ovo picadinho.',
+        prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
+        badge: 'Clássico',
+        image: FOTOS_REAIS.carneOvo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-2',
+        title: 'Pastel de Carne de Panela',
+        category: 'salgados',
+        desc: 'Carne de panela cozida lentamente, desfiada com temperos coloniais.',
+        prices: { P: 5.00, G: 15.00, DEZ: 45.00 },
+        badge: 'Mais Vendido',
+        image: FOTOS_REAIS.carneDePanela,
+        rating: '5.0',
+        hasSizes: true
+    },
+    {
+        id: 'pas-3',
+        title: 'Pastel de Carne com Queijo',
+        category: 'salgados',
+        desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.carneQueijo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-4',
+        title: 'Pastel de Carne com Azeitona',
+        category: 'salgados',
+        desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.carneAzeitona,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-5',
+        title: 'Pastel de Frango Desfiado',
+        category: 'salgados',
+        desc: 'Frango desfiado super macio e temperado.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.frangoDesfiado,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-6',
+        title: 'Pastel de Frango com Queijo',
+        category: 'salgados',
+        desc: 'Frango desfiado com generosa camada de queijo mussarela derretido.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.frangoQueijo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-7',
+        title: 'Pastel de Frango com Catupiry',
+        category: 'salgados',
+        desc: 'Frango com o verdadeiro e cremoso queijo tipo Catupiry.',
+        prices: { P: 3.50, G: 12.00 },
+        badge: 'Favorito',
+        image: FOTOS_REAIS.frangoCatupiry,
+        rating: '5.0',
+        hasSizes: true
+    },
+    {
+        id: 'pas-8',
+        title: 'Pastel Presunto com Queijo',
+        category: 'salgados',
+        desc: 'O tradicional pastel misto de presunto e queijo quentinho.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.presuntoQueijo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-9',
+        title: 'Pastel de Pizza',
+        category: 'salgados',
+        desc: 'Presunto, queijo mussarela e orégano aromático.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.pizza,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-10',
+        title: 'Pastel Palmito com Queijo',
+        category: 'salgados',
+        desc: 'Palmito macio fatiado envolvido em mussarela derretida.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.palmitoQueijo,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-11',
+        title: 'Pastel de Calabresa',
+        category: 'salgados',
+        desc: 'Calabresa fatiada levemente acebolada na massa frita.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.calabresa,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-12',
+        title: 'Pastel Calabresa com Queijo',
+        category: 'salgados',
+        desc: 'Calabresa bem dourada com mussarela cremosa.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.calabresaQueijo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-13',
+        title: 'Pastel Apenas Queijo',
+        category: 'salgados',
+        desc: 'Mussarela pura derretendo a cada mordida.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.queijo,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'pas-14',
+        title: 'Pastel Queijo com Milho',
+        category: 'salgados',
+        desc: 'Queijo mussarela com milho doce selecionado.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.queijoMilho,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'pas-15',
+        title: 'Pastel Bacon, Queijo e Milho',
+        category: 'salgados',
+        desc: 'Bacon crocante em cubos, queijo mussarela e milho verde.',
+        prices: { P: 3.50, G: 12.00 },
+        badge: 'Top Vendas',
+        image: FOTOS_REAIS.baconQueijoMilho,
+        rating: '5.0',
+        hasSizes: true
+    },
+
+    // --- PASTÉIS DOCES ---
+    {
+        id: 'doc-1',
+        title: 'Pastel Romeu e Julieta',
+        category: 'doces',
+        desc: 'Combinação clássica de goiabada cremosa com queijo mussarela.',
+        prices: { P: 2.50, G: 10.00 },
+        badge: 'Clássico Doce',
+        image: FOTOS_REAIS.romeuJulieta,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'doc-2',
+        title: 'Pastel Banana com Canela',
+        category: 'doces',
+        desc: 'Rodelas de banana fatiada polvilhada com açúcar e canela.',
+        prices: { P: 2.50, G: 10.00 },
+        image: FOTOS_REAIS.bananaCanela,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'doc-3',
+        title: 'Pastel Banana com Chocolate',
+        category: 'doces',
+        desc: 'Banana fresca envolvida em chocolate ao leite derretido.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.bananaChocolate,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'doc-4',
+        title: 'Pastel Chocolate Preto',
+        category: 'doces',
+        desc: 'Recheado com generoso chocolate ao leite cremoso.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.chocolatePreto,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'doc-5',
+        title: 'Pastel Chocolate Branco',
+        category: 'doces',
+        desc: 'Delicioso recheio de chocolate branco derretido.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.chocolateBranco,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'doc-6',
+        title: 'Pastel Prestígio',
+        category: 'doces',
+        desc: 'Chocolate ao leite combinado com beijinho de coco ralado.',
+        prices: { P: 3.50, G: 12.00 },
+        badge: 'Delícia',
+        image: FOTOS_REAIS.prestigio,
+        rating: '4.9',
+        hasSizes: true
+    },
+    {
+        id: 'doc-7',
+        title: 'Pastel Chocolate com Amendoim',
+        category: 'doces',
+        desc: 'Chocolate preto com pedacinhos de amendoim crocante.',
+        prices: { P: 3.50, G: 12.00 },
+        image: FOTOS_REAIS.chocolateAmendoim,
+        rating: '4.8',
+        hasSizes: true
+    },
+    {
+        id: 'doc-8',
+        title: 'Pastel Morango Moreno',
+        category: 'doces',
+        desc: 'Morangos frescos selecionados cobertos de chocolate ao leite.',
+        prices: { P: 3.75, G: 13.00, DEZ: 31.00 },
+        badge: 'Top Doce',
+        image: FOTOS_REAIS.morangoMoreno,
+        rating: '5.0',
+        hasSizes: true
+    },
+
     // --- EMPANADAS ARTESANAIS ---
     {
         id: 'emp-1',
@@ -25,7 +299,7 @@ const PRODUCTS_DATA = [
         desc: 'Massa artesanal recheada com suculenta carne de panela desfiada temperada com especiarias da casa.',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Mais Pedida',
-        image: PASTEL_IMGS.empanada,
+        image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
         hasSizes: false
     },
@@ -94,247 +368,6 @@ const PRODUCTS_DATA = [
         hasSizes: false
     },
 
-    // --- PASTÉIS SALGADOS ---
-    {
-        id: 'pas-1',
-        title: 'Pastel de Carne com Ovo',
-        category: 'salgados',
-        desc: 'Massa crocante e sequinha recheada com carne moída de gado temperada e ovo picadinho.',
-        prices: { P: 2.50, G: 10.00 },
-        badge: 'Clássico',
-        image: PASTEL_IMGS.carne,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-2',
-        title: 'Pastel de Carne de Panela',
-        category: 'salgados',
-        desc: 'Carne de panela cozida lentamente, desfiada com temperos coloniais.',
-        prices: { P: 5.00, G: 15.00 },
-        badge: 'Mais Vendido',
-        image: PASTEL_IMGS.carne,
-        rating: '5.0',
-        hasSizes: true
-    },
-    {
-        id: 'pas-3',
-        title: 'Pastel de Carne com Queijo',
-        category: 'salgados',
-        desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-4',
-        title: 'Pastel de Carne com Azeitona',
-        category: 'salgados',
-        desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-5',
-        title: 'Pastel de Frango Desfiado',
-        category: 'salgados',
-        desc: 'Frango desfiado super macio e temperado.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-6',
-        title: 'Pastel de Frango com Queijo',
-        category: 'salgados',
-        desc: 'Frango desfiado com generosa camada de queijo mussarela derretido.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-7',
-        title: 'Pastel de Frango com Catupiry',
-        category: 'salgados',
-        desc: 'Frango com o verdadeiro e cremoso queijo tipo Catupiry.',
-        prices: { P: 3.50, G: 12.00 },
-        badge: 'Favorito',
-        image: PASTEL_IMGS.queijo,
-        rating: '5.0',
-        hasSizes: true
-    },
-    {
-        id: 'pas-8',
-        title: 'Pastel Presunto com Queijo',
-        category: 'salgados',
-        desc: 'O tradicional pastel misto de presunto e queijo quentinho.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-9',
-        title: 'Pastel de Pizza',
-        category: 'salgados',
-        desc: 'Presunto, queijo mussarela e orégano aromático.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-10',
-        title: 'Pastel Palmito com Queijo',
-        category: 'salgados',
-        desc: 'Palmito macio fatiado envolvido em mussarela derretida.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-11',
-        title: 'Pastel de Calabresa',
-        category: 'salgados',
-        desc: 'Calabresa fatiada levemente acebolada na massa frita.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-12',
-        title: 'Pastel Calabresa com Queijo',
-        category: 'salgados',
-        desc: 'Calabresa bem dourada com mussarela cremosa.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.carne,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-13',
-        title: 'Pastel Apenas Queijo',
-        category: 'salgados',
-        desc: 'Mussarela pura derretendo a cada mordida.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'pas-14',
-        title: 'Pastel Queijo com Milho',
-        category: 'salgados',
-        desc: 'Queijo mussarela com milho doce selecionado.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.queijo,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'pas-15',
-        title: 'Pastel Bacon, Queijo e Milho',
-        category: 'salgados',
-        desc: 'Bacon crocante em cubos, queijo mussarela e milho verde.',
-        prices: { P: 3.50, G: 12.00 },
-        badge: 'Top Vendas',
-        image: PASTEL_IMGS.queijo,
-        rating: '5.0',
-        hasSizes: true
-    },
-
-    // --- PASTÉIS DOCES ---
-    {
-        id: 'doc-1',
-        title: 'Pastel Romeu e Julieta',
-        category: 'doces',
-        desc: 'Combinação clássica de goiabada cremosa com queijo mussarela.',
-        prices: { P: 2.50, G: 10.00 },
-        badge: 'Clássico Doce',
-        image: PASTEL_IMGS.doce,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'doc-2',
-        title: 'Pastel Banana com Canela',
-        category: 'doces',
-        desc: 'Rodelas de banana fatiada polvilhada com açúcar e canela.',
-        prices: { P: 2.50, G: 10.00 },
-        image: PASTEL_IMGS.doce,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'doc-3',
-        title: 'Pastel Banana com Chocolate',
-        category: 'doces',
-        desc: 'Banana fresca envolvida em chocolate ao leite derretido.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'doc-4',
-        title: 'Pastel Chocolate Preto',
-        category: 'doces',
-        desc: 'Recheado com generoso chocolate ao leite cremoso.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'doc-5',
-        title: 'Pastel Chocolate Branco',
-        category: 'doces',
-        desc: 'Delicioso recheio de chocolate branco derretido.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'doc-6',
-        title: 'Pastel Prestígio',
-        category: 'doces',
-        desc: 'Chocolate ao leite combinado com beijinho de coco ralado.',
-        prices: { P: 3.50, G: 12.00 },
-        badge: 'Delícia',
-        image: PASTEL_IMGS.doce,
-        rating: '4.9',
-        hasSizes: true
-    },
-    {
-        id: 'doc-7',
-        title: 'Pastel Chocolate com Amendoim',
-        category: 'doces',
-        desc: 'Chocolate preto com pedacinhos de amendoim crocante.',
-        prices: { P: 3.50, G: 12.00 },
-        image: PASTEL_IMGS.doce,
-        rating: '4.8',
-        hasSizes: true
-    },
-    {
-        id: 'doc-8',
-        title: 'Pastel Morango Moreno',
-        category: 'doces',
-        desc: 'Morangos frescos selecionados cobertos de chocolate ao leite.',
-        prices: { P: 3.75, G: 13.00 },
-        badge: 'Top Doce',
-        image: PASTEL_IMGS.doce,
-        rating: '5.0',
-        hasSizes: true
-    },
-
     // --- PORÇÕES DE PASTÉIS ---
     {
         id: 'por-1',
@@ -343,7 +376,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta com 10 minipastéis crocantes de carne temperada com ovo.',
         prices: { P: 24.00, G: 24.00 },
         badge: 'Para Compartilhar',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '5.0',
         hasSizes: false
     },
@@ -354,7 +387,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta com 10 minipastéis recheados com carne de panela desfiada.',
         prices: { P: 45.00, G: 45.00 },
         badge: 'Especial',
-        image: PASTEL_IMGS.carne,
+        image: FOTOS_REAIS.carneDePanela,
         rating: '5.0',
         hasSizes: false
     },
@@ -365,7 +398,7 @@ const PRODUCTS_DATA = [
         desc: 'Cesta doce com 10 minipastéis de morango fresco com chocolate.',
         prices: { P: 31.00, G: 31.00 },
         badge: 'Porção Doce',
-        image: PASTEL_IMGS.doce,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '4.9',
         hasSizes: false
     },
@@ -375,7 +408,7 @@ const PRODUCTS_DATA = [
         category: 'porcoes',
         desc: 'Escolha até 2 sabores tradicionais para sua cesta de 10 minipastéis.',
         prices: { P: 28.00, G: 28.00 },
-        image: PASTEL_IMGS.queijo,
+        image: FOTOS_REAIS.porcaoPastel,
         rating: '4.8',
         hasSizes: false
     },
@@ -388,7 +421,7 @@ const PRODUCTS_DATA = [
         desc: 'Pão fatiado tostado no capricho com alface, tomate fresco, ovo, presunto, queijo mussarela e maionese especial da casa.',
         prices: { P: 20.00, G: 20.00 },
         badge: 'Lanche Reforçado',
-        image: PASTEL_IMGS.torrada,
+        image: FOTOS_REAIS.torrada,
         rating: '4.9',
         hasSizes: false
     },
@@ -401,7 +434,7 @@ const PRODUCTS_DATA = [
         desc: 'Taça cremosa de chocolate quente especial artesanal com raspa de chocolate.',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Especial Quente',
-        image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80',
+        image: FOTOS_REAIS.chocolateQuente,
         rating: '5.0',
         hasSizes: false
     },
@@ -412,7 +445,7 @@ const PRODUCTS_DATA = [
         desc: 'Suco feito na hora com fruta natural selecionada (500ml).',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Natural',
-        image: PASTEL_IMGS.suco,
+        image: FOTOS_REAIS.sucoMorango,
         rating: '4.9',
         hasSizes: false
     },
@@ -430,35 +463,85 @@ const PRODUCTS_DATA = [
         id: 'beb-4',
         title: 'Café com Leite',
         category: 'bebidas',
-        desc: 'Pingado quente e cremoso com leite de primeira qualidade.',
+        desc: 'Café com leite quente e cremoso, com leite de primeira qualidade.',
         prices: { P: 6.00, G: 6.00 },
-        image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80',
+        image: FOTOS_REAIS.cafeComLeite,
         rating: '4.8',
         hasSizes: false
     },
     {
-        id: 'beb-5',
-        title: 'Refrigerante 2L (Coca-Cola / Guaraná / Fanta)',
+        id: 'beb-pingado',
+        title: 'Pingado',
         category: 'bebidas',
-        desc: 'Garrafa pet 2 Litros bem gelada.',
-        prices: { P: 14.50, G: 14.50 },
+        desc: 'Café passado na hora com um toque de leite.',
+        prices: { P: 4.50, G: 4.50 },
+        image: FOTOS_REAIS.cafeComLeite,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-agua',
+        title: 'Água Mineral (Sem Gás 500ml)',
+        category: 'bebidas',
+        desc: 'Garrafa 500ml geladinha.',
+        prices: { P: 5.00, G: 5.00 },
+        image: 'https://images.unsplash.com/photo-1616118132534-381148898bb4?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-agua-gas',
+        title: 'Água Mineral (Com Gás 500ml)',
+        category: 'bebidas',
+        desc: 'Garrafa 500ml gaseificada e geladinha.',
+        prices: { P: 5.00, G: 5.00 },
+        image: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=600&q=80',
+        rating: '4.7',
+        hasSizes: false
+    },
+    {
+        id: 'beb-h2o',
+        title: 'H2O',
+        category: 'bebidas',
+        desc: 'Bebida levemente gaseificada, geladinha.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80',
+        rating: '4.7',
+        hasSizes: false
+    },
+    {
+        id: 'beb-icetea-500',
+        title: 'Ice Tea 500ml',
+        category: 'bebidas',
+        desc: 'Chá gelado 500ml, geladinho.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1499638673689-79a0b5115d87?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-200',
+        title: 'Coca-Cola 200ml',
+        category: 'bebidas',
+        desc: 'Garrafinha 200ml bem gelada.',
+        prices: { P: 4.50, G: 4.50 },
         image: PASTEL_IMGS.bebida,
         rating: '4.9',
         hasSizes: false
     },
     {
-        id: 'beb-6',
-        title: 'Refrigerante 600ml',
+        id: 'beb-guarana-200',
+        title: 'Guaraná 200ml',
         category: 'bebidas',
-        desc: 'Garrafa 600ml gelada (Coca-Cola, Coca Zero, Fanta Laranja ou Guaraná).',
-        prices: { P: 9.75, G: 9.75 },
-        image: PASTEL_IMGS.bebida,
+        desc: 'Garrafinha 200ml bem gelada.',
+        prices: { P: 4.50, G: 4.50 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
         rating: '4.8',
         hasSizes: false
     },
     {
-        id: 'beb-7',
-        title: 'Refrigerante Lata 350ml / H2O / Ice Tea',
+        id: 'beb-coca-350',
+        title: 'Coca-Cola 350ml',
         category: 'bebidas',
         desc: 'Lata 350ml trincando de gelada.',
         prices: { P: 7.75, G: 7.75 },
@@ -467,18 +550,108 @@ const PRODUCTS_DATA = [
         hasSizes: false
     },
     {
-        id: 'beb-8',
-        title: 'Água Mineral (Com ou Sem Gás 500ml)',
+        id: 'beb-coca-zero-350',
+        title: 'Coca-Cola Zero 350ml',
         category: 'bebidas',
-        desc: 'Garrafa 500ml geladinha.',
-        prices: { P: 5.00, G: 5.00 },
-        image: 'https://images.unsplash.com/photo-1560023907-5f310c80557f?auto=format&fit=crop&w=600&q=80',
+        desc: 'Lata 350ml trincando de gelada.',
+        prices: { P: 7.75, G: 7.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-sprite-350',
+        title: 'Sprite 350ml',
+        category: 'bebidas',
+        desc: 'Lata 350ml trincando de gelada.',
+        prices: { P: 7.75, G: 7.75 },
+        image: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-600',
+        title: 'Coca-Cola 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-zero-600',
+        title: 'Coca-Cola Zero 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-fanta-600',
+        title: 'Fanta Laranja 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-guarana-600',
+        title: 'Guaraná 600ml',
+        category: 'bebidas',
+        desc: 'Garrafa 600ml gelada.',
+        prices: { P: 9.75, G: 9.75 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-2l',
+        title: 'Coca-Cola 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.9',
+        hasSizes: false
+    },
+    {
+        id: 'beb-coca-zero-2l',
+        title: 'Coca-Cola Zero 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: PASTEL_IMGS.bebida,
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-fanta-2l',
+        title: 'Fanta Laranja 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: 'https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=600&q=80',
+        rating: '4.8',
+        hasSizes: false
+    },
+    {
+        id: 'beb-guarana-2l',
+        title: 'Guaraná 2L',
+        category: 'bebidas',
+        desc: 'Garrafa pet 2 Litros bem gelada.',
+        prices: { P: 14.50, G: 14.50 },
+        image: 'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80',
         rating: '4.8',
         hasSizes: false
     },
     {
         id: 'beb-9',
-        title: 'Cerveja Lata / 600ml',
+        title: 'Cerveja Lata',
         category: 'bebidas',
         desc: 'Cerveja estupidamente gelada.',
         prices: { P: 8.00, G: 8.00 },
@@ -492,155 +665,10 @@ const PRODUCTS_DATA = [
 let currentCategory = 'all';
 let cart = [];
 let fulfillmentType = 'delivery'; // 'delivery' or 'pickup'
-let selectedPayment = 'Pix (Chave Copia e Cola)'; // 'Pix', 'Cartão', 'Dinheiro'
-let deliveryFee = 6.00;
+let selectedPayment = 'Pix'; // 'Pix', 'Cartão', 'Dinheiro'
+// Taxa de entrega varia por regiao e e combinada com o atendente pelo
+// WhatsApp — o site nao cobra nenhum valor fixo de entrega no total.
 const CLIENT_WHATSAPP = '5554996879399';
-
-/* ==========================================================================
-   PIX — BR Code estático EMV, com valor travado, gerado no navegador.
-
-   Substitui o QR antigo, que codificava só o telefone em texto livre e por
-   isso nenhum app de banco reconhecia como pagamento.
-
-   Referência: Manual do BR Code (Bacen) / EMV MPM. Cada campo é
-   ID(2) + LENGTH(2) + VALUE, e o CRC16 fecha a string.
-   ========================================================================== */
-/* >>> ATENCAO: EM MODO TESTE <<<
-   Em "teste" o dinheiro vai para a conta da Onira Labs, nao para a
-   pastelaria — serve para a demonstracao ao comprador, em que quem apresenta
-   recebe o pagamento de teste na propria conta.
-
-   ANTES DE ENTREGAR O SITE: trocar PIX_MODO para "producao" e conferir com um
-   pagamento de R$ 0,01. Enquanto estiver em "teste", todo pagamento do
-   cliente final cai na conta errada.
-
-   Chave e nome do recebedor andam juntos de proposito: se so a chave mudasse,
-   o QR anunciaria um recebedor e creditaria outro — inconsistencia que o
-   comprador percebe na hora de confirmar o pagamento no app do banco. */
-const PIX_MODO = "teste";   // <<<< UNICA LINHA A TROCAR: "teste" | "producao"
-
-const PIX_PERFIS = {
-    producao: {
-        chave: "+5554996879399",      // telefone da CLAEM, em E.164
-        nome: "PASTELARIA CLAEM"
-    },
-    teste: {
-        chave: "60403306000110",      // CNPJ Onira Labs, so digitos
-        nome: "JEFFERSON MOTTA"       // titular da chave de teste
-    }
-};
-
-const PIX_CONFIG = {
-    modo: PIX_MODO,
-    chave: PIX_PERFIS[PIX_MODO].chave,
-    nome: PIX_PERFIS[PIX_MODO].nome,   // max 25 chars, sem acentos, uppercase
-    cidade: "CAXIAS DO SUL",           // max 15 chars, sem acentos, uppercase
-    txidPrefixo: "CLAEM"
-};
-
-/* Barulho no console para o modo teste nao passar despercebido em um deploy
-   apressado. Nao aparece para o cliente final, so para quem abre o DevTools. */
-if (PIX_CONFIG.modo === 'teste') {
-    console.warn(
-        '%c[PIX EM MODO TESTE] Recebedor: ' + PIX_CONFIG.nome + ' — chave ' +
-        PIX_CONFIG.chave + '. Nao e a conta da Pastelaria CLAEM. ' +
-        'Trocar PIX_MODO para "producao" antes de entregar.',
-        'background:#B45309;color:#FFF;padding:2px 6px;border-radius:3px;font-weight:700'
-    );
-}
-
-/* Compatibilidade: a chave sem o + ainda aparece em texto para o cliente. */
-const PIX_KEY_CLAEM = PIX_CONFIG.chave.replace(/^\+55/, '');
-
-/* Campo EMV: identificador, tamanho com dois digitos, valor. */
-function emv(id, valor) {
-    const v = String(valor);
-    return id + String(v.length).padStart(2, '0') + v;
-}
-
-/* Nome e cidade vao sem acento e em caixa alta, truncados no limite do
-   padrao. Acento no payload quebra a leitura em parte dos apps. */
-function normalizarTextoPix(texto, limite) {
-    return String(texto || '')
-        .normalize('NFD')
-        .replace(/[̀-ͯ]/g, '')
-        .replace(/[^A-Za-z0-9 ]/g, '')
-        .trim()
-        .toUpperCase()
-        .slice(0, limite);
-}
-
-/* CRC16-CCITT-FALSE: polinomio 0x1021, inicial 0xFFFF, sem reflexao e sem
-   XOR final. Calculado sobre o payload inteiro, ja incluindo o literal
-   "6304" do proprio campo de CRC. */
-function crc16(payload) {
-    let crc = 0xFFFF;
-    for (let i = 0; i < payload.length; i++) {
-        crc ^= payload.charCodeAt(i) << 8;
-        for (let bit = 0; bit < 8; bit++) {
-            crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) : (crc << 1);
-            crc &= 0xFFFF;
-        }
-    }
-    return crc.toString(16).toUpperCase().padStart(4, '0');
-}
-
-/* txid: apenas [A-Za-z0-9], no maximo 25 caracteres. */
-function normalizarTxid(txid) {
-    const limpo = String(txid || '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
-    return (limpo || '***').slice(0, 25);
-}
-
-function gerarTxid() {
-    return normalizarTxid(PIX_CONFIG.txidPrefixo + Date.now().toString(36));
-}
-
-/* Monta o BR Code completo. valor em number, ex 47 -> "47.00". */
-function gerarPixPayload(valor, txid) {
-    const valorFmt = Number(valor).toFixed(2);           // ponto, nunca virgula
-    const nome = normalizarTextoPix(PIX_CONFIG.nome, 25);
-    const cidade = normalizarTextoPix(PIX_CONFIG.cidade, 15);
-
-    const merchantAccount =
-        emv('00', 'br.gov.bcb.pix') +
-        emv('01', PIX_CONFIG.chave);
-
-    const adicional = emv('05', normalizarTxid(txid));
-
-    const payload =
-        emv('00', '01') +                 // Payload Format Indicator
-        emv('01', '12') +                 // uso unico / valor definido
-        emv('26', merchantAccount) +      // Merchant Account Information
-        emv('52', '0000') +               // MCC
-        emv('53', '986') +                // moeda: BRL
-        emv('54', valorFmt) +             // valor travado
-        emv('58', 'BR') +                 // pais
-        emv('59', nome) +                 // nome do recebedor
-        emv('60', cidade) +               // cidade do recebedor
-        emv('62', adicional) +            // dados adicionais (txid)
-        '6304';                           // campo do CRC, ja incluso no calculo
-
-    return payload + crc16(payload);
-}
-
-/* Estado do Pix do pedido em andamento. O txid nasce com o carrinho e vive
-   ate o pedido ser enviado — assim o identificador que o cliente ve na tela
-   e o que chega no WhatsApp da loja sao o mesmo. */
-let pixTxidAtual = null;
-let pixPayloadAtual = '';
-let pixQrInstancia = null;
-
-function garantirTxid() {
-    if (!pixTxidAtual) pixTxidAtual = gerarTxid();
-    return pixTxidAtual;
-}
-
-window.PIX_CONFIG = PIX_CONFIG;
-window.gerarPixPayload = gerarPixPayload;
-window.crc16 = crc16;
-window.emv = emv;
-window.normalizarTextoPix = normalizarTextoPix;
-window.gerarTxid = gerarTxid;
 
 // Size Selection Tracking Object
 const selectedSizes = {};
@@ -667,6 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartGrandTotalEl = document.getElementById('cart-total-price') || document.getElementById('cart-grand-total');
 
     renderCatalog();
+    renderBestSellers();
     setupFilters();
     setupCartDrawerListeners();
     setupStoreStatus();
@@ -680,12 +709,10 @@ function setupStoreStatus() {
     const day = now.getDay();
     const hour = now.getHours() + (now.getMinutes() / 60);
 
-    // Segunda a Sabado 11h as 23h, Domingo 17h as 23h
+    // Terça a Domingo: 17h as 23h30. Fechado as segundas-feiras (dia 1).
     let isOpen = false;
-    if (day >= 1 && day <= 6) {
-        if (hour >= 11 && hour < 23) isOpen = true;
-    } else if (day === 0) {
-        if (hour >= 17 && hour < 23) isOpen = true;
+    if (day !== 1) {
+        if (hour >= 17 && hour < 23.5) isOpen = true;
     }
 
     statusBadges.forEach(badge => {
@@ -705,49 +732,87 @@ function setupStoreStatus() {
     });
 }
 
+// Monta o HTML de um card de produto. Reaproveitado no cardapio completo e
+// na vitrine de Mais Vendidos — por isso usa classe (nao id) pro valor, ja
+// que o mesmo produto pode aparecer em mais de um card na pagina.
+function productCardHTML(item) {
+    const size = selectedSizes[item.id] || 'P';
+    const displayPrice = item.hasSizes ? item.prices[size] : item.prices.P;
+
+    return `
+        <div class="menu-card" data-id="${item.id}">
+            <div class="card-img-box">
+                <img src="${item.image}" alt="${item.title}" class="card-img" loading="lazy">
+                ${item.badge ? `<span class="card-badge">${item.badge}</span>` : ''}
+                <div class="card-rating"><i data-lucide="star" style="width:14px; height:14px; fill:#FFC107;"></i> ${item.rating || '4.9'}</div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">${item.title}</h3>
+                <p class="card-desc">${item.desc}</p>
+
+                ${item.hasSizes ? `
+                    <span class="size-selector-label">${item.prices.DEZ !== undefined ? 'Tamanho e Quantidade' : 'Tamanho'}</span>
+                    <div class="size-selector">
+                        <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">
+                            <span class="size-btn-label">P</span>
+                            <span class="size-btn-price">R$ ${item.prices.P.toFixed(2).replace('.', ',')}</span>
+                        </button>
+                        <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">
+                            <span class="size-btn-label">G</span>
+                            <span class="size-btn-price">+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')}</span>
+                        </button>
+                        ${item.prices.DEZ !== undefined ? `
+                            <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">
+                                <span class="size-btn-label">10un</span>
+                                <span class="size-btn-price">R$ ${item.prices.DEZ.toFixed(2).replace('.', ',')}</span>
+                            </button>
+                        ` : ''}
+                    </div>
+                ` : ''}
+
+                <div class="card-bottom">
+                    <div>
+                        <span class="price-label">Valor</span>
+                        <div class="price-value">R$ ${displayPrice.toFixed(2).replace('.', ',')}</div>
+                    </div>
+                    <button type="button" class="btn-add-item" onclick="addToCart('${item.id}')">
+                        <i data-lucide="plus" style="width:16px; height:16px;"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 // Render Product Catalog Cards
 function renderCatalog() {
     if (!productsGrid) return;
 
-    const filtered = currentCategory === 'all' 
-        ? PRODUCTS_DATA 
+    const filtered = currentCategory === 'all'
+        ? PRODUCTS_DATA
         : PRODUCTS_DATA.filter(p => p.category === currentCategory);
 
-    productsGrid.innerHTML = filtered.map(item => {
-        const size = selectedSizes[item.id] || 'P';
-        const displayPrice = item.hasSizes ? item.prices[size] : item.prices.P;
+    productsGrid.innerHTML = filtered.map(productCardHTML).join('');
 
-        return `
-            <div class="menu-card" data-id="${item.id}">
-                <div class="card-img-box">
-                    <img src="${item.image}" alt="${item.title}" class="card-img" loading="lazy">
-                    ${item.badge ? `<span class="card-badge">${item.badge}</span>` : ''}
-                    <div class="card-rating"><i data-lucide="star" style="width:14px; height:14px; fill:#FFC107;"></i> ${item.rating || '4.9'}</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">${item.title}</h3>
-                    <p class="card-desc">${item.desc}</p>
-                    
-                    ${item.hasSizes ? `
-                        <div class="size-selector">
-                            <button type="button" class="size-btn ${size === 'P' ? 'active' : ''}" data-size="P" onclick="selectSize('${item.id}', 'P')">Tamanho P</button>
-                            <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">Tamanho G (+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')})</button>
-                        </div>
-                    ` : ''}
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+}
 
-                    <div class="card-bottom">
-                        <div>
-                            <span class="price-label">${item.hasSizes ? 'A partir de' : 'Valor'}</span>
-                            <div class="price-value" id="price-display-${item.id}">R$ ${displayPrice.toFixed(2).replace('.', ',')}</div>
-                        </div>
-                        <button type="button" class="btn-add-item" onclick="addToCart('${item.id}')">
-                            <i data-lucide="plus" style="width:16px; height:16px;"></i> Adicionar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+// Vitrine "Mais Vendidos": 3 itens ja identificados como campeoes de venda
+// no proprio cardapio (badges "Mais Pedida"/"Mais Vendido"/"Top Vendas"),
+// sem inventar ranking novo.
+const BEST_SELLER_IDS = ['emp-1', 'pas-2', 'pas-15'];
+
+function renderBestSellers() {
+    const grid = document.getElementById('best-sellers-grid');
+    if (!grid) return;
+
+    const items = BEST_SELLER_IDS
+        .map(id => PRODUCTS_DATA.find(p => p.id === id))
+        .filter(Boolean);
+
+    grid.innerHTML = items.map(productCardHTML).join('');
 
     if (window.lucide) {
         window.lucide.createIcons();
@@ -755,23 +820,26 @@ function renderCatalog() {
 }
 
 // Select Product Size
+// Um mesmo produto pode aparecer em mais de um card na pagina (cardapio
+// completo + vitrine de Mais Vendidos), entao atualiza todas as instancias.
 function selectSize(itemId, size) {
     selectedSizes[itemId] = size;
-    const card = document.querySelector(`.menu-card[data-id="${itemId}"]`);
-    if (card) {
+    const cards = document.querySelectorAll(`.menu-card[data-id="${itemId}"]`);
+    const item = PRODUCTS_DATA.find(i => i.id === itemId);
+
+    cards.forEach(card => {
         const btns = card.querySelectorAll('.size-btn');
         btns.forEach(b => b.classList.remove('active'));
         const activeBtn = card.querySelector(`.size-btn[data-size="${size}"]`);
         if (activeBtn) activeBtn.classList.add('active');
 
-        const item = PRODUCTS_DATA.find(i => i.id === itemId);
         if (item && item.hasSizes) {
-            const displayPrice = card.querySelector(`#price-display-${itemId}`);
+            const displayPrice = card.querySelector('.price-value');
             if (displayPrice) {
                 displayPrice.innerText = `R$ ${item.prices[size].toFixed(2).replace('.', ',')}`;
             }
         }
-    }
+    });
 }
 window.selectSize = selectSize;
 
@@ -782,7 +850,8 @@ function addToCart(itemId) {
 
     const size = item.hasSizes ? (selectedSizes[itemId] || 'P') : null;
     const price = item.hasSizes ? item.prices[size] : item.prices.P;
-    const title = size ? `${item.title} (${size === 'P' ? 'Tamanho P' : 'Tamanho G'})` : item.title;
+    const rotuloTamanho = { P: 'Tamanho P', G: 'Tamanho G', DEZ: 'Porção 10un' };
+    const title = size ? `${item.title} (${rotuloTamanho[size] || size})` : item.title;
 
     const existingIndex = cart.findIndex(c => c.id === itemId && c.size === size);
 
@@ -863,7 +932,7 @@ function setupCartDrawerListeners() {
         btn.addEventListener('click', () => {
             paymentBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            selectedPayment = btn.dataset.method || btn.getAttribute('data-pay') || 'Pix (Chave Copia e Cola)';
+            selectedPayment = btn.dataset.method || btn.getAttribute('data-pay') || 'Pix';
             
             const cashChangeBox = document.getElementById('cash-change-box');
             const pixInfoBox = document.getElementById('pix-lock-box');
@@ -890,8 +959,7 @@ function setupCartDrawerListeners() {
 function updateCartUI() {
     const totalQuantity = cart.reduce((sum, i) => sum + i.quantity, 0);
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const activeDeliveryFee = fulfillmentType === 'delivery' ? (subtotal > 0 ? deliveryFee : 0) : 0;
-    const finalTotal = subtotal + activeDeliveryFee;
+    const finalTotal = subtotal;
 
     // Header Badges & Count
     if (cartCountBadge) cartCountBadge.innerText = totalQuantity;
@@ -919,14 +987,14 @@ function updateCartUI() {
     // Totals Breakdown
     if (cartSubtotalEl) cartSubtotalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
     if (cartDeliveryFeeEl) {
-        cartDeliveryFeeEl.innerText = fulfillmentType === 'delivery' 
-            ? `R$ ${activeDeliveryFee.toFixed(2).replace('.', ',')}` 
+        cartDeliveryFeeEl.innerText = fulfillmentType === 'delivery'
+            ? 'A combinar'
             : 'Grátis (Balcão)';
     }
     if (cartGrandTotalEl) cartGrandTotalEl.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
 
-    // Pix: valor travado, payload e QR acompanham o total
-    renderizarPix(finalTotal);
+    // Aviso de pagamento combinado com o atendente (so quando Pix esta selecionado)
+    atualizarAvisoPix(finalTotal);
 
     // Render Cart Items
     if (!cartItemsContainer) return;
@@ -1026,112 +1094,17 @@ window.closeConfirmation = closeConfirmation;
 window.clearCart = clearCart;
 window.aplicarLimpeza = aplicarLimpeza;
 
-/* Desenha o QR e o copia-e-cola a partir do total atual. Chamado toda vez
-   que o carrinho muda: item, tamanho P/G, entrega ou retirada. */
-function renderizarPix(finalTotal) {
+/* Mostra o aviso "pagamento combinado com o atendente" quando Pix esta
+   selecionado. Chamado toda vez que o carrinho muda: item, tamanho P/G,
+   entrega ou retirada. O fechamento em si (chave, valor, comprovante)
+   acontece na conversa do WhatsApp, nao no site. */
+function atualizarAvisoPix(finalTotal) {
     const caixa = document.getElementById('pix-lock-box');
-    const valorEl = document.getElementById('pix-locked-amount');
-    const txidEl = document.getElementById('pix-txid');
-    const alvoQr = document.getElementById('pix-qr-canvas');
-    const aviso = document.getElementById('pix-qr-fallback');
+    if (!caixa) return;
     const isPix = selectedPayment.toLowerCase().includes('pix');
-
-    if (valorEl) valorEl.innerText = `R$ ${finalTotal.toFixed(2).replace('.', ',')}`;
-
-    /* Sem total nao ha o que cobrar, e em cartao ou dinheiro o bloco nao
-       aparece. Em qualquer um dos casos o payload antigo e descartado. */
-    if (!isPix || finalTotal <= 0) {
-        pixPayloadAtual = '';
-        if (alvoQr) alvoQr.innerHTML = '';
-        if (aviso) aviso.style.display = 'none';
-        if (caixa) caixa.style.display = isPix ? 'block' : 'none';
-        return;
-    }
-
-    if (caixa) caixa.style.display = 'block';
-
-    const txid = garantirTxid();
-    pixPayloadAtual = gerarPixPayload(finalTotal, txid);
-
-    if (txidEl) txidEl.innerText = txid;
-
-    const campoCopia = document.getElementById('pix-payload-texto');
-    if (campoCopia) campoCopia.value = pixPayloadAtual;
-
-    if (!alvoQr) return;
-
-    /* A lib do QR vem de CDN. Se nao carregou, o cliente ainda paga: o
-       copia-e-cola resolve sozinho, com um aviso no lugar da imagem. */
-    if (typeof QRCode === 'undefined') {
-        alvoQr.innerHTML = '';
-        if (aviso) aviso.style.display = 'block';
-        return;
-    }
-
-    if (aviso) aviso.style.display = 'none';
-    alvoQr.innerHTML = '';
-    pixQrInstancia = new QRCode(alvoQr, {
-        text: pixPayloadAtual,
-        width: 90,
-        height: 90,
-        colorDark: '#000000',
-        colorLight: '#FFFFFF',
-        correctLevel: QRCode.CorrectLevel.M
-    });
+    caixa.style.display = (isPix && finalTotal > 0) ? 'block' : 'none';
 }
-window.renderizarPix = renderizarPix;
-
-// Copy Pix Key with Interactive Color State & Feedback
-function copyPixKey() {
-    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const activeDeliveryFee = fulfillmentType === 'delivery' ? deliveryFee : 0;
-    const finalTotal = subtotal + activeDeliveryFee;
-
-    const copyBtn = document.getElementById('btn-copy-pix-key');
-
-    /* Copia o BR Code inteiro, nao a chave solta: e ele que leva o valor
-       travado e o identificador do pedido para dentro do app do banco. */
-    if (!pixPayloadAtual) {
-        showToast('Monte o pedido primeiro — o código Pix é gerado com o valor total.');
-        return;
-    }
-
-    const handleSuccess = () => {
-        showToast(`Código Pix copiado — R$ ${finalTotal.toFixed(2).replace('.', ',')} já vem preenchido no app do banco.`);
-
-        if (copyBtn) {
-            copyBtn.classList.add('copied');
-            copyBtn.innerHTML = `<i data-lucide="check" style="width:14px; height:14px;"></i> <span>Copiado ✓</span>`;
-            if (window.lucide) window.lucide.createIcons();
-
-            setTimeout(() => {
-                copyBtn.classList.remove('copied');
-                copyBtn.innerHTML = `<i data-lucide="copy" style="width:14px; height:14px;"></i> <span>Copiar código Pix (valor travado)</span>`;
-                if (window.lucide) window.lucide.createIcons();
-            }, 2000);
-        }
-    };
-
-    /* execCommand para navegador antigo e para contexto sem clipboard API. */
-    const copiaAntiga = () => {
-        const campo = document.getElementById('pix-payload-texto') || document.createElement('textarea');
-        campo.value = pixPayloadAtual;
-        if (!campo.parentNode) document.body.appendChild(campo);
-        campo.removeAttribute('readonly');
-        campo.select();
-        campo.setSelectionRange(0, 99999);
-        try { document.execCommand('copy'); } catch (e) { /* segue com o aviso */ }
-        campo.setAttribute('readonly', 'readonly');
-        handleSuccess();
-    };
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(pixPayloadAtual).then(handleSuccess).catch(copiaAntiga);
-    } else {
-        copiaAntiga();
-    }
-}
-window.copyPixKey = copyPixKey;
+window.atualizarAvisoPix = atualizarAvisoPix;
 
 // Toast Notifications
 function showToast(message, type = 'success') {
@@ -1178,12 +1151,11 @@ function sendWhatsAppOrder() {
     }
 
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const activeDeliveryFee = fulfillmentType === 'delivery' ? deliveryFee : 0;
-    const finalTotal = subtotal + activeDeliveryFee;
+    const finalTotal = subtotal;
 
     let msg = `🥟 *NOVO PEDIDO - PASTELARIA CLAEM*\n`;
     msg += `------------------------------------\n`;
-    msg += `📦 *Tipo:* ${fulfillmentType === 'delivery' ? '🛵 Delivery em Domicílio' : '🛍️ Retirada no Balcão'}\n`;
+    msg += `📦 *Tipo:* ${fulfillmentType === 'delivery' ? '🛵 Entrega em Domicílio' : '🛍️ Retirada no Balcão'}\n`;
     if (customerName) msg += `👤 *Cliente:* ${customerName}\n`;
     if (fulfillmentType === 'delivery' && customerAddress) {
         msg += `🏠 *Endereço:* ${customerAddress}\n`;
@@ -1200,18 +1172,18 @@ function sendWhatsAppOrder() {
 
     msg += `------------------------------------\n`;
     msg += `💰 *Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-    msg += `🛵 *Taxa de Entrega:* ${fulfillmentType === 'delivery' ? `R$ ${activeDeliveryFee.toFixed(2).replace('.', ',')}` : 'Grátis (Balcão)'}\n`;
-    msg += `💰 *TOTAL FINAL:* R$ ${finalTotal.toFixed(2).replace('.', ',')}\n\n`;
+    msg += `🛵 *Taxa de Entrega:* ${fulfillmentType === 'delivery' ? 'A combinar com o atendente' : 'Grátis (Balcão)'}\n`;
+    msg += fulfillmentType === 'delivery'
+        ? `💰 *TOTAL DOS ITENS:* R$ ${finalTotal.toFixed(2).replace('.', ',')} _(+ taxa de entrega a combinar)_\n\n`
+        : `💰 *TOTAL FINAL:* R$ ${finalTotal.toFixed(2).replace('.', ',')}\n\n`;
 
     msg += `💳 *FORMA DE PAGAMENTO:*\n`;
     const isCash = selectedPayment.toLowerCase().includes('dinheiro') || selectedPayment === 'cash';
     const isPix = selectedPayment.toLowerCase().includes('pix');
 
     if (isPix) {
-        msg += `⚡ *PIX (Chave: ${PIX_KEY_CLAEM} - Valor: R$ ${finalTotal.toFixed(2).replace('.', ',')})*\n`;
-        msg += `_Anexando o comprovante em seguida!_\n`;
-        /* O ID vai junto para a loja casar o pagamento com este pedido. */
-        msg += `Pagamento: Pix (valor travado R$ ${finalTotal.toFixed(2).replace('.', ',')}) — ID: ${garantirTxid()}\n`;
+        msg += `⚡ *Pix*\n`;
+        msg += `_Combino a chave e o valor com você aqui pelo WhatsApp!_\n`;
     } else if (isCash) {
         msg += `💵 *Dinheiro* ${cashChange ? `(Troco para R$ ${cashChange})` : '(Sem troco)'}\n`;
     } else {

@@ -1,6 +1,6 @@
 /* ==========================================================================
    PASTELARIA CLAEM & EMPANADAS - DESIGN SYSTEM & STYLESHEET
-   Rua Marquês do Herval, 1404 • Centro, Caxias do Sul - RS
+   Rua Antônio Prado, 04 • Exposição, Caxias do Sul - RS
    ========================================================================== */
 
 :root {
@@ -579,37 +579,63 @@ h1, h2, h3, h4, .brand-name {
     flex: 1;
 }
 
+.size-selector-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
 .size-selector {
     display: flex;
-    gap: 6px;
+    gap: 8px;
+    background: #F8FAFC;
+    padding: 4px;
+    border-radius: 8px;
     margin-bottom: 14px;
 }
 
 .size-btn {
     flex: 1;
-    padding: 6px 4px;
-    background: #F1F5F9;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    color: #475569;
-    font-size: 0.74rem;
-    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 6px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
     cursor: pointer;
     text-align: center;
     transition: all 0.2s;
     user-select: none;
 }
 
+.size-btn-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.1;
+}
+
+.size-btn-price {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #64748B;
+    line-height: 1.1;
+}
+
 .size-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: #CBD5E1;
 }
 
 .size-btn.active {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #FFFFFF;
-    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+    background: #FFFFFF;
+    border-color: #CBD5E1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .card-bottom {
@@ -1068,21 +1094,24 @@ h1, h2, h3, h4, .brand-name {
 .cart-controls {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     background: rgba(255, 255, 255, 0.05);
-    padding: 3px 6px;
-    border-radius: 8px;
+    padding: 3px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Area de toque minima de 44x44px (WCAG 2.5.5) e contraste reforcado
+   contra o fundo escuro do carrinho — o estilo anterior (30px, 10% de
+   opacidade) era pequeno demais e quase invisivel. */
 .cart-qty-btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #FFFFFF;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 800;
     line-height: 1;
     cursor: pointer;
@@ -1141,6 +1170,27 @@ h1, h2, h3, h4, .brand-name {
     user-select: none;
 }
 
+/* Entrega/Retirada tem um detalhe extra (regiao / sem custo) que precisa
+   ficar numa segunda linha propria, nao so quebrar o texto no meio. */
+.del-btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+}
+
+.del-btn-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.del-btn-sub {
+    font-size: 0.66rem;
+    font-weight: 600;
+    opacity: 0.75;
+    text-transform: none;
+}
+
 .del-btn:hover, .pay-btn:hover {
     border-color: var(--accent-amber);
     color: #FFFFFF;
@@ -1185,7 +1235,7 @@ h1, h2, h3, h4, .brand-name {
     40%, 80% { transform: translateX(6px); }
 }
 
-/* Pix Lock Info Box with Dynamic QR Code */
+/* Aviso de Pix: fechamento combinado com o atendente pelo WhatsApp */
 .pix-lock-box {
     background: rgba(16, 185, 129, 0.08);
     border: 1px solid rgba(16, 185, 129, 0.25);
@@ -1204,78 +1254,10 @@ h1, h2, h3, h4, .brand-name {
     margin-bottom: 8px;
 }
 
-.pix-qr-container {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.pix-qr-code {
-    width: 90px;
-    height: 90px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    padding: 6px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.pix-qr-code canvas,
-.pix-qr-code img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    object-fit: contain;
-    display: block;
-}
-
-.pix-qr-info {
-    flex: 1;
-    min-width: 0;
-}
-
 .pix-lock-desc {
     font-size: 0.76rem;
     color: #A1A1AA;
     line-height: 1.35;
-    margin-bottom: 6px;
-}
-
-/* COPIAR PIX BUTTON */
-.btn-copy-pix {
-    width: 100%;
-    padding: 8px;
-    background: rgba(56, 189, 248, 0.12) !important;
-    border: 1px solid rgba(56, 189, 248, 0.4) !important;
-    color: #38BDF8 !important;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    border-radius: 6px;
-    font-size: 0.78rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    transition: all 0.25s ease;
-    user-select: none;
-}
-
-.btn-copy-pix:hover {
-    background: #0284C7 !important;
-    color: #FFFFFF !important;
-    border-color: #0284C7 !important;
-}
-
-.btn-copy-pix.copied {
-    background: #10B981 !important;
-    color: #000000 !important;
-    border-color: #10B981 !important;
-    font-weight: 900;
 }
 
 .cart-summary {

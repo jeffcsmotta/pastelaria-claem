@@ -1,4 +1,4 @@
-const CACHE_NAME = 'claem-cache-v6';
+const CACHE_NAME = 'claem-cache-v18';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
