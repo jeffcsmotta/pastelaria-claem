@@ -874,7 +874,11 @@ h1, h2, h3, h4, .brand-name {
 /* Contact Section */
 .contact-section {
     background: #F8FAFC;
-    padding: 80px 0;
+    padding: 48px 0 80px;
+}
+
+.best-sellers-section {
+    padding-bottom: 48px;
 }
 
 .contact-grid {
