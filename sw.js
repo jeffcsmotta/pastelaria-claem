@@ -1,11 +1,12 @@
-const CACHE_NAME = 'claem-cache-v18';
+const CACHE_NAME = 'claem-cache-v19';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './manifest.json',
-  './assets/logo.svg'
+  './assets/logo.svg',
+  './assets/logo-claem-cropped.png'
 ];
 
 self.addEventListener('install', (event) => {
