@@ -9,7 +9,7 @@ const PASTEL_IMGS = {
     queijo: 'assets/pastel_queijo.png',
     doce: 'assets/pastel_doce.png',
     fritas: 'assets/fritas.jpg',
-    empanada: 'assets/empanadas.jpeg',
+    empanada: 'assets/foto-empanada.jpg',
     bebida: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80',
     suco: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80',
     torrada: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80'
@@ -78,7 +78,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne com Queijo',
         category: 'salgados',
         desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
-        prices: { P: 3.50, G: 12.00, DEZ: 24.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.carneQueijo,
         rating: '4.9',
         hasSizes: true
@@ -88,7 +88,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne com Azeitona',
         category: 'salgados',
         desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
-        prices: { P: 3.50, G: 12.00, DEZ: 24.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.carneAzeitona,
         rating: '4.8',
         hasSizes: true
@@ -299,7 +299,7 @@ const PRODUCTS_DATA = [
         desc: 'Massa artesanal recheada com suculenta carne de panela desfiada temperada com especiarias da casa.',
         prices: { P: 15.00, G: 15.00 },
         badge: 'Mais Pedida',
-        image: FOTOS_REAIS.carneDePanela,
+        image: PASTEL_IMGS.empanada,
         rating: '5.0',
         hasSizes: false
     },
