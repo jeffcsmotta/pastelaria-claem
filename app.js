@@ -274,7 +274,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Chocolate com Amendoim',
         category: 'doces',
         desc: 'Chocolate preto com pedacinhos de amendoim crocante.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.75, G: 13.00 },
         image: FOTOS_REAIS.chocolateAmendoim,
         rating: '4.8',
         hasSizes: true
@@ -663,6 +663,13 @@ const PRODUCTS_DATA = [
 
 // App State
 let currentCategory = 'all';
+let currentSearchTerm = '';
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
 let cart = [];
 let fulfillmentType = 'delivery'; // 'delivery' or 'pickup'
 let selectedPayment = 'Pix'; // 'Pix', 'Cartão', 'Dinheiro'
@@ -697,6 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCatalog();
     renderBestSellers();
     setupFilters();
+    setupSearch();
     setupCartDrawerListeners();
     setupStoreStatus();
     updateCartUI();
@@ -788,11 +796,21 @@ function productCardHTML(item) {
 function renderCatalog() {
     if (!productsGrid) return;
 
-    const filtered = currentCategory === 'all'
+    let filtered = currentCategory === 'all'
         ? PRODUCTS_DATA
         : PRODUCTS_DATA.filter(p => p.category === currentCategory);
 
-    productsGrid.innerHTML = filtered.map(productCardHTML).join('');
+    const term = currentSearchTerm.trim().toLowerCase();
+    if (term) {
+        filtered = filtered.filter(p =>
+            p.title.toLowerCase().includes(term) ||
+            (p.desc && p.desc.toLowerCase().includes(term))
+        );
+    }
+
+    productsGrid.innerHTML = filtered.length
+        ? filtered.map(productCardHTML).join('')
+        : `<p class="search-empty-state">Nenhum item encontrado para "${escapeHtml(currentSearchTerm)}".</p>`;
 
     if (window.lucide) {
         window.lucide.createIcons();
@@ -905,6 +923,17 @@ function setupFilters() {
             currentCategory = btn.dataset.category || 'all';
             renderCatalog();
         });
+    });
+}
+
+// Menu Search Bar
+function setupSearch() {
+    const searchInput = document.getElementById('menu-search');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', () => {
+        currentSearchTerm = searchInput.value;
+        renderCatalog();
     });
 }
 
