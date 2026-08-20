@@ -1801,7 +1801,16 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     /* 3. Menu Section & App Swipeable Category Carousel */
     .menu-section {
         padding-top: 14px !important;
-        padding-bottom: 80px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .best-sellers-section {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .contact-section {
+        padding-top: 12px;
     }
 
     .section-header {
