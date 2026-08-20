@@ -146,6 +146,51 @@ h1, h2, h3, h4, .brand-name {
     width: 100%;
 }
 
+/* Mini Hero: Selo de Massa Caseira */
+.mini-hero {
+    background: var(--primary-light);
+    border-bottom: 1px solid var(--border-bright);
+    padding: 9px 0;
+}
+
+.mini-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    color: var(--primary-hover);
+    font-size: 0.82rem;
+    line-height: 1.3;
+}
+
+.mini-hero-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+.mini-hero-content strong {
+    font-weight: 800;
+}
+
+@media (max-width: 640px) {
+    .mini-hero {
+        padding: 7px 0;
+    }
+
+    .mini-hero-content {
+        font-size: 0.74rem;
+        gap: 6px;
+    }
+
+    .mini-hero-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
 .logo {
     display: flex;
     align-items: center;

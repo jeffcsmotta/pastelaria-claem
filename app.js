@@ -328,7 +328,7 @@ const PRODUCTS_DATA = [
         id: 'emp-4',
         title: 'Empanada Carne Moída Tradicional',
         category: 'empanadas',
-        desc: 'Massa douradinha recheada com carne moída, ovos cozidos e tempero verde.',
+        desc: 'Massa douradinha recheada com carne moída, receita caseira da casa.',
         prices: { P: 15.00, G: 15.00 },
         image: PASTEL_IMGS.empanada,
         rating: '4.8',
