@@ -440,13 +440,14 @@ h1, h2, h3, h4, .brand-name {
     background: #FAFAFC;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    padding-top: 48px;
 }
 
 /* Menu Search Bar */
 .menu-search-wrap {
     position: relative;
     max-width: 480px;
-    margin: 0 auto 20px;
+    margin: 0 auto 28px;
 }
 
 .menu-search-icon {
