@@ -55,7 +55,7 @@ const PRODUCTS_DATA = [
         id: 'pas-1',
         title: 'Pastel de Carne com Ovo',
         category: 'salgados',
-        desc: 'Massa crocante e sequinha recheada com carne moída de gado temperada e ovo picadinho.',
+        desc: 'Massa crocante e sequinha recheada com carne moída, ovo picadinho e tempero verde fresco.',
         prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
         badge: 'Clássico',
         image: FOTOS_REAIS.carneOvo,
@@ -77,7 +77,7 @@ const PRODUCTS_DATA = [
         id: 'pas-3',
         title: 'Pastel de Carne com Queijo',
         category: 'salgados',
-        desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
+        desc: 'Recheio de carne moída, ovo e tempero verde combinado com queijo mussarela derretido.',
         prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.carneQueijo,
         rating: '4.9',
@@ -87,7 +87,7 @@ const PRODUCTS_DATA = [
         id: 'pas-4',
         title: 'Pastel de Carne com Azeitona',
         category: 'salgados',
-        desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
+        desc: 'Recheio de carne moída, ovo e tempero verde, acompanhado de azeitonas verdes fatiadas.',
         prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.carneAzeitona,
         rating: '4.8',
@@ -138,7 +138,7 @@ const PRODUCTS_DATA = [
         id: 'pas-9',
         title: 'Pastel de Pizza',
         category: 'salgados',
-        desc: 'Presunto, queijo mussarela e orégano aromático.',
+        desc: 'Presunto, queijo mussarela, orégano e molho de tomate feito em casa.',
         prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.pizza,
         rating: '4.8',
@@ -212,7 +212,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Romeu e Julieta',
         category: 'doces',
         desc: 'Combinação clássica de goiabada cremosa com queijo mussarela.',
-        prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         badge: 'Clássico Doce',
         image: FOTOS_REAIS.romeuJulieta,
         rating: '4.9',
@@ -328,7 +328,7 @@ const PRODUCTS_DATA = [
         id: 'emp-4',
         title: 'Empanada Carne Moída Tradicional',
         category: 'empanadas',
-        desc: 'Massa douradinha recheada com carne moída bem temperada e ovos cozidos.',
+        desc: 'Massa douradinha recheada com carne moída, ovos cozidos e tempero verde.',
         prices: { P: 15.00, G: 15.00 },
         image: PASTEL_IMGS.empanada,
         rating: '4.8',
@@ -360,9 +360,9 @@ const PRODUCTS_DATA = [
         id: 'emp-7',
         title: 'Empanada Pabellón',
         category: 'empanadas',
-        desc: 'Sabor único! Carne de panela, feijão preto, queijo e banana da terra frita.',
+        desc: 'Receita tradicional venezuelana com ingredientes 100% autênticos: carne de panela mechada, feijão preto, queijo e banana da terra frita.',
         prices: { P: 20.00, G: 20.00 },
-        badge: 'Chef Choice',
+        badge: 'Receita Venezuelana',
         image: PASTEL_IMGS.empanada,
         rating: '5.0',
         hasSizes: false
@@ -373,7 +373,7 @@ const PRODUCTS_DATA = [
         id: 'por-1',
         title: 'Porção com 10 Pastéis P (Carne)',
         category: 'porcoes',
-        desc: 'Cesta com 10 minipastéis crocantes de carne temperada com ovo.',
+        desc: 'Cesta com 10 minipastéis crocantes de carne moída, ovo e tempero verde.',
         prices: { P: 24.00, G: 24.00 },
         badge: 'Para Compartilhar',
         image: FOTOS_REAIS.porcaoPastel,
@@ -419,7 +419,7 @@ const PRODUCTS_DATA = [
         title: 'Torrada Completa CLAEM',
         category: 'lanches',
         desc: 'Pão fatiado tostado no capricho com alface, tomate fresco, ovo, presunto, queijo mussarela e maionese especial da casa.',
-        prices: { P: 20.00, G: 20.00 },
+        prices: { P: 25.00, G: 25.00 },
         badge: 'Lanche Reforçado',
         image: FOTOS_REAIS.torrada,
         rating: '4.9',
@@ -771,7 +771,7 @@ function productCardHTML(item) {
                         </button>
                         ${item.prices.DEZ !== undefined ? `
                             <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">
-                                <span class="size-btn-label">10un</span>
+                                <span class="size-btn-label">10un (P)</span>
                                 <span class="size-btn-price">R$ ${item.prices.DEZ.toFixed(2).replace('.', ',')}</span>
                             </button>
                         ` : ''}
