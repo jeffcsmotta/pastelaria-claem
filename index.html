@@ -188,6 +188,19 @@
                 <p class="section-desc">Monte seu pedido em instantes e envie direto para o nosso WhatsApp.</p>
             </div>
 
+            <!-- Menu Search Bar -->
+            <div class="menu-search-wrap">
+                <i data-lucide="search" class="menu-search-icon"></i>
+                <input
+                    type="text"
+                    id="menu-search"
+                    class="menu-search-input"
+                    placeholder="Buscar por nome ou ingrediente..."
+                    aria-label="Buscar item no cardápio"
+                    autocomplete="off"
+                >
+            </div>
+
             <!-- Category Filters -->
             <div class="category-filters">
                 <button class="filter-btn active" data-category="all">
@@ -356,7 +369,6 @@
                 <h4>Contato Direto</h4>
                 <p>📍 Rua Antônio Prado, 04 - Exposição, Caxias do Sul</p>
                 <p>📞 WhatsApp: (54) 99687-9399</p>
-                <p><a href="proposta.html" style="color:var(--primary); font-weight:700;">📄 Ver Proposta Comercial</a></p>
             </div>
         </div>
         <div class="footer-bottom text-center">
@@ -494,20 +506,13 @@
         </div>
     </div>
 
-    <!-- Floating Proposal Badge Button -->
-    <a href="proposta.html" class="floating-proposal-badge" aria-label="Ver Proposta de Parceria Comercial">
-        <span class="badge-dot"></span>
-        <i data-lucide="handshake"></i>
-        <span>Proposta de Parceria</span>
-    </a>
-
     <!-- Floating WhatsApp Customer Service Button -->
     <a href="https://wa.me/5554996879399?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20na%20Pastelaria%20CLAEM." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar com atendimento no WhatsApp">
         <i data-lucide="message-circle" aria-hidden="true"></i>
     </a>
 
     <!-- JS Logic -->
-    <script src="app.js?v=20260819-v18"></script>
+    <script src="app.js?v=20260820-v19"></script>
     <script>
         // PWA Splash Screen Handler
         window.addEventListener('DOMContentLoaded', () => {
