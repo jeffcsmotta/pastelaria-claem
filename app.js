@@ -78,7 +78,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne com Queijo',
         category: 'salgados',
         desc: 'Combinação irresistível de carne temperada e queijo mussarela derretido.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 24.00 },
         image: FOTOS_REAIS.carneQueijo,
         rating: '4.9',
         hasSizes: true
@@ -88,7 +88,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Carne com Azeitona',
         category: 'salgados',
         desc: 'Carne moída especial acompanhada de azeitonas verdes fatiadas.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 24.00 },
         image: FOTOS_REAIS.carneAzeitona,
         rating: '4.8',
         hasSizes: true
@@ -98,7 +98,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Frango Desfiado',
         category: 'salgados',
         desc: 'Frango desfiado super macio e temperado.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.frangoDesfiado,
         rating: '4.8',
         hasSizes: true
@@ -108,7 +108,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Frango com Queijo',
         category: 'salgados',
         desc: 'Frango desfiado com generosa camada de queijo mussarela derretido.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.frangoQueijo,
         rating: '4.9',
         hasSizes: true
@@ -118,7 +118,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Frango com Catupiry',
         category: 'salgados',
         desc: 'Frango com o verdadeiro e cremoso queijo tipo Catupiry.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         badge: 'Favorito',
         image: FOTOS_REAIS.frangoCatupiry,
         rating: '5.0',
@@ -129,7 +129,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Presunto com Queijo',
         category: 'salgados',
         desc: 'O tradicional pastel misto de presunto e queijo quentinho.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.presuntoQueijo,
         rating: '4.9',
         hasSizes: true
@@ -139,7 +139,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Pizza',
         category: 'salgados',
         desc: 'Presunto, queijo mussarela e orégano aromático.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.pizza,
         rating: '4.8',
         hasSizes: true
@@ -149,7 +149,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Palmito com Queijo',
         category: 'salgados',
         desc: 'Palmito macio fatiado envolvido em mussarela derretida.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.palmitoQueijo,
         rating: '4.8',
         hasSizes: true
@@ -159,7 +159,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel de Calabresa',
         category: 'salgados',
         desc: 'Calabresa fatiada levemente acebolada na massa frita.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.calabresa,
         rating: '4.8',
         hasSizes: true
@@ -169,7 +169,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Calabresa com Queijo',
         category: 'salgados',
         desc: 'Calabresa bem dourada com mussarela cremosa.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.calabresaQueijo,
         rating: '4.9',
         hasSizes: true
@@ -179,7 +179,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Apenas Queijo',
         category: 'salgados',
         desc: 'Mussarela pura derretendo a cada mordida.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.queijo,
         rating: '4.9',
         hasSizes: true
@@ -189,7 +189,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Queijo com Milho',
         category: 'salgados',
         desc: 'Queijo mussarela com milho doce selecionado.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.queijoMilho,
         rating: '4.8',
         hasSizes: true
@@ -199,7 +199,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Bacon, Queijo e Milho',
         category: 'salgados',
         desc: 'Bacon crocante em cubos, queijo mussarela e milho verde.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         badge: 'Top Vendas',
         image: FOTOS_REAIS.baconQueijoMilho,
         rating: '5.0',
@@ -212,7 +212,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Romeu e Julieta',
         category: 'doces',
         desc: 'Combinação clássica de goiabada cremosa com queijo mussarela.',
-        prices: { P: 2.50, G: 10.00 },
+        prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
         badge: 'Clássico Doce',
         image: FOTOS_REAIS.romeuJulieta,
         rating: '4.9',
@@ -223,7 +223,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Banana com Canela',
         category: 'doces',
         desc: 'Rodelas de banana fatiada polvilhada com açúcar e canela.',
-        prices: { P: 2.50, G: 10.00 },
+        prices: { P: 2.50, G: 10.00, DEZ: 24.00 },
         image: FOTOS_REAIS.bananaCanela,
         rating: '4.8',
         hasSizes: true
@@ -233,7 +233,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Banana com Chocolate',
         category: 'doces',
         desc: 'Banana fresca envolvida em chocolate ao leite derretido.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.bananaChocolate,
         rating: '4.9',
         hasSizes: true
@@ -243,7 +243,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Chocolate Preto',
         category: 'doces',
         desc: 'Recheado com generoso chocolate ao leite cremoso.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.chocolatePreto,
         rating: '4.9',
         hasSizes: true
@@ -253,7 +253,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Chocolate Branco',
         category: 'doces',
         desc: 'Delicioso recheio de chocolate branco derretido.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         image: FOTOS_REAIS.chocolateBranco,
         rating: '4.9',
         hasSizes: true
@@ -263,7 +263,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Prestígio',
         category: 'doces',
         desc: 'Chocolate ao leite combinado com beijinho de coco ralado.',
-        prices: { P: 3.50, G: 12.00 },
+        prices: { P: 3.50, G: 12.00, DEZ: 28.00 },
         badge: 'Delícia',
         image: FOTOS_REAIS.prestigio,
         rating: '4.9',
@@ -274,7 +274,7 @@ const PRODUCTS_DATA = [
         title: 'Pastel Chocolate com Amendoim',
         category: 'doces',
         desc: 'Chocolate preto com pedacinhos de amendoim crocante.',
-        prices: { P: 3.75, G: 13.00 },
+        prices: { P: 3.75, G: 13.00, DEZ: 31.00 },
         image: FOTOS_REAIS.chocolateAmendoim,
         rating: '4.8',
         hasSizes: true
@@ -767,7 +767,7 @@ function productCardHTML(item) {
                         </button>
                         <button type="button" class="size-btn ${size === 'G' ? 'active' : ''}" data-size="G" onclick="selectSize('${item.id}', 'G')">
                             <span class="size-btn-label">G</span>
-                            <span class="size-btn-price">+R$ ${(item.prices.G - item.prices.P).toFixed(2).replace('.', ',')}</span>
+                            <span class="size-btn-price">R$ ${item.prices.G.toFixed(2).replace('.', ',')}</span>
                         </button>
                         ${item.prices.DEZ !== undefined ? `
                             <button type="button" class="size-btn ${size === 'DEZ' ? 'active' : ''}" data-size="DEZ" onclick="selectSize('${item.id}', 'DEZ')">
