@@ -1154,6 +1154,15 @@ function showToast(message, type = 'success') {
 }
 window.showToast = showToast;
 
+// Numero de pedido sequencial, persistido por navegador/dispositivo
+// (nao sincroniza entre aparelhos nem se sobrevive a limpeza de dados).
+function getNextOrderNumber() {
+    const key = 'claem_order_seq';
+    const seq = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+    localStorage.setItem(key, String(seq));
+    return String(seq).padStart(4, '0');
+}
+
 // Send WhatsApp Order
 function sendWhatsAppOrder() {
     if (cart.length === 0) {
@@ -1180,46 +1189,44 @@ function sendWhatsAppOrder() {
     }
 
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const finalTotal = subtotal;
+    const orderNumber = getNextOrderNumber();
+    const rotuloTamanhoCurto = { P: 'P', G: 'G', DEZ: '10un' };
 
-    let msg = `🥟 *NOVO PEDIDO - PASTELARIA CLAEM*\n`;
-    msg += `------------------------------------\n`;
-    msg += `📦 *Tipo:* ${fulfillmentType === 'delivery' ? '🛵 Entrega em Domicílio' : '🛍️ Retirada no Balcão'}\n`;
-    if (customerName) msg += `👤 *Cliente:* ${customerName}\n`;
-    if (fulfillmentType === 'delivery' && customerAddress) {
-        msg += `🏠 *Endereço:* ${customerAddress}\n`;
-    }
-    msg += `\n*🛒 ITENS DO PEDIDO:*\n`;
+    let msg = `*Pedido #${orderNumber}*\n`;
+    msg += `${fulfillmentType === 'delivery' ? 'Entrega em domicílio' : 'Retirada no balcão'}\n\n`;
 
-    cart.forEach((i, idx) => {
+    cart.forEach(i => {
         const itemSum = i.price * i.quantity;
-        msg += `${idx + 1}. *${i.title}*\n`;
-        msg += `   Qtd: ${i.quantity}x • R$ ${itemSum.toFixed(2).replace('.', ',')}\n`;
-        if (i.notes) msg += `   _Obs: ${i.notes}_\n`;
+        const sizeLabel = i.size ? (rotuloTamanhoCurto[i.size] || i.size) : '';
+        msg += `*${i.quantity}x* ${i.baseTitle}${sizeLabel ? ` · ${sizeLabel}` : ''}\n`;
+        msg += `R$ ${itemSum.toFixed(2).replace('.', ',')}\n`;
+        if (i.notes) msg += `_Obs: ${i.notes}_\n`;
         msg += `\n`;
     });
 
-    msg += `------------------------------------\n`;
-    msg += `💰 *Subtotal:* R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-    msg += `🛵 *Taxa de Entrega:* ${fulfillmentType === 'delivery' ? 'A combinar com o atendente' : 'Grátis (Balcão)'}\n`;
-    msg += fulfillmentType === 'delivery'
-        ? `💰 *TOTAL DOS ITENS:* R$ ${finalTotal.toFixed(2).replace('.', ',')} _(+ taxa de entrega a combinar)_\n\n`
-        : `💰 *TOTAL FINAL:* R$ ${finalTotal.toFixed(2).replace('.', ',')}\n\n`;
+    msg += `*Itens: R$ ${subtotal.toFixed(2).replace('.', ',')}*\n`;
+    if (fulfillmentType === 'delivery') {
+        msg += `Entrega a combinar\n`;
+    }
+    msg += `\n`;
 
-    msg += `💳 *FORMA DE PAGAMENTO:*\n`;
+    if (customerName) msg += `*${customerName}*\n`;
+    if (fulfillmentType === 'delivery' && customerAddress) {
+        msg += `${customerAddress}\n`;
+    }
+
     const isCash = selectedPayment.toLowerCase().includes('dinheiro') || selectedPayment === 'cash';
     const isPix = selectedPayment.toLowerCase().includes('pix');
 
     if (isPix) {
-        msg += `⚡ *Pix*\n`;
-        msg += `_Combino a chave e o valor com você aqui pelo WhatsApp!_\n`;
+        msg += `Pagamento em Pix — combinamos a chave por aqui\n`;
     } else if (isCash) {
-        msg += `💵 *Dinheiro* ${cashChange ? `(Troco para R$ ${cashChange})` : '(Sem troco)'}\n`;
+        msg += `Pagamento em dinheiro — ${cashChange ? `troco para R$ ${cashChange}` : 'sem troco'}\n`;
     } else {
-        msg += `💳 *Cartão de Crédito/Débito (Levar maquininha)*\n`;
+        msg += `Pagamento no cartão — favor levar a maquininha\n`;
     }
 
-    msg += `\n_Pedido enviado pelo Site Oficial Pastelaria CLAEM_`;
+    msg += `\n_Enviado pelo site da Pastelaria Claem_`;
 
     const url = `https://wa.me/${CLIENT_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
