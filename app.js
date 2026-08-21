@@ -717,10 +717,10 @@ function setupStoreStatus() {
     const day = now.getDay();
     const hour = now.getHours() + (now.getMinutes() / 60);
 
-    // Terça a Domingo: 17h as 23h30. Fechado as segundas-feiras (dia 1).
+    // Segunda a Sábado: 08h as 20h. Fechado aos domingos (dia 0).
     let isOpen = false;
-    if (day !== 1) {
-        if (hour >= 17 && hour < 23.5) isOpen = true;
+    if (day !== 0) {
+        if (hour >= 8 && hour < 20) isOpen = true;
     }
 
     statusBadges.forEach(badge => {
