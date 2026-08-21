@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pastelariaclaem.com.br/sitemap.xml
+Sitemap: https://claempastelaria.com.br/sitemap.xml
