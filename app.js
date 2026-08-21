@@ -1200,11 +1200,10 @@ function sendWhatsAppOrder() {
         const sizeLabel = i.size ? (rotuloTamanhoCurto[i.size] || i.size) : '';
         msg += `*${i.quantity}x* ${i.baseTitle}${sizeLabel ? ` · ${sizeLabel}` : ''}
 `;
-        msg += `R$ ${itemSum.toFixed(2).replace('.', ',')}
-`;
         if (i.notes) msg += `_Obs: ${i.notes}_
 `;
-        msg += `
+        msg += `*R$ ${itemSum.toFixed(2).replace('.', ',')}*
+
 `;
     });
 
@@ -1214,7 +1213,8 @@ function sendWhatsAppOrder() {
         msg += `Entrega a combinar
 `;
     }
-    msg += `
+    msg += `*Total: R$ ${subtotal.toFixed(2).replace('.', ',')}*
+
 `;
 
     if (customerName) msg += `*${customerName}*
