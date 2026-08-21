@@ -1191,7 +1191,9 @@ function sendWhatsAppOrder() {
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
     const rotuloTamanhoCurto = { P: 'P', G: 'G', DEZ: '10un' };
 
-    let msg = `${fulfillmentType === 'delivery' ? 'Entrega em domicílio' : 'Retirada no balcão'}
+    let msg = `_pedido via site by Onira.fly_
+
+${fulfillmentType === 'delivery' ? 'Solicitação de Tele-Entrega' : 'Solicitação de Retirada no balcão'}
 
 `;
 
