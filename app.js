@@ -1166,7 +1166,7 @@ function getNextOrderNumber() {
 // Send WhatsApp Order
 function sendWhatsAppOrder() {
     if (cart.length === 0) {
-        showToast('🥟 <strong>Seu carrinho está vazio!</strong> Adicione um pastel ou empanada antes de finalizar.', 'error');
+        showToast('🥟 <strong>Seu carrinho está vazio!</strong> Adicione um pastel ou porção antes de finalizar.', 'error');
         return;
     }
 
@@ -1189,50 +1189,61 @@ function sendWhatsAppOrder() {
     }
 
     const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-    const orderNumber = getNextOrderNumber();
     const rotuloTamanhoCurto = { P: 'P', G: 'G', DEZ: '10un' };
 
-    let msg = `*Pedido #${orderNumber}*\n`;
-    msg += `${fulfillmentType === 'delivery' ? 'Entrega em domicílio' : 'Retirada no balcão'}\n\n`;
+    let msg = `${fulfillmentType === 'delivery' ? 'Entrega em domicílio' : 'Retirada no balcão'}
+
+`;
 
     cart.forEach(i => {
         const itemSum = i.price * i.quantity;
         const sizeLabel = i.size ? (rotuloTamanhoCurto[i.size] || i.size) : '';
-        msg += `*${i.quantity}x* ${i.baseTitle}${sizeLabel ? ` · ${sizeLabel}` : ''}\n`;
-        msg += `R$ ${itemSum.toFixed(2).replace('.', ',')}\n`;
-        if (i.notes) msg += `_Obs: ${i.notes}_\n`;
-        msg += `\n`;
+        msg += `*${i.quantity}x* ${i.baseTitle}${sizeLabel ? ` · ${sizeLabel}` : ''}
+`;
+        msg += `R$ ${itemSum.toFixed(2).replace('.', ',')}
+`;
+        if (i.notes) msg += `_Obs: ${i.notes}_
+`;
+        msg += `
+`;
     });
 
-    msg += `*Itens: R$ ${subtotal.toFixed(2).replace('.', ',')}*\n`;
+    msg += `*Itens: R$ ${subtotal.toFixed(2).replace('.', ',')}*
+`;
     if (fulfillmentType === 'delivery') {
-        msg += `Entrega a combinar\n`;
+        msg += `Entrega a combinar
+`;
     }
-    msg += `\n`;
+    msg += `
+`;
 
-    if (customerName) msg += `*${customerName}*\n`;
+    if (customerName) msg += `*${customerName}*
+`;
     if (fulfillmentType === 'delivery' && customerAddress) {
-        msg += `${customerAddress}\n`;
+        msg += `${customerAddress}
+`;
     }
 
     const isCash = selectedPayment.toLowerCase().includes('dinheiro') || selectedPayment === 'cash';
     const isPix = selectedPayment.toLowerCase().includes('pix');
 
     if (isPix) {
-        msg += `Pagamento em Pix — combinamos a chave por aqui\n`;
+        msg += `Pagamento em Pix — combinamos a chave por aqui
+`;
     } else if (isCash) {
-        msg += `Pagamento em dinheiro — ${cashChange ? `troco para R$ ${cashChange}` : 'sem troco'}\n`;
+        msg += `Pagamento em dinheiro — ${cashChange ? `troco para R$ ${cashChange}` : 'sem troco'}
+`;
     } else {
-        msg += `Pagamento no cartão — favor levar a maquininha\n`;
+        msg += `Pagamento no cartão — favor levar a maquininha
+`;
     }
 
-    msg += `\n_Enviado pelo site da Pastelaria Claem_`;
+    msg += `
+_Enviado pelo site da Pastelaria Claem_`;
 
     const url = `https://wa.me/${CLIENT_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 
-    /* Pedido enviado: o proximo comeca com identificador novo, senao dois
-       pedidos diferentes chegariam na loja com o mesmo ID. */
     pixTxidAtual = null;
 }
 window.sendWhatsAppOrder = sendWhatsAppOrder;
