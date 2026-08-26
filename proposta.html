@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reposicionamento de Marca & Gestão Estratégica 360° — CLAEM Pastelaria & Café</title>
+  <meta name="description" content="Apresentação executiva e proposta de reposicionamento de marca, sinalização física, gestão de agência e direção de arte para CLAEM Pastelaria & Café em Caxias do Sul.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CLAEM Pastelaria & Café — Reposicionamento de Marca">
+  <meta property="og:description" content="Plano estratégico de 3 meses: Nova sinalização, letreiros, campanhas online, gestão de fornecedores e direção de arte completa.">
+  <meta property="og:image" content="assets/mockup-sinalizacao-dia.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #6E1A24;
+      --primary-deep: #4E0E16;
+      --primary-light: #8E2633;
+      --accent: #C88320;
+      --accent-warm: #E2992F;
+      --accent-glow: rgba(200, 131, 32, 0.18);
+      --dark: #121824;
+      --dark-card: #1A2232;
+      --dark-line: rgba(255, 255, 255, 0.08);
+      --bg-page: #FBF8F3;
+      --bg-surface: #FFFFFF;
+      --bg-warm: #F4EFE6;
+      --text-main: #1C2433;
+      --text-muted: #64748B;
+      --text-light: #94A3B8;
+      --border: rgba(18, 24, 36, 0.09);
+      --border-warm: rgba(110, 26, 36, 0.12);
+      
+      --font-display: 'Bricolage Grotesque', 'Outfit', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 30px rgba(18, 24, 36, 0.08);
+      --shadow-xl: 0 20px 50px rgba(18, 24, 36, 0.12);
+      --shadow-glow: 0 0 40px rgba(200, 131, 32, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251, 248, 243, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-warm);
+      padding: 14px 0;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--primary-deep);
+    }
+
+    .nav-logo-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(110, 26, 36, 0.25);
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+      color: var(--primary);
+    }
+
+    .nav-brand-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-nav-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: #FFF;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-demo:hover {
+      border-color: var(--accent);
+      color: var(--primary);
+    }
+
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FFF;
+      background: var(--primary);
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(110, 26, 36, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-cta:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 64px 0 80px;
+      background: radial-gradient(circle at 80% 20%, rgba(200, 131, 32, 0.12), transparent 45%),
+                  radial-gradient(circle at 20% 80%, rgba(110, 26, 36, 0.06), transparent 50%),
+                  var(--bg-page);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(110, 26, 36, 0.08);
+      border: 1px solid rgba(110, 26, 36, 0.2);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+      color: var(--primary-deep);
+      margin-bottom: 20px;
+    }
+
+    .hero-title .highlight-serif {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-lead {
+      font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+      color: #334155;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .hero-lead strong {
+      color: var(--primary-deep);
+      font-weight: 700;
+    }
+
+    .hero-card-preview {
+      position: relative;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-warm);
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card-preview:hover {
+      transform: perspective(1000px) rotateY(0) rotateX(0);
+    }
+
+    .hero-card-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(18, 24, 36, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      color: #FFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-card-tag-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .hero-card-tag-sub {
+      font-size: 0.78rem;
+      color: var(--accent-warm);
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-pill i {
+      color: var(--primary);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(200, 131, 32, 0.12);
+      border: 1px solid rgba(200, 131, 32, 0.3);
+      color: #925807;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      color: var(--primary-deep);
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Repositioning Comparison Block */
+    .reposition-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-warm);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .reposition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .reposition-col {
+      padding: 40px 36px;
+    }
+
+    .reposition-col.before {
+      background: #F8FAFC;
+      border-right: 1px solid var(--border);
+    }
+
+    .reposition-col.after {
+      background: linear-gradient(145deg, #FFF9F3 0%, #FFFFFF 100%);
+      position: relative;
+    }
+
+    .col-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 16px;
+    }
+
+    .before .col-header-badge {
+      background: #E2E8F0;
+      color: #475569;
+    }
+
+    .after .col-header-badge {
+      background: var(--primary);
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(110, 26, 36, 0.25);
+    }
+
+    .reposition-col-title {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .before .reposition-col-title {
+      color: #64748B;
+    }
+
+    .after .reposition-col-title {
+      color: var(--primary-deep);
+    }
+
+    .reposition-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .reposition-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .reposition-item i {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .before .reposition-item i {
+      color: #94A3B8;
+    }
+
+    .after .reposition-item i {
+      color: var(--accent);
+    }
+
+    /* Gallery / Visual Proof Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .gallery-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-warm);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--accent);
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: #121824;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-card:hover .gallery-img {
+      transform: scale(1.04);
+    }
+
+    .gallery-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(18, 24, 36, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gallery-info {
+      padding: 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gallery-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      margin-bottom: 8px;
+    }
+
+    .gallery-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 3-Month Roadmap Grid */
+    .roadmap-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .roadmap-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-warm);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .roadmap-card.featured {
+      background: linear-gradient(170deg, #FFFFFF 0%, #FBF6EE 100%);
+      border: 2px solid var(--accent);
+      box-shadow: var(--shadow-glow), var(--shadow-md);
+    }
+
+    .roadmap-month-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #FFF;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(110, 26, 36, 0.2);
+    }
+
+    .roadmap-card.featured .roadmap-month-badge {
+      background: var(--accent);
+      color: #FFF;
+    }
+
+    .roadmap-phase-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .roadmap-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .roadmap-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .roadmap-deliverable {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    .roadmap-deliverable i {
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Pillars of Governance / Value Section */
+    .pillars-section {
+      background: var(--dark);
+      color: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 64px 48px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillars-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(200, 131, 32, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .pillars-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .pillars-header .section-title {
+      color: #FFF;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pillar-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-line);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(200, 131, 32, 0.15);
+      border: 1px solid rgba(200, 131, 32, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-warm);
+      margin-bottom: 18px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+
+    .pillar-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    /* Executive Bio & Onira Labs Seal */
+    .bio-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-warm);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .bio-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .bio-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      margin-bottom: 4px;
+    }
+
+    .bio-role {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .bio-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 100%);
+      color: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 56px 40px;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(200, 131, 32, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-desc {
+      font-size: 1.1rem;
+      color: #F8D7DA;
+      max-width: 680px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.6;
+    }
+
+    .btn-whatsapp-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: #FFF;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 18px 36px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-whatsapp-hero:hover {
+      background: #22BF5B;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .reposition-grid {
+        grid-template-columns: 1fr;
+      }
+      .reposition-col.before {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .roadmap-timeline {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .bio-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .bio-avatar {
+        margin: 0 auto;
+      }
+      .pillars-section {
+        padding: 40px 24px;
+      }
+      .cta-box {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="top-nav">
+    <div class="container">
+      <div class="top-nav-inner">
+        <a href="#inicio" class="nav-brand">
+          <div class="nav-logo-badge">C</div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">CLAEM</span>
+            <span class="nav-brand-sub">Pastelaria & Café</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <a href="index.html" target="_blank" class="btn-nav-demo">
+            <i data-lucide="external-link"></i> Ver Cardápio Demo
+          </a>
+          <a href="#proposta-cta" class="btn-nav-cta">
+            <i data-lucide="file-check"></i> Aprovar Escopo
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero-section">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <i data-lucide="sparkles"></i> Proposta Estratégica · 3 Meses de Execução
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Do Pastel Convencional à
+            <span class="highlight-serif">Experiência Gastronômica & Afetiva</span>
+          </h1>
+          <p class="hero-lead">
+            Apresentação executiva para o <strong>reposicionamento integral da marca CLAEM Pastelaria & Café</strong>. 
+            Assumimos a <strong>direção de arte, gestão de agência, projeto de sinalização física (letreiros e lonas)</strong> e todo o acompanhamento com fornecedores durante <strong>90 dias</strong> de transformação.
+          </p>
+
+          <div class="hero-pills">
+            <span class="hero-pill"><i data-lucide="signpost"></i> Nova Sinalização de Fachada</span>
+            <span class="hero-pill"><i data-lucide="store"></i> Personalização da Loja</span>
+            <span class="hero-pill"><i data-lucide="megaphone"></i> Campanhas Online & Gestão de Agência</span>
+            <span class="hero-pill"><i data-lucide="shield-check"></i> Apoio à Tomada de Decisão</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-preview">
+            <img src="assets/mockup-sinalizacao-dia.jpg" alt="Mockup da Nova Sinalização CLAEM" class="hero-card-img">
+            <div class="hero-card-tag">
+              <div>
+                <div class="hero-card-tag-title">Totem & Sinalização Visconde de Pelotas</div>
+                <div class="hero-card-tag-sub">Design vintage e imponente de alta visibilidade</div>
+              </div>
+              <i data-lucide="award" style="color: var(--accent-warm);"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Repositioning Comparison Section -->
+  <section id="manifesto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i data-lucide="compass"></i> O Novo Posicionamento</span>
+        <h2 class="section-title">O Que Muda na Percepção do Seu Cliente?</h2>
+        <p class="section-desc">
+          O reposicionamento eleva o valor percebido da CLAEM, permitindo praticar margens mais saudáveis, aumentar o ticket médio e atrair novos públicos que buscam qualidade e ambiente acolhedor.
+        </p>
+      </div>
+
+      <div class="reposition-card">
+        <div class="reposition-grid">
+          <!-- Antes -->
+          <div class="reposition-col before">
+            <span class="col-header-badge"><i data-lucide="arrow-left"></i> Posicionamento Anterior</span>
+            <h3 class="reposition-col-title">Pastelaria de Bairro Convencional</h3>
+            <ul class="reposition-list">
+              <li class="reposition-item">
+                <i data-lucide="x-circle"></i>
+                <span>Comunicação visual fragmentada e dependente de promoções de preço baixo.</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="x-circle"></i>
+                <span>Fachada e letreiros que se misturam na paisagem urbana sem criar marco visual.</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="x-circle"></i>
+                <span>Sensação de consumo rápido/apenas lanche, sem valorizar o café e a permanência.</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="x-circle"></i>
+                <span>Gestão descentralizada de marketing e fornecedores gerando retrabalho.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Depois -->
+          <div class="reposition-col after">
+            <span class="col-header-badge"><i data-lucide="check"></i> Novo Reposicionamento CLAEM</span>
+            <h3 class="reposition-col-title">Pastelaria & Café Artesanal de Tradição</h3>
+            <ul class="reposition-list">
+              <li class="reposition-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Identidade Visual Distinta:</strong> Estética vintage-chic com cores nobres (vinho, marfim e dourado).</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Ponto de Referência Urbano:</strong> Totem e luminárias icônicas que atraem motoristas e pedestres dia e noite.</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Experiência Afetiva Ampliada:</strong> Café da manhã, lanches da tarde e encontros em família com maior permanência.</span>
+              </li>
+              <li class="reposition-item">
+                <i data-lucide="check-circle-2"></i>
+                <span><strong>Governança Criativa 360°:</strong> Agência, anúncios e fornecedores alinhados sob a mesma direção de arte.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Proof / Mockups Gallery Section -->
+  <section id="visual-identity" style="background: var(--bg-warm);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i data-lucide="image"></i> Direção de Arte & Sinalização</span>
+        <h2 class="section-title">Estudos Visuais e Aplicação de Marca</h2>
+        <p class="section-desc">
+          Projetos conceituais e mockups desenvolvidos para materializar a nova presença visual da CLAEM no espaço urbano e no ponto de venda.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Card 1 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/mockup-sinalizacao-dia.jpg" alt="Totem CLAEM Rua Visconde de Pelotas" class="gallery-img">
+            <span class="gallery-tag"><i data-lucide="sun"></i> Visibilidade Diurna</span>
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-title">Totem & Placa de Esquina</h3>
+            <p class="gallery-desc">Formato octogonal retrô com tipografia encorpada, cabeçalho vinho nobre e fundo marfim. Máxima leitura à distância para tráfego veicular.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/mockup-totem-crepusculo.jpg" alt="Totem Iluminado 3D ao Entardecer" class="gallery-img">
+            <span class="gallery-tag"><i data-lucide="moon"></i> Iluminação Noturna</span>
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-title">Totem Iluminado 3D (Backlight)</h3>
+            <p class="gallery-desc">Caixa com iluminação LED difusa que cria um farol de calor e aconchego ao entardecer, destacando a CLAEM como destino gastronômico noturno.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/mockup-luminoso-estacao.jpg" alt="Conceito Luminária Vintage" class="gallery-img">
+            <span class="gallery-tag"><i data-lucide="lightbulb"></i> Sinalização Complementar</span>
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-title">Luminárias de Braço Circular</h3>
+            <p class="gallery-desc">Placas circulares suspensas em mão francesa de ferro forjado para calçadas e paredes de tijolo à vista, trazendo elegância clássica europeia.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/mockup-totem-panfleto.jpg" alt="Presença de Marca e Material Físico" class="gallery-img">
+            <span class="gallery-tag"><i data-lucide="layers"></i> Ponto de Contato Físico</span>
+          </div>
+          <div class="gallery-info">
+            <h3 class="gallery-title">Totem Alto & Materiais de Mesa</h3>
+            <p class="gallery-desc">Integração entre sinalização vertical externa de grande alcance e materiais gráficos táteis (panfletos, jogo americano e cardápios de mesa).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-Month Execution Roadmap Section -->
+  <section id="cronograma">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i data-lucide="calendar"></i> Plano de Execução</span>
+        <h2 class="section-title">O Que Entregaremos em 3 Meses de Trabalho</h2>
+        <p class="section-desc">
+          Um cronograma estruturado mês a mês para transformar o conceito em realidade palpável com prazos, responsáveis e entregáveis claros.
+        </p>
+      </div>
+
+      <div class="roadmap-timeline">
+        <!-- Mês 1 -->
+        <div class="roadmap-card">
+          <div class="roadmap-month-badge">01</div>
+          <div class="roadmap-phase-tag">Mês 1 · Fundação & Espaço</div>
+          <h3 class="roadmap-title">Sinalização Física, Fachada & Lonas</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Engenharia visual e projeto executivo da nova cara física da CLAEM Pastelaria & Café.
+          </p>
+
+          <ul class="roadmap-deliverables">
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Desenho técnico completo dos novos letreiros e totens externos.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Projeto de lonas, toldos e adesivagem de vitrines/fachada.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Guia de personalização interna da loja (paleta de paredes, iluminação e menus).</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Orçamento comparativo e seleção dos fornecedores de comunicação visual.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mês 2 -->
+        <div class="roadmap-card featured">
+          <div class="roadmap-month-badge">02</div>
+          <div class="roadmap-phase-tag">Mês 2 · Tração & Digital</div>
+          <h3 class="roadmap-title">Campanhas Online & Gestão de Agência</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Alinhamento criativo, direção dos canais digitais e tráfego pago de alta conversão.
+          </p>
+
+          <ul class="roadmap-deliverables">
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span><strong>Gestão de Agência:</strong> Alinhamento estratégico semanal e controle de entregas da equipe de redes sociais.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Direção de arte para sessões de fotos de novos produtos e cafés.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Planejamento de campanhas de anúncios geolocalizados (Instagram + Google Ads).</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Integração total do Cardápio Digital Próprio com WhatsApp.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mês 3 -->
+        <div class="roadmap-card">
+          <div class="roadmap-month-badge">03</div>
+          <div class="roadmap-phase-tag">Mês 3 · Entrega & Relançamento</div>
+          <h3 class="roadmap-title">Acompanhamento, Instalação & Lançamento</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Fiscalização de montagem, ajustes finos e campanha de celebração da nova fase.
+          </p>
+
+          <ul class="roadmap-deliverables">
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Acompanhamento presencial da fabricação e instalação pelos fornecedores.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Controle de qualidade de acabamento, cores de impressão e iluminação LED.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Campanha oficial de relançamento do espaço físico e novidades do cardápio.</span>
+            </li>
+            <li class="roadmap-deliverable">
+              <i data-lucide="check"></i>
+              <span>Manual de continuidade de marca para a equipe da CLAEM.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars of Support & Governance -->
+  <section class="container">
+    <div class="pillars-section">
+      <div class="pillars-header">
+        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: var(--accent-warm); border-color: rgba(255,255,255,0.2);">
+          <i data-lucide="shield-check"></i> Governança Estratégica
+        </span>
+        <h2 class="section-title">Como Apoiaremos a Tomada de Decisão</h2>
+        <p class="section-desc" style="color: #94A3B8;">
+          Você não precisará gastar seu tempo negociando tecnicalidades com gráficos, serralheiros ou agências. Assumimos a liderança técnica e criativa.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i data-lucide="palette"></i>
+          </div>
+          <h3 class="pillar-title">Direção de Arte Executiva</h3>
+          <p class="pillar-desc">
+            Cada detalhe visual — do papel acoplado ao letreiro iluminado de 4 metros — passa pelo nosso crivo estético para garantir coerência premium.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i data-lucide="users"></i>
+          </div>
+          <h3 class="pillar-title">Gestão dos Fornecedores</h3>
+          <p class="pillar-desc">
+            Cotação com fornecedores qualificados de Caxias do Sul, conferência de especificações técnicas de materiais e fiscalização de prazos de entrega.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <h3 class="pillar-title">Apoio Estratégico Contínuo</h3>
+          <p class="pillar-desc">
+            Reuniões periódicas de alinhamento com a diretoria para validar decisões de investimento, prioridades de execução e novos produtos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Bio -->
+  <section class="container">
+    <div class="bio-card">
+      <img src="assets/jeff-avatar.webp" alt="Jeff Motta - Diretor Criativo Onira Labs" class="bio-avatar" onerror="this.src='assets/logo-claem-cropped.png'">
+      <div class="bio-content">
+        <h3>Jeff Motta</h3>
+        <div class="bio-role">Direção Criativa & Estratégia de Negócios · Onira Labs</div>
+        <p class="bio-text">
+          Especialista em design de produtos gastronômicos, branding e engenharia de vendas digitais em Caxias do Sul e Serra Gaúcha. 
+          Atuamos na ponte direta entre a visão de negócios do proprietário, a execução precisa dos fornecedores físicos e o crescimento acelerado nos canais digitais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proposal Call to Action / Approval -->
+  <section id="proposta-cta" class="container" style="padding-bottom: 96px;">
+    <div class="cta-box">
+      <h2 class="cta-title">Vamos Iniciar o Reposicionamento da CLAEM?</h2>
+      <p class="cta-desc">
+        Estamos prontos para iniciar o Mês 1 com o projeto executivo de sinalização e fachada. 
+        Clique abaixo para confirmar o escopo de 3 meses e iniciarmos o alinhamento com os fornecedores.
+      </p>
+
+      <a href="https://wa.me/5554996879399?text=Ol%C3%A1%20Jeff%21%20Aprovei%20a%20apresenta%C3%A7%C3%A3o%20do%20reposicionamento%20de%20marca%20da%20CLAEM%20Pastelaria%20%26%20Caf%C3%A9%20%283%20meses%20de%20trabalho%29.%20Vamos%20agendar%20o%20in%C3%ADcio%21" target="_blank" class="btn-whatsapp-hero">
+        <i data-lucide="message-circle" style="width: 26px; height: 26px;"></i>
+        <span>Aprovar Proposta no WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 CLAEM Pastelaria & Café · Todos os direitos reservados.</p>
+      <p style="margin-top: 6px; font-size: 0.78rem; color: #94A3B8;">
+        Direção de Arte & Reposicionamento Estratégico por <strong>Onira Labs</strong>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lucide Script Initialization -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

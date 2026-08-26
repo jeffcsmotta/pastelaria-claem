@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://claempastelaria.com.br/sitemap.xml
