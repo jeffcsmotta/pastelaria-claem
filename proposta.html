@@ -730,7 +730,7 @@
     }
 
     /* Onira Labs Brand & Executive Bio */
-    .agency-card {
+    .executive-card {
       background: var(--marfim-pure);
       border-radius: var(--radius-lg);
       border: 2px solid var(--border-azul);
@@ -738,29 +738,35 @@
       box-shadow: var(--shadow-md);
       margin-bottom: 48px;
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: auto 1fr;
       gap: 40px;
       align-items: center;
     }
 
-    .agency-brand-col {
+    .executive-avatar-col {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      border-right: 1px solid var(--border-azul);
-      padding-right: 32px;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
     }
 
-    .agency-logo-large {
-      width: 100%;
-      max-width: 210px;
-      height: auto;
-      object-fit: contain;
+    .executive-photo-wrap {
+      position: relative;
     }
 
-    .agency-badge {
-      font-size: 0.74rem;
+    .executive-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--carmim);
+      box-shadow: 0 8px 24px rgba(122, 22, 34, 0.25);
+      display: block;
+    }
+
+    .executive-badge {
+      font-size: 0.72rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.8px;
@@ -768,29 +774,51 @@
       background: rgba(122, 22, 34, 0.08);
       padding: 4px 12px;
       border-radius: var(--radius-full);
+      border: 1px solid var(--border-carmim);
     }
 
-    .agency-content h3 {
+    .executive-content h3 {
       font-family: var(--font-display);
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--azul-escuro);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .agency-role {
-      font-size: 0.88rem;
+    .executive-role {
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--carmim);
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    .agency-text {
+    .executive-text {
       font-size: 0.98rem;
       color: var(--text-muted);
       line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .executive-onira-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-azul);
+    }
+
+    .executive-onira-logo {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .executive-onira-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
     }
 
     /* CTA Section */
@@ -905,17 +933,13 @@
       .pillars-grid {
         grid-template-columns: 1fr;
       }
-      .agency-card {
+      .executive-card {
         grid-template-columns: 1fr;
         text-align: center;
         padding: 36px 24px;
       }
-      .agency-brand-col {
-        border-right: none;
-        border-bottom: 1px solid var(--border-azul);
-        padding-right: 0;
-        padding-bottom: 24px;
-        align-items: center;
+      .executive-onira-brand {
+        justify-content: center;
       }
       .pillars-section {
         padding: 40px 24px;
@@ -1273,20 +1297,28 @@
     </div>
   </section>
 
-  <!-- Onira Labs Agency Presentation -->
+  <!-- Executive Bio & Onira Labs Presentation -->
   <section class="container">
-    <div class="agency-card">
-      <div class="agency-brand-col">
-        <img src="assets/logo-onira-labs.png" alt="Onira Labs Logo" class="agency-logo-large">
-        <span class="agency-badge">Service Design & Strategy</span>
+    <div class="executive-card">
+      <div class="executive-avatar-col">
+        <div class="executive-photo-wrap">
+          <img src="assets/jeff-avatar.webp" alt="Jeff Motta - Diretor Criativo Onira Labs" class="executive-avatar" onerror="this.src='assets/logo-claem-cropped.png'">
+        </div>
+        <span class="executive-badge">Direção Executiva</span>
       </div>
-      <div class="agency-content">
-        <h3>Onira Labs</h3>
-        <div class="agency-role">Direção Criativa & Estratégia de Negócios · Jeff Motta</div>
-        <p class="agency-text">
-          A Onira Labs atua na intersecção entre <strong>design de serviços, prototipagem rápida e posicionamento de marca de alto impacto</strong> em Caxias do Sul e Serra Gaúcha. 
-          Assumimos a ponte direta entre a visão estratégica dos proprietários, a execução rigorosa dos fornecedores físicos e a consistência criativa em todos os pontos de contato.
+
+      <div class="executive-content">
+        <h3>Jeff Motta</h3>
+        <div class="executive-role">Direção Criativa & Estratégia de Negócios · Onira Labs</div>
+        <p class="executive-text">
+          Especialista em design de serviços, branding e engenharia de vendas digitais em Caxias do Sul e Serra Gaúcha. 
+          Assumimos a ponte direta entre a visão estratégica dos proprietários da CLAEM, a execução física rigorosa dos fornecedores locais e a consistência visual em todos os pontos de contato da marca.
         </p>
+
+        <div class="executive-onira-brand">
+          <img src="assets/logo-onira-labs.png" alt="Onira Labs Logo" class="executive-onira-logo">
+          <span class="executive-onira-tag">Service Design · Rapid Prototyping · Human-in-the-Loop</span>
+        </div>
       </div>
     </div>
   </section>
