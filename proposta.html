@@ -514,6 +514,15 @@
       transition: transform 0.6s ease;
     }
 
+    /* Ponto focal dinâmico para foco na placa CLAEM */
+    .gallery-img.focal-totem-claem {
+      object-position: center 12%;
+    }
+
+    .gallery-img.focal-night-claem {
+      object-position: center center;
+    }
+
     .gallery-card:hover .gallery-img {
       transform: scale(1.05);
     }
@@ -1091,7 +1100,7 @@
     </div>
   </section>
 
-  <!-- Visual Proof / Mockups Gallery Section (Luminária Noturna no Card 3) -->
+  <!-- Visual Proof / Mockups Gallery Section -->
   <section id="visual-identity" style="background: var(--marfim-warm);">
     <div class="container">
       <div class="section-header">
@@ -1130,7 +1139,7 @@
         <!-- Card 3: Luminária Noturna com Ponto de Recarga EV -->
         <div class="gallery-card">
           <div class="gallery-img-wrap">
-            <img src="assets/mockup-luminaria-noturna-claem.jpg" alt="Luminária Noturna CLAEM Pastelaria e Café & Ponto de Recarga EV" class="gallery-img">
+            <img src="assets/mockup-luminaria-noturna-claem.jpg" alt="Luminária Noturna CLAEM Pastelaria e Café & Ponto de Recarga EV" class="gallery-img focal-night-claem">
             <span class="gallery-tag"><i data-lucide="zap"></i> Ponto de Recarga & Fachada</span>
           </div>
           <div class="gallery-info">
@@ -1139,15 +1148,15 @@
           </div>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 4: Foco na Placa Circular CLAEM no topo do poste -->
         <div class="gallery-card">
           <div class="gallery-img-wrap">
-            <img src="assets/mockup-totem-panfleto.jpg" alt="Presença de Marca e Material Físico" class="gallery-img">
+            <img src="assets/mockup-totem-panfleto.jpg" alt="Presença de Marca e Placa CLAEM no Totem" class="gallery-img focal-totem-claem">
             <span class="gallery-tag"><i data-lucide="layers"></i> Ponto de Contato Físico</span>
           </div>
           <div class="gallery-info">
-            <h3 class="gallery-title">Totem Alto & Materiais de Mesa</h3>
-            <p class="gallery-desc">Integração entre sinalização vertical externa de grande alcance e materiais gráficos táteis (panfletos, jogos americanos e displays de mesa).</p>
+            <h3 class="gallery-title">Totem Alto & Presença de Marca</h3>
+            <p class="gallery-desc">Visibilidade destacada para o emblema circular CLAEM e a sinalização vertical no mastro, combinada com os materiais gráficos de atendimento.</p>
           </div>
         </div>
       </div>
