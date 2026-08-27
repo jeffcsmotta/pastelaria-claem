@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="CLAEM — Pastelaria Artesanal & Café de Tradição">
   <meta property="og:description" content="Reposicionamento de marca em 3 meses: nova sinalização, lonas, letreiros, campanhas online, gestão de agência e direção de arte completa.">
-  <meta property="og:image" content="assets/mockup-luminaria-noturna-claem.jpg">
+  <meta property="og:image" content="assets/mockup-letreiro-esquina-vintage.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
@@ -82,7 +82,7 @@
 
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -187,9 +187,9 @@
     /* Hero Section */
     .hero-section {
       position: relative;
-      padding: 72px 0 88px;
+      padding: 64px 0 88px;
       background: 
-        radial-gradient(circle at 85% 15%, rgba(122, 22, 34, 0.09), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(122, 22, 34, 0.1), transparent 45%),
         radial-gradient(circle at 15% 85%, rgba(15, 37, 66, 0.08), transparent 50%),
         var(--marfim);
       border-bottom: 1px solid var(--border-azul);
@@ -209,19 +209,19 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1fr 1.08fr;
       gap: 48px;
       align-items: center;
     }
 
     .hero-title-top {
       font-family: var(--font-display);
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-size: clamp(2.8rem, 5.2vw, 4.4rem);
       font-weight: 900;
       line-height: 1;
       letter-spacing: -1.5px;
@@ -231,7 +231,7 @@
 
     .hero-title-sub {
       font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.6rem, 2.8vw, 2.35rem);
       font-weight: 700;
       font-style: italic;
       color: var(--carmim);
@@ -241,7 +241,7 @@
     }
 
     .hero-lead {
-      font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+      font-size: clamp(1.05rem, 1.25vw, 1.18rem);
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 32px;
@@ -257,20 +257,21 @@
       background: var(--marfim-pure);
       border-radius: var(--radius-lg);
       padding: 12px;
-      box-shadow: var(--shadow-xl);
-      border: 2px solid rgba(122, 22, 34, 0.2);
+      box-shadow: 0 25px 60px rgba(15, 37, 66, 0.18);
+      border: 2px solid rgba(122, 22, 34, 0.25);
       overflow: hidden;
-      transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
-      transition: transform 0.4s ease;
+      transform: perspective(1000px) rotateY(-1deg) rotateX(1deg);
+      transition: all 0.4s ease;
     }
 
     .hero-card-preview:hover {
       transform: perspective(1000px) rotateY(0) rotateX(0);
+      box-shadow: 0 30px 70px rgba(122, 22, 34, 0.22);
     }
 
     .hero-card-img {
       width: 100%;
-      height: 400px;
+      height: 520px;
       object-fit: cover;
       border-radius: 16px;
       display: block;
@@ -281,29 +282,31 @@
       bottom: 24px;
       left: 24px;
       right: 24px;
-      background: rgba(15, 37, 66, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 14px 20px;
+      background: rgba(15, 37, 66, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 16px 22px;
       border-radius: var(--radius-md);
       color: #FFF;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     .hero-card-tag-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 0.96rem;
+      font-size: 1.02rem;
       letter-spacing: -0.2px;
     }
 
     .hero-card-tag-sub {
-      font-size: 0.76rem;
-      color: #E2992F;
+      font-size: 0.8rem;
+      color: #FFA4AF;
       font-weight: 600;
+      margin-top: 2px;
     }
 
     .hero-pills {
@@ -917,6 +920,9 @@
         grid-template-columns: 1fr;
         gap: 36px;
       }
+      .hero-card-img {
+        height: 380px;
+      }
       .reposition-grid {
         grid-template-columns: 1fr;
       }
@@ -979,7 +985,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (Foto 2 na Capa) -->
+  <!-- Hero Section: Letreiro de Esquina Vintage na Capa em Tamanho Máximo -->
   <section id="inicio" class="hero-section">
     <div class="container">
       <div class="hero-tag-wrap">
@@ -1006,13 +1012,13 @@
 
         <div class="hero-visual">
           <div class="hero-card-preview">
-            <img src="assets/mockup-luminaria-noturna-claem.jpg" alt="Luminária Noturna CLAEM Pastelaria e Café & Ponto de Recarga EV" class="hero-card-img">
+            <img src="assets/mockup-letreiro-esquina-vintage.jpg" alt="Letreiro de Esquina Vintage CLAEM Pastelaria e Café com Lâmpadas Camarim e Neon" class="hero-card-img">
             <div class="hero-card-tag">
               <div>
-                <div class="hero-card-tag-title">Sinalização Noturna & Ponto de Recarga</div>
-                <div class="hero-card-tag-sub">Luminária circular em mão francesa · Caxias do Sul</div>
+                <div class="hero-card-tag-title">Letreiro de Esquina Vintage & Neon</div>
+                <div class="hero-card-tag-sub">Luzes camarim, neon 'Pastelaria e Café' e painéis de Encomendas & Delivery</div>
               </div>
-              <i data-lucide="zap" style="color: #E2992F;"></i>
+              <i data-lucide="sparkles" style="color: #FFA4AF;"></i>
             </div>
           </div>
         </div>
@@ -1068,7 +1074,7 @@
               </li>
               <li class="reposition-item">
                 <i data-lucide="check-circle-2"></i>
-                <span><strong>Ponto de Referência Urbano:</strong> Totem e luminárias icônicas na Visconde de Pelotas que atraem dia e noite.</span>
+                <span><strong>Ponto de Referência Urbano:</strong> Letreiros de esquina, totens e iluminação marcante que atraem dia e noite.</span>
               </li>
               <li class="reposition-item">
                 <i data-lucide="check-circle-2"></i>
@@ -1085,7 +1091,7 @@
     </div>
   </section>
 
-  <!-- Visual Proof / Mockups Gallery Section (Foto 1 inserida no Card 3) -->
+  <!-- Visual Proof / Mockups Gallery Section (Luminária Noturna no Card 3) -->
   <section id="visual-identity" style="background: var(--marfim-warm);">
     <div class="container">
       <div class="section-header">
@@ -1121,15 +1127,15 @@
           </div>
         </div>
 
-        <!-- Card 3: Foto 1 (Letreiro de Esquina Vintage com Camarim e Neon) -->
+        <!-- Card 3: Luminária Noturna com Ponto de Recarga EV -->
         <div class="gallery-card">
           <div class="gallery-img-wrap">
-            <img src="assets/mockup-letreiro-esquina-vintage.jpg" alt="Letreiro de Esquina Vintage CLAEM Pastelaria e Café" class="gallery-img">
-            <span class="gallery-tag"><i data-lucide="sparkles"></i> Fachada & Esquina Icônica</span>
+            <img src="assets/mockup-luminaria-noturna-claem.jpg" alt="Luminária Noturna CLAEM Pastelaria e Café & Ponto de Recarga EV" class="gallery-img">
+            <span class="gallery-tag"><i data-lucide="zap"></i> Ponto de Recarga & Fachada</span>
           </div>
           <div class="gallery-info">
-            <h3 class="gallery-title">Letreiro de Esquina Vintage & Neon</h3>
-            <p class="gallery-desc">Estrutura angular com moldura de lâmpadas camarim, neon 'Pastelaria e Café', painéis ilustrados de Encomendas & Delivery e placas de sinalização direcional.</p>
+            <h3 class="gallery-title">Luminária Noturna & Recarga EV</h3>
+            <p class="gallery-desc">Placa circular suspensa em braço de ferro com iluminação interna e sinalização de conveniência urbana (Ponto de Recarga EV).</p>
           </div>
         </div>
 
