@@ -1243,9 +1243,77 @@ ${fulfillmentType === 'delivery' ? 'Solicitação de Tele-Entrega' : 'Solicitaç
     msg += `
 _Enviado pelo site da Pastelaria Claem_`;
 
+    // Google Ads Tracking - Envio do Pedido com Valor Real
+    if (typeof window.trackWhatsAppConversion === 'function') {
+        window.trackWhatsAppConversion('whatsapp_order', {
+            value: subtotal,
+            items: cart.map(i => ({ item_name: i.baseTitle, quantity: i.quantity, price: i.price }))
+        });
+    }
+
     const url = `https://wa.me/${CLIENT_WHATSAPP}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 
     pixTxidAtual = null;
 }
 window.sendWhatsAppOrder = sendWhatsAppOrder;
+
+
+// =========================================================================
+// GOOGLE ADS & CONVERSION TRACKING HELPER
+// =========================================================================
+window.GOOGLE_ADS_CONTACT_LABEL = 'AW-18410563516/fiWvCP3RyPEcELzP68pE'; // Contato WhatsApp
+window.GOOGLE_ADS_ORDER_LABEL   = 'AW-18410563516/WHsxCPrRyPEcELzP68pE'; // Pedido Confirmado - WhatsApp
+
+window.trackWhatsAppConversion = function(type, details = {}) {
+    try {
+        if (typeof gtag !== 'function') return;
+
+        if (type === 'whatsapp_contact') {
+            gtag('event', 'contact', {
+                event_category: 'WhatsApp',
+                event_label: details.label || 'Contato Geral',
+                value: 1.0,
+                currency: 'BRL'
+            });
+            if (window.GOOGLE_ADS_CONTACT_LABEL) {
+                gtag('event', 'conversion', {
+                    send_to: window.GOOGLE_ADS_CONTACT_LABEL,
+                    value: 1.0,
+                    currency: 'BRL'
+                });
+            }
+        } else if (type === 'whatsapp_order') {
+            const orderVal = details.value || 0;
+            gtag('event', 'purchase', {
+                transaction_id: 'claem_' + Date.now(),
+                value: orderVal,
+                currency: 'BRL',
+                items: details.items || []
+            });
+            if (window.GOOGLE_ADS_ORDER_LABEL) {
+                gtag('event', 'conversion', {
+                    send_to: window.GOOGLE_ADS_ORDER_LABEL,
+                    value: orderVal,
+                    currency: 'BRL'
+                });
+            }
+        }
+    } catch (err) {
+        console.warn('Erro ao disparar conversao Google Ads:', err);
+    }
+};
+
+// Listener para cliques em links de WhatsApp (botao flutuante, topo, etc.)
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', (e) => {
+        const waLink = e.target.closest('a[href*="wa.me"]');
+        if (waLink) {
+            const label = waLink.classList.contains('whatsapp-float') ? 'Botao Flutuante' : 
+                          (waLink.classList.contains('top-wa') ? 'Topo WhatsApp' : 'Link Contato');
+            if (typeof window.trackWhatsAppConversion === 'function') {
+                window.trackWhatsAppConversion('whatsapp_contact', { label: label });
+            }
+        }
+    });
+});
