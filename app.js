@@ -1262,8 +1262,8 @@ window.sendWhatsAppOrder = sendWhatsAppOrder;
 // =========================================================================
 // GOOGLE ADS & CONVERSION TRACKING HELPER
 // =========================================================================
-window.GOOGLE_ADS_CONTACT_LABEL = 'AW-18410563516/fiWvCP3RyPEcELzP68pE'; // Contato WhatsApp
-window.GOOGLE_ADS_ORDER_LABEL   = 'AW-18410563516/WHsxCPrRyPEcELzP68pE'; // Pedido Confirmado - WhatsApp
+window.GOOGLE_ADS_CONTACT_LABEL = 'AW-18410563516/RHG-CPr0xvEcELzP68pE'; // Contato WhatsApp
+window.GOOGLE_ADS_ORDER_LABEL   = 'AW-18410563516/RHG-CPr0xvEcELzP68pE'; // Pedido Confirmado - WhatsApp
 
 window.trackWhatsAppConversion = function(type, details = {}) {
     try {

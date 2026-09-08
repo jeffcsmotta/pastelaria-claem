@@ -10,6 +10,30 @@
 
       gtag('config', 'AW-18410563516');
     </script>
+
+    <!-- Event snippet for Clique WhatsApp conversion page -->
+    <script>
+      window.GOOGLE_ADS_CONTACT_LABEL = 'AW-18410563516/RHG-CPr0xvEcELzP68pE';
+      window.GOOGLE_ADS_ORDER_LABEL   = 'AW-18410563516/RHG-CPr0xvEcELzP68pE';
+
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18410563516/RHG-CPr0xvEcELzP68pE',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      // Se for teste do Google Tag Assistant ou depuracao, dispara evento para validacao imediata
+      if (window.location.search.includes('gtm_debug') || window.location.search.includes('google_debug') || window.location.search.includes('test_conversion')) {
+        gtag('event', 'conversion', {'send_to': 'AW-18410563516/RHG-CPr0xvEcELzP68pE'});
+      }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pastelaria CLAEM | Pastéis Artesanais & Empanadas em Caxias do Sul</title>
