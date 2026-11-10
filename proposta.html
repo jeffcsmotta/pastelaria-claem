@@ -1371,5 +1371,16 @@
   <script>
     lucide.createIcons();
   </script>
+    <!-- Radar invisível de telemetria Onira -->
+    <script>
+        window.ONIRA_PROPOSAL_CONFIG = {
+            clientSlug: "pastelaria-claem",
+            clientName: "CLAEM",
+            webhookUrl: "",
+            supabaseUrl: "", // Telemetria real (Supabase)
+            supabaseAnonKey: "" // ANON key. NUNCA service_role.
+        };
+    </script>
+    <script src="assets/proposal-tracker.js" defer></script>
 </body>
 </html>

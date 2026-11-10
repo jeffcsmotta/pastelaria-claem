@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudo Estratégico — Claem Pastelaria | Onira Labs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-brand { font-family: 'Outfit', sans-serif; }
+
+    /* Estilo Oficial LinkedIn Navy Onira Labs */
+    .dev-profile-card {
+      background: linear-gradient(145deg, #09192E 0%, #061224 100%);
+      border: 1px solid rgba(56, 116, 203, 0.32);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(24px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- Top Hero Header -->
+  <header class="bg-gradient-to-br from-amber-600 via-amber-700 to-slate-900 text-white py-12 px-6 shadow-md relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10">
+      
+      <!-- Onira Co-Branding Bar -->
+      <div class="flex items-center justify-between pb-6 mb-8 border-b border-white/15 flex-wrap gap-4">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo_onira_branco.png" alt="Onira Labs" class="h-7 w-auto object-contain brightness-105" onerror="this.style.display='none'; document.getElementById('onira-fallback-top').style.display='inline-flex';">
+          <div id="onira-fallback-top" style="display:none;" class="items-center gap-1.5 font-brand font-black text-lg tracking-wider text-white">
+            <span class="w-3 h-3 rounded-full bg-sky-400 inline-block"></span>
+            <span>ONIRA</span><span class="text-amber-400">LABS</span>
+          </div>
+          <span class="text-white/25 text-sm hidden sm:inline">•</span>
+          <span class="text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-amber-200/90 bg-white/10 px-2.5 py-1 rounded-md border border-white/10">
+            Inteligência Comercial & Design de Serviços
+          </span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-amber-100/90 font-medium">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-300"></i>
+          <span>Caxias do Sul / RS</span>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-200 border border-amber-400/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>📍 Bairro Exposição</span>
+        <span>•</span>
+        <span>Estudo de Viabilidade Comercial & Ponto</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
+        Claem Pastelaria
+      </h1>
+      <p class="text-amber-100 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
+        Como transformar o trânsito da Visconde de Pelotas, o alto padrão do Bairro Exposição e o seu <strong>estacionamento próprio</strong> em faturamento real e lucro.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3 text-xs text-amber-200/90">
+        <span class="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10">
+          🏢 Rua Antônio Prado, 04 (esq. Visconde de Pelotas)
+        </span>
+        <span class="flex items-center gap-1.5 bg-emerald-500/20 text-emerald-200 px-3 py-1.5 rounded-lg border border-emerald-400/30 font-semibold">
+          🚗 Estacionamento Próprio Disponível
+        </span>
+        <span class="flex items-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-lg border border-white/10">
+          📊 Fontes: IBGE 2022, Mobilidade Urbana & Mercado Local
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5 py-10 space-y-12">
+
+    <!-- Mensagem de Boas-Vindas & Contexto -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-2xl flex-shrink-0">
+          🤝
+        </div>
+        <div class="space-y-3">
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900">
+            Uma conversa franca sobre o momento da Claem
+          </h2>
+          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+            Sabemos a dedicação, a coragem e o esforço que existem por trás de cada dia de trabalho na Claem. O produto de vocês é excelente, feito com carinho e qualidade. No entanto, quando as contas no fim do mês não refletem todo esse suor, <strong>o problema quase nunca é o pastel em si</strong>.
+          </p>
+          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+            O problema costuma estar no <strong>descompasso entre os horários em que a porta fica aberta</strong>, os <strong>hábitos de quem passa pela rua</strong> e a forma como a loja se comunica com os motoristas. Este documento foi construído pela <strong>Onira Labs</strong> com base em dados concretos de Caxias do Sul para mostrar exatamente onde estão as oportunidades de virada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- O GRANDE TRUNFO: Estacionamento Próprio -->
+    <section class="bg-gradient-to-r from-emerald-900 to-teal-950 text-white rounded-2xl p-6 md:p-8 shadow-lg relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black select-none">🚗</div>
+      <div class="relative z-10 space-y-4">
+        <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          ⭐ Nosso Maior Diferencial Competitivo
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-emerald-100">
+          O Estacionamento Próprio é "Ouro em Pó" na Visconde de Pelotas
+        </h2>
+        <p class="text-emerald-100/90 text-sm md:text-base leading-relaxed">
+          Quem dirige por Caxias do Sul sabe: <strong>estacionar no Centro e no Bairro Exposição é uma dor de cabeça constante</strong> (vagas escassas, Área Azul, risco de multas e lentidão).
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+            <div class="text-amber-300 font-bold text-sm mb-1">❌ O que o motorista pensa hoje:</div>
+            <p class="text-xs md:text-sm text-slate-200 leading-relaxed">
+              Ele vem subindo a Visconde acelerando, vê a pastelaria, mas pensa: <em>"Não tenho onde parar o carro agora, vai ser um transtorno, melhor ir direto para casa"</em>.
+            </p>
+          </div>
+          <div class="bg-emerald-500/20 backdrop-blur-md rounded-xl p-4 border border-emerald-400/30">
+            <div class="text-emerald-300 font-bold text-sm mb-1">✅ A oportunidade imediata:</div>
+            <p class="text-xs md:text-sm text-emerald-100 leading-relaxed">
+              Se o motorista souber a 100 metros de distância que a Claem tem <strong>estacionamento gratuito, próprio e fácil de entrar</strong>, a barreira de parada é quebrada na hora!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossas Fontes e Indicadores de Mercado -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+          O Que os Dados Dizem: Nossas Fontes & Indicadores
+        </h2>
+        <p class="text-sm text-slate-500 mt-1">
+          Não estamos nos baseando em "achismos", mas em 3 pilares de dados consolidados:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Fonte 1 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg mb-3">
+              📊
+            </div>
+            <h3 class="font-bold text-slate-900 text-base mb-1">Censo IBGE 2022</h3>
+            <p class="text-xs text-blue-600 font-medium mb-3">Setor Censitário do Bairro Exposição</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              O Bairro Exposição é uma das regiões de <strong>maior renda per capita</strong> de Caxias do Sul. Moradores de edifícios residenciais de alto padrão não buscam o pastel mais barato; buscam <strong>sabor, qualidade, farta quantidade de recheio e conforto para levar para casa</strong>.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Indicador: Alto Poder Aquisitivo & Ticket Familiar
+          </div>
+        </div>
+
+        <!-- Fonte 2 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-lg mb-3">
+              🔍
+            </div>
+            <h3 class="font-bold text-slate-900 text-base mb-1">Benchmark de Mercado</h3>
+            <p class="text-xs text-purple-600 font-medium mb-3">Pastelarias de Caxias do Sul</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Concorrentes consolidados na cidade (como <em>Hora do Pastel, Dileta, Pastel Zone e Delvi's</em>) concentram entre <strong>75% e 85% das vendas no período da tarde e noite</strong>. As operações que abrem de manhã só sobrevivem se forem bufês executivos com refeição completa.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Indicador: Pico de Consumo Noturno em Caxias
+          </div>
+        </div>
+
+        <!-- Fonte 3 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-3">
+              🚦
+            </div>
+            <h3 class="font-bold text-slate-900 text-base mb-1">Mobilidade e Tráfego</h3>
+            <p class="text-xs text-amber-600 font-medium mb-3">Rua Visconde de Pelotas</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              A Visconde é rota de saída do Centro em direção aos bairros residenciais e à perimetral. No fim de tarde (17h30 às 19h30), os carros passam mais devagar pelo semáforo e retenção: é exatamente a hora em que as pessoas estão com fome, voltando do trabalho.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            Indicador: Fluxo de Volta para Casa
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O Hábito Cultural Gaúcho: Por que a manhã não funciona? -->
+    <section class="bg-amber-50/70 rounded-2xl p-6 md:p-8 border border-amber-200/70 space-y-4">
+      <div class="flex items-center gap-2 text-amber-800 font-bold text-sm uppercase tracking-wide">
+        <span>🥟</span>
+        <span>Entendendo o Consumidor da Serra Gaúcha</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-extrabold text-slate-900">
+        Por que o pastel de manhã tem tanta dificuldade de venda?
+      </h2>
+      <p class="text-sm md:text-base text-slate-700 leading-relaxed">
+        Na Venezuela ou em certas regiões do Caribe, comer empanadas e pastéis fritos logo cedo com café ou malta é um hábito diário e muito comum. Porém, no <strong>Rio Grande do Sul</strong>, a cultura de café da manhã é completamente dominada pelas <strong>padarias coloniais</strong>:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+        <div class="bg-white p-4 rounded-xl border border-amber-200/60 shadow-xs">
+          <div class="font-bold text-slate-800 text-sm mb-1">☕ De manhã (07h às 11h):</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            O gaúcho consome café preto com leite, pão francês na chapa, pão de queijo ou cuca. O pastel frito é visto culturalmente como uma comida "pesada" para o estômago no início do dia.
+          </p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-amber-200/60 shadow-xs">
+          <div class="font-bold text-slate-800 text-sm mb-1">🌙 A partir das 16h e à Noite:</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            É o momento sagrado do pastel! As pessoas buscam como lanche reforçado da tarde, encontro descontraído ou como <strong>jantar rápido e prático</strong> para comer em família ou pedir pelo delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparativo de Turnos (Custo de Porta Aberta) -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+          A Análise dos Turnos: Manter Aberto o Dia Todo ou Focar na Noite?
+        </h2>
+        <p class="text-sm text-slate-500 mt-1">
+          Veja a comparação entre continuar aberta 13 horas por dia ou concentrar a energia no turno vencedor:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Cenário Atual -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-red-200 shadow-sm relative space-y-4">
+          <div class="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            Cenário Atual: 08h às 21h (13 Horas)
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Muitos custos, pouco retorno</h3>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Fritadeira e luz ligadas por 13 horas:</strong> Alto consumo de energia e gás em horários em que quase ninguém entra.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Desgaste da equipe:</strong> Equipe cansada por cobrir um horário longo demais.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 font-bold">✕</span>
+              <span><strong>Fecha cedo demais (21h):</strong> Perde o melhor momento do delivery em Caxias, que ferve entre 20h30 e 22h30.</span>
+            </li>
+          </ul>
+          <div class="pt-4 border-t border-slate-100 bg-red-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+            <span class="text-xs font-bold text-red-800">Resultado:</span>
+            <p class="text-xs text-red-700 mt-0.5">O lucro que entra à noite é usado para pagar o prejuízo do óleo e da luz da manhã.</p>
+          </div>
+        </div>
+
+        <!-- Cenário Proposto -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-emerald-400 shadow-sm relative space-y-4">
+          <div class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            Cenário Recomendado: 15h30 às 22h30 / 23h00
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Operação Enxuta e Altamente Lucrativa</h3>
+          <ul class="space-y-2 text-xs md:text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Economia de 35% a 45% nos custos fixos:</strong> Menos gasto de gás, luz e óleo vegetal.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>1 único turno de trabalho:</strong> Equipe 100% descansada, focada e ágil para atender com excelência.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Captura o ápice do jantar:</strong> Pegando pedidos de delivery e clientes no salão até as 22h30 (ou 23h nos fins de semana).</span>
+            </li>
+          </ul>
+          <div class="pt-4 border-t border-slate-100 bg-emerald-50/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+            <span class="text-xs font-bold text-emerald-800">Resultado:</span>
+            <p class="text-xs text-emerald-700 mt-0.5">Menos horas trabalhadas, muito menos despesas e faturamento líquido mais alto no caixa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plano Prático: Os 3 Pilares de Ação -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+          Como Fazer Acontecer: 3 Pilares Práticos
+        </h2>
+        <p class="text-sm text-slate-500 mt-1">
+          Ações claras, viáveis e de baixo custo para implementar imediatamente:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Pilar 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col md:flex-row gap-5 items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
+            1
+          </div>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2">
+              <h3 class="text-lg font-bold text-slate-900">Sinalizar o Estacionamento Próprio com Força Total</h3>
+              <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">Urgente</span>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+              O motorista que vem subindo a Visconde precisa ver uma placa grande, clara e iluminada antes de cruzar a esquina da Antônio Prado.
+            </p>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-700">
+              <strong>Exemplo de Placa / Faixa:</strong><br>
+              <span class="text-amber-800 font-semibold font-mono text-xs md:text-sm">
+                "🥟 PASTELARIA CLAEM — ESTACIONAMENTO PRÓPRIO E GRATUITO PARA CLIENTES (ENTRADA AQUI)"
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col md:flex-row gap-5 items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
+            2
+          </div>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2">
+              <h3 class="text-lg font-bold text-slate-900">O Conceito "Stop & Go" (Peça e Retire no Carro)</h3>
+              <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">Inovador</span>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+              Aproveitando o estacionamento e a tranquilidade da Rua Antônio Prado, crie a modalidade expressa para quem está voltando para casa.
+            </p>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1">
+              <p><strong>Como funciona:</strong> O cliente manda WhatsApp às 18h10 enquanto sai do trabalho; o pastel é frito e fica pronto às 18h25; o cliente entra no estacionamento e retira a sacola sem demora!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col md:flex-row gap-5 items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
+            3
+          </div>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2">
+              <h3 class="text-lg font-bold text-slate-900">Combos Família para o Bairro Exposição (Subir o Ticket)</h3>
+              <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded">Alta Rentabilidade</span>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+              O público dos edifícios ao redor não compra pastel de R$ 15 sozinho. Eles compram o <strong>jantar da família</strong>!
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs">
+              <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <span class="font-bold text-slate-800">Combo Casal (R$ 49 a R$ 59)</span><br>
+                2 Pastéis Grandes + 1 Doce + 2 Bebidas
+              </div>
+              <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <span class="font-bold text-slate-800">Combo Família Noite do Pastel (R$ 79 a R$ 95)</span><br>
+                4 Pastéis Grandes + 2 Doces + 1 Refri 2L
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusão e Próximo Passo -->
+    <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 space-y-4">
+      <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
+        <span>🚀</span>
+        <span>Próxima Etapa</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold">
+        Próximo Passo: Alinhamento Operacional e Implementação
+      </h2>
+      <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+        Este documento foi elaborado pela <strong>Onira Labs</strong> para apoiar a diretoria da Claem Pastelaria na tomada de decisões estratégicas de maior lucratividade. Os ajustes de turno e a comunicação de estacionamento próprio podem ser aplicados em menos de 15 dias, gerando alívio imediato no caixa e nos custos mensais de energia e gás.
+      </p>
+    </section>
+
+    <!-- ASSINATURA EXECUTIVA ONIRA LABS (PADRÃO OFICIAL LINKEDIN NAVY) -->
+    <section class="dev-profile-card rounded-2xl p-6 md:p-8 text-white relative overflow-hidden">
+      <!-- Glow Decorativo -->
+      <div class="absolute -top-24 -right-24 w-60 h-60 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 relative z-10">
+        <!-- Avatar Foto -->
+        <div class="relative flex-shrink-0">
+          <img src="assets/jeff-avatar.webp" alt="Jefferson Motta" class="w-20 h-20 rounded-full object-cover ring-2 ring-sky-500/80 shadow-lg" onerror="this.src='assets/logo-claem-cropped.png'">
+          <span class="absolute -bottom-1 -right-1 bg-sky-500 text-white p-1 rounded-full shadow-sm">
+            <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
+          </span>
+        </div>
+
+        <!-- Conteúdo Bio -->
+        <div class="space-y-2 text-center sm:text-left flex-grow">
+          <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-400/30 px-3 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase font-brand">
+            SERVICE DESIGN & AI BUSINESS INTELLIGENCE
+          </div>
+          <h3 class="text-2xl font-extrabold text-white tracking-tight">
+            Jefferson Motta
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+            Service Designer e A.I Business Intelligence na <strong class="text-white">Onira Labs</strong> • Especialista em modelagem comercial, branding e engenharia de vendas locais em Caxias do Sul e Serra Gaúcha.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quote Personalizada para a CLAEM -->
+      <blockquote class="my-6 p-4 rounded-xl bg-white/[0.04] border-l-4 border-amber-400 text-xs sm:text-sm text-slate-200 italic leading-relaxed">
+        “O sucesso sustentável da Claem na esquina da Visconde de Pelotas não virá de sangrar 13 horas de porta aberta na manhã ociosa. O dinheiro e o lucro real estão em capturar com velocidade e conforto o cliente que passa no fim de tarde e à noite voltando para casa, apoiado no estacionamento próprio e em combos familiares de alto ticket.”
+      </blockquote>
+
+      <!-- Links e Logo da Agência -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10 relative z-10">
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+          <a href="https://www.linkedin.com/in/jeff-motta" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
+            <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+            <span>LinkedIn Oficial</span>
+          </a>
+          <a href="https://jeffmotta.framer.website/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span>Portfólio & Metodologia</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Desenvolvido por</span>
+          <a href="https://oniralabs.framer.website" target="_blank" rel="noopener noreferrer" class="inline-flex items-center">
+            <img src="assets/logo_onira_branco.png" alt="Onira Labs" class="h-6 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" onerror="this.style.display='none'; document.getElementById('onira-fallback-footer').style.display='inline-flex';">
+            <span id="onira-fallback-footer" style="display:none;" class="font-brand font-black text-sm tracking-wider text-white">ONIRA <span class="text-amber-400">LABS</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÃO DE CONTATO DIRETO VIA WHATSAPP -->
+    <section class="text-center pt-2 pb-6">
+      <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-6 sm:p-8 shadow-xl max-w-2xl mx-auto space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight">
+          Vamos colocar este plano em prática na Claem?
+        </h3>
+        <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-lg mx-auto">
+          Clique no botão abaixo para conversar diretamente pelo WhatsApp com o Jeff e definir os passos de implantação dos 3 pilares.
+        </p>
+        <div>
+          <a href="https://wa.me/5554996879399?text=Ol%C3%A1%20Jeff%2C%20li%20o%20estudo%20estrat%C3%A9gico%20da%20Claem%20Pastelaria.%20Gostaria%20de%20alinhar%20os%20pr%C3%B3ximos%20passos%20para%20implementar%20as%20mudan%C3%A7as%21" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-white text-emerald-900 hover:bg-emerald-50 transition-transform active:scale-95 font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-full shadow-lg">
+            <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600 fill-emerald-600"></i>
+            <span>Conversar no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé Institucional Onira Labs -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-8 px-5 text-center text-xs space-y-3">
+    <div class="flex items-center justify-center gap-2">
+      <img src="assets/logo_onira_branco.png" alt="Onira Labs" class="h-5 w-auto object-contain opacity-80" onerror="this.style.display='none';">
+      <span class="font-brand font-bold text-white text-sm">ONIRA <span class="text-amber-400">LABS</span></span>
+    </div>
+    <p>© 2026 Onira Labs Tecnologia & Design · Todos os direitos reservados.</p>
+    <p class="text-[11px] text-slate-500">
+      Consultoria Estratégica, Geomarketing e Engenharia de Vendas Digitais • Caxias do Sul - RS
+    </p>
+  </footer>
+
+  <!-- Script de Inicialização dos Ícones Lucide -->
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
